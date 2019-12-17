@@ -2,7 +2,7 @@
 
 ## Docker
 
-La forma más fácil de correr Consultas Digitales es con **Docker** y **Docker compose**. Se probó exitósamente con las versiones **19.03.5** y **1.24.0** de las mismas, sobre un **Ubuntu 18.04**. Si quiere instalar DemocracyOS puro, localmente, sin Docker, puede ver el apartado [Instalación directa de DemocracyOS](#instalación-directa-de-democracyos).
+La forma más fácil de correr Consultas Digitales es con **Docker** y **Docker compose**. Se probó exitósamente con las versiones **19.03.5** y **1.24.0** de las mismas, sobre un **Ubuntu 18.04**. Si quiere instalar localmente, sin Docker, puede ver el apartado [Instalación directa](#instalación-directa).
 
 Una vez que verifique que cuenta con estas dependencias, haga un _fork_ de este repositorio y clónelo localmente.
 
@@ -10,7 +10,7 @@ Una vez que verifique que cuenta con estas dependencias, haga un _fork_ de este 
 
 En primer lugar debemos adecuar el `docker-compose.yml`
 
-La aplicación utiliza las imagenes de [DemocracyOS 2.11.15](https://hub.docker.com/r/democracyos/democracyos) y **Mongo 3.2**
+La aplicación utiliza las imagenes de **Node 6** y **Mongo 3.2**
 
 Es preferente trabajar en el entorno de desarrollo utilizando Docker Compose donde definimos las variables de entorno y los servicios con la que la aplicación trabaja.
 
@@ -215,13 +215,13 @@ Posteriormente, cambiar las variables de entorno correspondientes del contenedor
  
  Notar que si bien la conexión a este servidor SMTP no está cifrada, la conexión del servidor SMTP a Gmail sí lo está.
 
-## Instalación directa de DemocracyOS
+## Instalación directa
 Para esto debe seguir las guías oficiales de DemocracyOS sobre [instalación](https://docs.democracyos.org/install.html) y [desarrollo](https://docs.democracyos.org/develop/).
 
 De forma breve se puede resumir en:
 
-- Clonar el código de DemocracyOS
-- Ubicarse dentro del mismo y hacer `make packages`
+- Ubicarse dentro de la carpeta raíz del proyecto
+- Hacer `make packages`
 - Agregar algún mail de staff que será lx admin. Para esto crear el archivo `config/development.json` con contenido:   
 `{ "staff": ["unmail@elmail.com"] }`   
 - Levantar una base de datos mongo (por ejemplo con docker: `docker run -p 27017:27017 --name mongodb-dos mongo:3.2`)
@@ -232,7 +232,7 @@ Se requiere la versión de `node` 6.x.x para correr la plataforma. Recomendamos 
 
 Si no tiene `gulp` instalado puede instalarlo haciendo `npm install -g gulp` (asegurarse de previamente cambiar a la versión de `node` correcta).
 
-### Sistema de builds de DOS
+### Sistemas de builds
 La plataforma cuenta con diversas formas de buildearse y correr.
 
 Una es con `make`. Esta utiliza el archivo `Makefile` para correr scripts de `npm` como se puede ver en su código. Notar como desde un script se salta a otro (p.ej. de `run` salta a `built` y de `build` a `packages`).
