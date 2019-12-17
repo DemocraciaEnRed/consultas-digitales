@@ -89,6 +89,7 @@ services:
 * Podés configurar DemocracyOS con cualquiera de las variables de entorno listadas acá: http://docs.democracyos.org/configuration.html
 * El puerto `27017` está expuesto para que puedas administrar la base de datos con algún cliente de MongoDB, por ejemplo con [Robomongo](https://robomongo.org/).
 * Todas las vistas personalizadas para Consultas Digitales se encuentran en [`/ext`](ext). Siguiendo el mismo patrón de carpetas que [DemocracyOS/democracyos](https://github.com/DemocracyOS/democracyos).
+* Las variables de entorno se traducen a variables en código siguiendo la serialización descripta en [DemocracyOS/config](https://github.com/DemocracyOS/config#environment-variables).
 
 
 Luego de que todo este definido, podemos arrancar el servidor ejecutando:
@@ -231,6 +232,9 @@ De forma breve se puede resumir en:
 Se requiere la versión de `node` 6.x.x para correr la plataforma. Recomendamos usar `nvm` para cambiar fácilmente entre una versión y otra de node. Si tenemos esta herramienta instalada, haríamos `nvm install lts/boron` (que es la versión 6.17.1) para cambiar a una versión válida. Una vez instalada, ya podemos hacer directamente `nvm use lts/boron`.
 
 Si no tiene `gulp` instalado puede instalarlo haciendo `npm install -g gulp` (asegurarse de previamente cambiar a la versión de `node` correcta).
+
+### Configuración
+La configuración de la instancia de hace en el archivo `config/development.json`. Los valores por defecto se pueden ver en `config/defaults.json`. Estas opciones son las mismas que para `docker-compose.yml` salvo que hay un proceso de traducción (para el caso del compose), como se explica en [DemocracyOS/config](https://github.com/DemocracyOS/config#environment-variables).
 
 ### Sistemas de builds
 La plataforma cuenta con diversas formas de buildearse y correr.
