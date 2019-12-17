@@ -221,15 +221,16 @@ Para esto debe seguir las guías oficiales de DemocracyOS sobre [instalación](h
 
 De forma breve se puede resumir en:
 
+- Asegurarse de tener la versión 6 de node mirando lo que devuelve `node -v`. Si no, mire el párrafo de abajo que explica cómo cambiar fácilmente entre versiones de node.
 - Ubicarse dentro de la carpeta raíz del proyecto
 - Hacer `make packages`
 - Agregar algún mail de staff que será lx admin. Para esto crear el archivo `config/development.json` con contenido:   
 `{ "staff": ["unmail@elmail.com"] }`   
-- Levantar una base de datos mongo (por ejemplo con docker: `docker run -p 27017:27017 --name mongodb-dos mongo:3.2`)
-- Correr el script build-watch-serve de `gulp` haciendo `NODE_PATH=. DEBUG=democracyos* gulp bws`. Si esto no funciona pueden intentar correr `make run`.
+- Levantar una base de datos mongo que escuche en `localhost:27017`. Por ejemplo con docker: `docker run -p 27017:27017 --name mongodb-dos mongo:3.2`. De ser necesario puede cambiar la url del servidor mongo agregando la opción `mongoUrl` dentro de `config/development.json`
+- Correr el script build-watch-serve de `gulp` haciendo `NODE_PATH=. DEBUG=democracyos* gulp bws`. Si esto no funciona pueden intentar correr `make run`
 - Ir a [http://localhost:3000](http://localhost:3000), registrar su cuenta con el mail de staff y entrar (no hace falta validar el mail)
 
-Se requiere la versión de `node` 6.x.x para correr la plataforma. Recomendamos usar `nvm` para cambiar fácilmente entre una versión y otra de node. Si tenemos esta herramienta instalada, haríamos `nvm install lts/boron` (que es la versión 6.17.1) para cambiar a una versión válida. Una vez instalada, ya podemos hacer directamente `nvm use lts/boron`.
+Se requiere la versión de `node` 6.x.x para correr la plataforma. Recomendamos usar [`nvm`](https://github.com/nvm-sh/nvm) para cambiar fácilmente entre una versión y otra de node. Su instalación es ultrasimple, mirar [su documentación](https://github.com/nvm-sh/nvm#installation-and-update). Si tenemos esta herramienta instalada, haríamos `nvm install lts/boron` (que es la versión 6.17.1) para cambiar a una versión válida. Una vez instalada, ya podemos hacer directamente `nvm use lts/boron`. Si no les gusta `nvm` puede intentar usar [`n`](https://github.com/tj/n).
 
 Si no tiene `gulp` instalado puede instalarlo haciendo `npm install -g gulp` (asegurarse de previamente cambiar a la versión de `node` correcta).
 
