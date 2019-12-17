@@ -15,14 +15,10 @@ RUN npm install --quiet
 
 COPY [".", "/usr/src/"]
 
+RUN bin/dos-ext-install --quiet
+
 RUN npm run build -- --minify
 
 EXPOSE 3000
-
-ONBUILD COPY ["ext", "ext"]
-
-ONBUILD RUN bin/dos-ext-install --quiet
-
-ONBUILD RUN npm run build -- --minify
 
 CMD ["node", "."]
