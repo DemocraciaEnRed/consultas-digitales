@@ -1,0 +1,83 @@
+  .panel-heading
+    height:152px
+    border-top-right-radius: 4px
+    border-top-left-radius: 4px 
+  .topic-card-wrapper  
+    display:flex
+    flex-direction:column
+    justify-content:space-between
+    height:160px
+    .meta-information
+      padding-left:20px
+      color: #707070
+    .panel-body
+      padding-top:0px !important
+      overflow:hidden
+      max-height:70px
+    .time-ago-label
+      padding-left:5px  
+  .meta-information
+    margin-bottom: 0px
+    padding-left: 0px
+    padding-top: 10px
+    padding-bottom: 5px
+    font-size:0.9em
+    
+
+
+  .topic-card-footer
+    margin-top:auto
+  
+  .participants-box
+    span
+      display:none
+  .social-links
+    margin-left:auto
+  .share-links
+    a
+      margin-left:10px 
+      margin-right:5px 
+
+  .topic-card
+    max-width: 100%
+    width: 310px
+    height:340px
+    margin: 0 30px 20px
+
+    .panel-body
+      h3
+        font-size:1.1em
+    p.text-muted
+      font-size:1.1em
+      padding-left:1em
+      display:inline-block
+      margin-bottom:0
+      @media screen and (min-width: 750px)
+        margin-bottom:10px
+
+    .topic-card-footer
+      display: flex
+      flex-direction: row
+
+.facebook-icon
+.twitter-icon
+  background-size: cover
+  background-repeat: no-repeat
+  display: inline-block
+  margin-top: 0
+  margin-right: 3%
+  width: 15px
+  height: 15px
+  @media screen and (min-width: 750px)
+    width: 35px
+    height: 35px
+
+.twitter-icon
+  background-image: url('ext/lib/site/cards-slider/twitter.svg')
+
+.facebook-icon
+  background-image: unquote("url('ext/lib/site/cards-slider/facebook.svg')")
+
+.icon-clock
+  font-size:13px
+@import 'ext/node_modules/flickity/dist/flickity.css'

@@ -1,0 +1,70 @@
+.forum-card
+  width: 100%
+  display: flex
+  flex-direction: row
+  cursor: default
+  @media screen and (max-width: 750px)
+    flex-direction:column
+  position: relative
+  padding-top: 30px
+  padding-bottom: 30px
+  .forum-card-img
+    width: 50%
+    max-height:300px
+    overflow:hidden
+    background-size: cover
+    @media screen and (max-width: 750px)
+      width: 100%
+    img
+      width:100%
+
+  .forum-card-data
+    display: flex
+    flex-wrap: wrap
+    flex-direction: column
+    align-items: flex-start
+    padding-left: 74px
+    width: 50%
+    @media screen and (max-width: 750px)
+      width: 100%
+      align-items: center
+    @media screen and (max-width: 750px)
+      padding-left: 5px
+    color: #000
+    .forum-card-header
+      .forum-card-title
+        font-size: 21px
+        font-weight: 400
+        line-height: 37px
+        margin: 0
+        @media screen and (max-width: 750px)
+          margin-top:10px
+      .forum-card-author
+        font-size: 20px
+        font-weight: 400
+        &.forum-card-name
+          color: #0B95D6
+          margin-left: 5px
+
+    .forum-card-body
+      .forum-card-description
+        font-size: 17px
+        font-weight: 300
+        color: #595959
+
+    .forum-card-footer
+      .btn.btn-link
+        text-decoration: none !important
+
+  &:before
+    content: ''
+    width: 33%
+    margin-left:31%
+    @media screen and (max-width:600px)
+      margin-left:27%
+    height: 1px
+    border-top: 1px solid #707070
+    position: absolute
+    top: 0
+
+

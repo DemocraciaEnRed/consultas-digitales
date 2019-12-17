@@ -1,0 +1,33 @@
+.stat-container
+  .stat-title
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: normal;
+  .stat-value
+    font-size: 60px;
+    font-weight: 800;
+    color: $main-color;
+    text-align: center;
+  .spinning-loader 
+    width: 40px;
+    height: 40px;
+    margin: 13px auto 0
+    border: 5px solid rgba(29, 161, 242, 0.2);
+    border-left-color: $main-color;
+    border-radius: 50%;
+    background: transparent;
+    animation-name: rotate-s-loader;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    position: relative;
+
+.alert.alert-danger.text-center
+  text-align: center;
+  
+@keyframes rotate-s-loader
+  from
+    transform: rotate(0)
+  to
+    transform: rotate(360deg)

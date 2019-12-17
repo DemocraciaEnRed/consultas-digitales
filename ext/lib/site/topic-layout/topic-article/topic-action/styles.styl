@@ -1,0 +1,107 @@
+.topic-article-content.topic-article-action
+  background-color: #FFF
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.51)
+  padding: 20px 27px
+  @media (min-width: 544px)
+    padding: 20px 57px
+    
+  .topic-action-voted
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    p
+      margin-bottom: 5px
+      color: #707070
+      font-size: 15px
+      padding: 3 7px
+      margin-bottom: 1rem
+      border: 1px solid transparent
+      border-radius: .25rem
+      background-color: #D0F3AC
+      border-color: #A3EA86
+      color: #3c763d
+    span
+      font-weight: 500 
+      font-size: 14px
+      color: #000
+      &.option
+        color: #3995D6
+        margin-left: 5px
+
+  .topic-action-title
+    font-size: 26px
+    font-family: 'Roboto', sans-serif
+    font-weight: 500
+    text-align: center
+    color: #000
+    line-height: 32px
+    overflow:hidden
+  
+  .action-count
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 30px 0
+    .participantes
+      width: 30px
+      height: 25px
+      background-image: unquote("url('ext/lib/site/topic-layout/users.svg')")
+      background-size: contain
+      background-repeat: no-repeat
+    span 
+      font-family: 'Roboto', sans-serif
+      font-weight: 400
+      font-size: 16px
+      line-height: 19px
+      &.number
+        font-size: 18px
+        margin: 0 5px
+
+  .topic-action-explain
+    text-align: center
+    font-size: 14px
+    padding-top:5px
+
+  .change-vote
+    .btn.btn-secondary
+      background-color: $main-color
+      color: #FFF
+    
+  .voted-results-exp
+    text-align: center
+    font-weight: bold
+
+  .alert-poll
+    display: flex
+    justify-content: center
+    align-items: center
+      
+    .bold 
+      font-weight: bold
+      
+    .black 
+      color: #000
+    
+    .thanks 
+      margin: 0 10px
+
+  @import './topic-poll/styles.styl'
+  @import './topic-range/styles.styl'
+  @import './topic-hierarchy/styles.styl'
+  @import './topic-vote/styles.styl'
+
+      
+
+.icon-clock
+  font-size: 13px
+  padding-right: 5px
+
+.row
+  &.change-vote
+    margin-bottom:0
+
+button.btn.btn-secondary
+  background-color: $main-color
+  color: #fff

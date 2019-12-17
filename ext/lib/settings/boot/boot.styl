@@ -1,0 +1,25 @@
+@import '../../../../lib/settings/boot/boot'
+
+@import '../../boot/global'
+
+@import '../../*/styles'
+@import '../*/styles'
+
+#forums-wrapper
+  .forum
+    width: 100%
+
+label.help-text
+  font-size: 0.775em;
+  color:#646464;
+  font-style: italic;
+  
+// ítems del menú de la izquierda de settings/ajustes
+#settings .sidebar-container ul li 
+  a
+    color: $main-color
+  a.active
+    color: $main-color-resalted
+    
+#forums-wrapper .forum .actions .btn-remove
+  color: $danger-color

@@ -1,0 +1,80 @@
+  .topics-poll
+    .poll-options
+      display: flex
+      flex-wrap: wrap
+      flex-direction: column
+      padding-top:2em
+      .btn-primary
+        margin-top: 20px
+        align-self: center
+        width: 102px
+      .btn-secondary.mx-auto
+        width: auto
+        background-color: #3995D6
+        color: #FFF
+        margin-top: 54px
+      .poll-btn
+        color: #707070
+        text-transform: none
+        font-size: 18px
+        padding-left: 0
+        flex-wrap: wrap
+        .poll-option-label
+          margin-left: 10px
+          font-weight: 300
+          position: static
+          top: 7
+          left: 25
+        .circle
+          position: static
+          display: inline-block
+        .icon-check
+          background-color: #3995D6
+          z-index:-1
+        .icon-check::before
+          content: ''
+      .poll-btn.show-results
+        display: flex
+        align-items: center
+        width: 413px
+        height: auto
+        border-radius: 19px
+        margin-left: 0px
+        margin-bottom: 15px
+        background-color: #E8E8E8
+        @media screen and (max-width: 631px)
+          margin-left: 0
+          width: 300px
+        @media screen and (max-width: 631px)
+          width: 100%
+
+        .results-bar 
+          border-radius: 19px
+          background-color: #BCDDF2
+        .poll-results
+          font-weight: 400
+          font-size: 20px
+          color: #000
+          text-align: center
+          margin-right: 0
+          @media (min-width: 632px)
+            margin-right: -80px
+        .poll-option-label
+          top: 4
+          font-family: 'Roboto', sans-serif
+          font-size: 20px
+          font-weight: 300
+          margin-left: 20px
+          color: #000
+
+      .poll-btn.show-results.winner
+        .results-bar
+          background-color: #3995D6
+        .poll-option-label
+          font-weight: 400
+        .circle.icon-check
+          display: none
+
+ .icon-clock
+  font-size: 13px
+  padding-right: 5px         

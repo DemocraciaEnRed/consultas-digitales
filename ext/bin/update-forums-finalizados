@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+const models = require('lib/models')()
+
+const Forum = models.Forum
+const Topic = models.Topic
+const mapPromises = (fn) => (array) => Promise.all(array.map(fn))
+
+Forum.find({ deletedAt: null }).exec()
+  .then(mapPromises((forum) => {
+    if (forum.extra && Object.keys(forum.extra).includes('closingAt')) return
+    return Topic.findOne({ forum: forum.id })
+      .then(topic => {
+        let extra = {}
+        if (!topic) {
+          extra.hidden = true
+          extra.closingAt = new Date()
+        } else {
+          extra.hidden = false
+          extra.closingAt = topic.closingAt
+        }
+        extra.richSummary = forum.extra && forum.extra.richSummary ? forum.extra.richSummary : ''
+        extra.owner = ''
+        forum.extra = extra
+        forum.visibility = 'public'
+        return forum.save()
+      })
+  }))
+  .then((forum) => {
+    console.log('Foros finalizados actualizados.')
+
+    process.exit(0)
+  })
+  .catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })

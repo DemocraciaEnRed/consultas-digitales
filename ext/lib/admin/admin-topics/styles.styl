@@ -1,0 +1,60 @@
+#topics-wrapper .topics-admin
+  .list-group-item
+    &:hover
+      color: #fff
+
+    .topic-title
+      font-weight: inherit
+
+    .delete-topic
+      color: $danger-color
+      
+  .well
+    margin: 10px 0
+    
+    a.new.btn//botón que dice "+ Nuevo"
+      height: 54px
+      margin-bottom: 0
+      padding-top: 16.4px
+      line-height: 1.1
+      @media (min-width: 992px)
+        padding-top: 8.4px
+        
+    button.sort.btn
+      margin-bottom: 0
+      height: 41px
+      margin-bottom: 0
+      padding-top: 10.7px
+      @media (min-width: 992px)
+        height: 32px
+        padding-top: 6.7px
+      @media (min-width: 1200px)
+        padding-top: 13.3px
+        height: 54px
+      
+    span.sort-label//texto que dice "Clase"
+      width: auto
+      @media (min-width: 992px) and (max-width: 1200px)
+        width: 100%
+      padding-top: 8px
+      @media (min-width: 992px)
+        padding-top: 0
+      @media (min-width: 1200px)
+        padding-top: 16px
+      
+  .well.export-update//caja de botones de descarga de .csv
+    margin-bottom: 20px
+    
+    label.label-file
+      margin-bottom: 0 !important//una regla de DOS pisa esta, así que ponemos important
+      margin-top: 5px
+      @media (min-width: 992px)
+        margin-top: 0
+      
+    .btn
+      padding: 9px 12px
+      margin: 0
+      line-height: 1
+      
+    a.btn.btn-primary
+      margin-right: 9px//igual al padding left del contenedor

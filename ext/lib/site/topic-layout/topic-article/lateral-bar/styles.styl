@@ -1,0 +1,27 @@
+.lateral-bar-container.small
+  display:none
+.lateral-bar-container
+  @media (max-width: 991px)
+    display:none
+  width:30%
+  margin-top:75px
+.lateral-bar-list    
+  position: sticky
+  top: 10
+  z-index: 1
+  &.large
+    position:relative    
+  list-style-type: none
+  padding-left:5px
+  text-align:left
+  li
+    font-size: 15px
+    font-weight: normal    
+    color: $main-color
+    a
+      text-decoration:none
+      display: block
+      padding: 10px 5px
+    a:hover
+      background-color: #D6EAF3
+      color: $main-color

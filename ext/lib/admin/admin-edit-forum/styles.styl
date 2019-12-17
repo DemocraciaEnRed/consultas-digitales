@@ -1,0 +1,58 @@
+.forum-edit-form
+  label.rich-summary
+    float: none
+
+  input, select,
+  .input-group
+    width 100%
+
+    @media (min-width: 700px)
+      width 60%
+      float right
+
+  input[type='date']
+    display block
+    height 42px
+    margin-top 0px
+    margin-bottom 0px
+    padding 8px 12px
+    border 1px solid #dedede
+    border-radius 3px
+    background-color white
+    color black
+
+  .input-group
+    input[type='date']
+      width 100%
+
+      &:first-child
+        border-top-right-radius 0
+        border-bottom-right-radius 0
+
+    .input-group-addon
+      border-color #dedede
+      background-color #fafafa
+
+      & + input
+        border-top-left-radius 0
+        border-bottom-left-radius 0
+  
+  select
+    height 42px
+    margin-top 0px
+    margin-bottom 0px
+    padding 8px 12px
+    border 1px solid #dedede
+    border-radius 3px
+    background-color white
+    
+  textarea
+    display: block
+    width: 100%
+    margin-top: 0px
+    margin-bottom: 0px
+    padding: 8px 12px
+    border: 1px solid #dedede
+    border-radius: 3px
+    background-color: #fff
+    color: #000

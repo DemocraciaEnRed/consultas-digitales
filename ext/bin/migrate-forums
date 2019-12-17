@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+const models = require('lib/models')()
+
+const Forum = models.Forum
+
+const attrPregunta = {
+  'name' : 'pregunta', 
+  'title' : 'Pregunta a definir con la consulta', 
+  'description' : 'Colocar aquí la pregunta que será definida en el eje de la consulta', 
+  'mandatory' : false, 
+  'kind' : 'String'
+}
+
+Forum.update({'topicsAttrs': { $not: {$elemMatch: attrPregunta } } }, 
+  { $push: { topicsAttrs: attrPregunta } },
+  { multi: true }
+  ).exec()
+  .then((res)=> {
+    console.log('Forums actualizados')
+    process.exit(0)
+  })
+  .catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })

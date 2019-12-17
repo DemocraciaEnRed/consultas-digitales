@@ -1,0 +1,35 @@
+.vote-option.vote-yes
+    background-color: $main-color
+    &:hover
+        background-color: #1887bf
+.vote-option.vote-no
+    background-color: #7B548A
+    &:hover
+        background-color: #684675   
+.votes-cast
+    display:none
+
+.proposal-options
+    .results-box
+        .alert-info
+            display: none
+        .vote-yes.votes-results
+            color: $main-color
+            h5
+                color: inherit
+
+        .vote-no.votes-results
+            color:  #7b548a
+            h5
+                color: inherit
+
+#results-chart
+  width: 100% !important
+  height: auto !important
+  max-width: 220px
+
+.results-box.topic-article-content.row
+  text-align: center
+  
+.vote-yes.votes-results
+  margin-top: 20px

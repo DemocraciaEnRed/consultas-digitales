@@ -1,0 +1,22 @@
+{
+  "name": "ext",
+  "version": "3.0.6",
+  "description": "Extension folder of a DemocracyOS fork.",
+  "main": "lib/boot",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "license": "GPL-3.0",
+  "browser": {
+    "lib/config": "lib/config/config"
+  },
+  "dependencies": {
+    "argob-poncho": "0.3.2",
+    "express-session": "^1.15.6",
+    "flickity": "2.0.8",
+    "jump.js": "^1.0.2",
+    "passport-openidconnect": "0.0.2",
+    "pug": "2.0.0-rc.4"
+  }
+}

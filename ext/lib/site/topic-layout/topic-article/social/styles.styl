@@ -1,0 +1,79 @@
+
+.topic-social
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  margin: 32px 20px 20px 0
+  width:90px
+  @media (min-width: 991px)
+    justify-content: flex-start
+    position:sticky
+    top:10
+    z-index:1
+  @media (max-width: 991px)
+    justify-content: space-between
+    margin: 0
+    margin-left:6%
+    margin-bottom: 20px
+    width:100%
+
+  .participants-box
+    padding-top: 13px
+    min-width:120px
+    @media (max-width:990px)
+      width:200px
+    :last-child
+      @media (min-width:990px)
+        padding-top: 5px
+
+    span
+      display: inline-block
+      font-size: 16px
+      color: #666
+      margin-right: 5px
+      margin-bottom: 5px
+      font-weight:100
+    .paticipants-box-published
+      font-weight:500
+    .participant-profile
+      .avatar
+        width: 20px
+        height: 20px
+        border-radius: 50%
+    .view-more
+      display: inline-block
+      cursor: pointer
+
+  .share-links
+    @media (min-width:990px)
+      min-width:10px
+    a
+      background: #666
+      padding: 8px 5px
+      margin-left: 0px
+      margin-bottom: 5px
+      border-radius: 2px
+      color: white
+      display: inline-block
+      line-height: 10px
+      transition: all .3s ease-in-out
+      background-color: #959595
+
+      &:hover
+        text-decoration: none
+
+      &.icon-social-facebook:hover
+        background-color: #3b5998
+
+      &.icon-social-twitter:hover
+        background-color: #3498db
+
+span.icon-lock, .closed
+  margin-top: 5px
+  color: #910D1D !important
+span.icon-lock-open, .open
+  margin-top: 5px
+  color: #145730 !important
+
+.ext-topic-layout .topic-article-wrapper .topic-social .participants-box span
+  font-weight:100

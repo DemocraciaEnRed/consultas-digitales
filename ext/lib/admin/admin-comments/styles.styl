@@ -1,0 +1,219 @@
+.forum-subtitle, .topic-subtitle
+  font-weight: 300;
+  margin-bottom: 0;
+.forum-title, .topic-title
+  margin-top: 0;
+.topic-name-container
+  font-size: 25px;
+  font-weight: 800;
+  // color: #FFF
+  border-radius: 0px;
+  // background: #0695d6;
+  padding: 10px 0 0;
+  margin-top: 30px;
+  border-top: 1px solid #cacaca
+  .topic-subtitle
+    font-size: 20px
+  .topic-title
+    font-size: 25px
+    // color: #FFF
+.action-topic-container
+  // padding: 10px;
+  // border: 1px solid #ececec
+  margin-bottom: 25px;
+  .toggle-title
+    font-weight:300;
+    text-align: center;
+    font-size: 20px
+    &:hover
+      cursor: pointer
+  .ext-topic-layout
+    @import '../../site/topic-layout/topic-article/styles.styl'
+
+.comment-container
+  border: 1px solid #ececec
+  border-bottom: 0
+  padding: 10px
+  padding-right: 20px
+  position: relative;
+  .btn-toggle-shrink
+    position:absolute
+    right: 0
+    top: 0
+    border-radius: 0
+  &.shrink
+    max-height: 40px
+    overflow-y: hidden
+    .overflow-effect
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0px -44px 11px -24px #fff;
+      &:hover
+        cursor: pointer
+  &:last-child
+    border-bottom: 1px solid #ececec;
+  .media
+    margin-top: 0;
+  button.btn-toggle-shrink
+    z-index: 10
+    background-color: #ececec
+  img.the-avatar
+    width: 20px
+    border-width: 15px
+    border-radius: 15px
+  p.comment-text
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0;
+  .reply-container
+    border-left: 1px solid #ececec
+    padding-left: 10px
+    padding-top: 5px;
+    margin-left: 30px
+    padding-right: 10px
+    p.reply-text
+      font-size: 11px
+      font-weight: 300
+      line-height: normal;
+      margin-bottom: 0;
+    a.delete-anchor
+      color: #da4848
+      &:hover
+        cursor: pointer
+  .actions
+    margin-left: 30px
+    padding: 5px 0;
+    .anchor
+      border: 1px solid #CACACA;
+      padding: 2px 5px
+      margin: 5px
+      font-size: 12px
+      border-radius: 3px
+      &:first-child
+        margin-left: 0
+      &:hover
+        cursor: pointer
+        color: #53599e
+        border-color: #53599e
+  .markers
+    margin-left: 30px
+    padding: 5px 0;
+    p
+      margin: 5px 0 5px
+      font-size: 15px
+    .marker-anchor
+      padding: 2px 5px
+      margin: 5px
+      font-size: 12px
+      border-radius: 3px
+      &:first-child
+        margin-left: 0
+      &.mark-anchor
+        border: 1px solid #CACACA;
+        color: #333;
+        &:hover
+          background-color: #53599e
+          border-color: #53599e;
+          cursor: pointer
+          color: #fff
+      &.unmark-anchor
+        border: 1px solid #53599e;
+        background-color: #53599e
+        padding: 2px 5px
+        margin: 5px
+        font-size: 12px
+        border-radius: 3px
+        color: #FFF;
+        &:hover
+          background-color: #ffffff
+          border-color: #333333;
+          cursor: pointer
+          color: #333333
+
+.general-stats-container
+  // background-color: #fff;
+  // border-radius: 6px;
+  // box-shadow: 0 2px 3px rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.1);
+  // display: block;
+  // padding: 1rem;
+  margin: 20px 0;
+  table.table
+    margin:0;
+    .badge-mark
+      background-color: #53599e;
+      color: #fff;
+      padding: 2px 5px;
+      border-radius: 2px;
+      font-size: 13px
+    .bg-light
+      background-color: #f3f3f3
+.info-comment
+  font-size: 10px;
+  padding: 8px 5px;
+  font-weight: 400;
+  background-color: #ececec;
+  // color: #696969;
+  margin-bottom: 10px;
+  .badge-answered
+    background-color: #43aa48;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-weight: 500;
+    margin: 0 2px;
+  .badge-marker
+    background-color: #53599e;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-weight: 500;
+    margin: 0 2px;
+  .badge-not-answered
+    background-color: #da4848;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-weight: 500;
+    margin: 0 2px;
+.reply-comment-container
+  float: right;
+  max-width: 200px;
+  width: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+  textarea
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: 400
+    border-radius: 0
+    resize: vertical
+.notify-change
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #0695d6;
+  padding: 15px 8px 30px 8px;
+  text-align: center;
+  border-top: 1px solid #FFF;
+  z-index: 100;
+  color: #FFF;
+  line-height: normal;
+  a
+    color: #FFF
+    font-weight: 800
+    &:hover
+      color: yellow
+
+.topic-action-container
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.1);
+  display: block;
+  padding: 1rem;
+  margin: 20px 0;
+  text-align: center;

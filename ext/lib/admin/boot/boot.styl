@@ -1,0 +1,40 @@
+@import '../../../../lib/admin/boot/boot'
+
+@import '../../boot/global'
+
+@import '../../*/styles'
+@import '../*/styles'
+
+#topic-wrapper
+  & > h2 .btn-link
+    text-decoration: none !important
+    font-size: .6em
+    padding: .3em .6em
+    margin: 0 0 0 1em
+    
+ul.admin-menu li a
+  color: $main-color
+  
+// ítems del menú de la izquierda cuando están seleccionados
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus
+  background-color: $main-color
+  
+// ítems dentro de listado de topics/ejes cuando se les hace hover
+a.list-group-item:hover,
+a.list-group-item:focus,
+a.list-group-item:hover small,
+a.list-group-item:focus small
+  background-color: $main-color
+  
+// flechita ">" o "<" de pasar de página (en listado tags o topics/ejes, p. ej.)
+.pagination > li > a,
+.pagination > li > span
+  color: $main-color
+  
+.pagination > li > a:hover,
+.pagination > li > a:focus,
+.pagination > li > span:hover,
+.pagination > li > span:focus
+  color: $main-color-resalted

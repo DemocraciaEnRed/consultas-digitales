@@ -1,0 +1,110 @@
+.ext-forum-home
+  background-color: #FFF
+  .cover
+    text-align: center
+
+    h1
+      margin: 0 auto .3em
+
+    .btn.btn-primary
+      margin-top: 3em
+
+  .autor-container
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    margin-top: 20px
+
+  .summary-container
+    display: flex
+    justify-content: center
+    background-color: #FFF
+    margin-top: 27px
+    font-size: 20px
+    font-weight: 300
+    text-align: justify
+    @media (max-width: 768px)
+      padding: 0 10px
+    
+  .cargar-propuesta
+    text-align: center
+    margin: 30px auto 40px
+
+    h5
+      font-weight: 500
+      font-size: 25px
+      line-height: 30px
+      margin-bottom: 43px
+      position: relative
+      margin-top: 80px
+    h5:before
+      content: ''
+      width: 600px
+      height: 1px
+      position: absolute
+      border-top: 1px solid #707070
+      background-color: #707070
+      top: -2.5em;
+      @media (max-width: 767px)
+        width: 100%
+        left: 0
+    .btn, .btn:hover
+      color: white
+    
+
+  .topics-container
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    padding-top: 1.3em
+
+    h5
+      font-weight: 500
+      font-size: 25px
+      line-height: 30px
+      margin-bottom: 43px
+      position: relative
+      text-align: center
+    h5:before
+      content: ''
+      width: 600px
+      height: 1px
+      position: absolute
+      border-top: 1px solid #707070
+      background-color: #707070
+      top: -24
+      left: -70
+      @media (max-width: 767px)
+        width: 100%
+        left: 0
+
+  .topics-card-wrapper
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    @media (max-width: 767px)
+      justify-content: center
+
+  .topic-card
+    max-width: 100%
+    width: 300px
+    margin: 0 10px 20px
+  
+  .consulta-cerrada
+    border: 1px solid $main-color
+    background-color: #f0f8ff
+    border-radius: 3px
+    padding: 10px 30px 10px 50px
+    .lock-icon
+      width: 23px
+      position: absolute
+      left: 30px
+      top: 20px
+    
+  .btn-informe-cierre
+    padding: 12px 30px
+
+@import './forum-description/styles.styl'
+@import './forum-stats/styles.styl'

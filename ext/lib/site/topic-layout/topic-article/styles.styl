@@ -1,0 +1,85 @@
+.secondary-wrapper
+  flex-direction: column
+  width:100%
+.topic-article-wrapper
+  position: relative
+  margin-left: auto
+  margin-right: auto
+  padding: 40px 5px
+  max-width: 100%
+  background-color: #f9f9f9
+  @media (min-width: 991px)
+    display: flex
+    flex-direction: row
+
+
+  @media (min-width: 544px)
+    padding-top: 60px
+    padding-left: 30px
+    padding-right: 30px
+
+  @media (min-width: 768px)
+    top: -60px
+
+  @media (min-width: 991px)
+    max-width: 1000px
+    
+  .topic-admin-actions a:hover
+    color: $main-color-resalted
+    
+  .topic-article-header
+    margin-top: 0
+
+    h1
+      font-size: 2.5em
+
+  .topic-article-content
+    font-family: inherit
+    font-weight: 300
+    padding-left: 0
+    padding-right: 0
+    color: #111
+    span
+      font-weight:600
+    li, ol {
+      font-size: 16px
+    }
+
+  .topic-comments
+    border: none
+    background: none
+        
+  
+  @import './topic-action/styles.styl'
+  @import './header/styles.styl'
+  @import './social/styles.styl'
+  @import './topic-action/styles.styl'
+  @import './topic-action/topic-range/styles.styl'
+  @import './lateral-bar/styles.styl'
+  @import './comments/list/comment/header/styles.styl'
+
+  .vote-options
+    margin-left: auto
+    margin-right: auto
+
+  button.btn.btn-primary
+    width:100%
+
+  .topics-hierarchy
+    h4
+      font-size:1.2em
+      padding:2em
+    ol
+      font-weight:100
+  
+
+iframe
+  @media (min-width: 700px)
+    width: 600px
+    height: 400px
+
+.topic-article-wrapper.large
+  max-width:1000px
+
+.llamado-content
+  margin-top: 30px
