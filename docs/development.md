@@ -57,6 +57,8 @@ services:
       - VERIFY_USER_REQUEST_EMAIL=unmail@correo.com
       # Requerido: Genere un token para JWT
       - JWT_SECRET= #Cambiar
+      - LOCALE=es
+      - ENFORCE_LOCALE=true
     links:
       - mongo 
     ports:
