@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  app:
+    container_name: miconsultapublica
+    build: .
+    command: ["./node_modules/.bin/gulp", "bws"]
+    environment:
+      - NODE_ENV=development
+      - DEBUG=democracyos*
+      - MONGO_URL=mongodb://mongo/mi-consultapublica
+      # Importante: Defina el "Staff" de administradores para que en su registro el sistema le de privilegios de admin
+      # Para un solo admin:
+      # - STAFF=hola@miemail.com
+      # Para varios admins:
+      # - STAFF=hola@miemail.com,usuario@otroemail.com,otrousuario@nuevoemail.com
+      - STAFF=hola@miemail.com
+      # Logos
+      - LOGO=/ext/lib/site/home-multiforum/logo-header.svg
+      - LOGO_MOBILE=/ext/lib/site/home-multiforum/logo-header.svg
+      # Organizacion
+      - ORGANIZATION_EMAIL=miconsultapublica@midominio.com.ar
+      - ORGANIZATION_NAME="Mi Consulta Pública"
+      # Social media y email settings
+      - SOCIALSHARE_SITE_NAME="Mi Consulta Pública"
+      - SOCIALSHARE_SITE_DESCRIPTION="Plataforma de participación ciudadana"
+      - SOCIALSHARE_IMAGE=https://urlexterno.com/mi-imagen-externa.png #Cambiar
+      - SOCIALSHARE_DOMAIN=miconsultapublica.midominio.com #Cambiar
+      - SOCIALSHARE_TWITTER_USERNAME=@miConsultaPublica #Cambiar
+      - TWEET_TEXT="Estoy tratando de mejorar esta propuesta “{topic.mediaTitle}” ¡Participá vos también!"
+      # Configuracion del mailer
+      - NOTIFICATIONS_MAILER_EMAIL=miconsultapublica@midominio.com
+      - NOTIFICATIONS_MAILER_NAME="Mi consulta pública"
+      - NOTIFICATIONS_NODEMAILER={"host:"xxxxx.smtp.com","port":465,"secure":true,"auth":{"user":"xxxxxxxx","pass":"xxxxxxx"}} #Cambiar
+      # El mail del que recibe los pedidos de verificación de cuentas
+      - VERIFY_USER_REQUEST_EMAIL=unmail@correo.com
+      # Requerido: Genere un token para JWT
+      - JWT_SECRET= #Cambiar
+    links:
+      - mongo 
+    ports:
+      - 3000:3000
+    volumes:
+      - ./ext/lib:/usr/src/ext/lib
+      - ./public:/usr/src/public
+    tty: true
+
+  mongo:
+    container_name: miconsultapublica-mongo
+    image: mongo:3.2
+    ports:
+      - 27017:27017
+    volumes:
+      - ./tmp/db:/data/db
+      
+#  mailserver:
+#    image: namshi/smtp
+#    environment:
+#      - GMAIL_USER=mi-usuario@gmail.com
+#      - GMAIL_PASSWORD=mi-contraseña-que-no-debo-publicar
