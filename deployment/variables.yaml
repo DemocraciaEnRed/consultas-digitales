@@ -1,0 +1,59 @@
+deploy:
+  # Indica el protocolo a utilizar, por defecto es http, valores posibles: http, https. 
+  protocolo:
+  
+  # Hostname para utilizar en la aplicación, obligatorio.   
+  hostname:
+
+  # Se utiliza para indicar que la base de datos de Mongo es externa al deploy, por defecto es false, valores posibles: true, false.
+  mongo_externo:
+  
+  # En caso de que mongo_externo = true es necesario indicar la URL para el servidor de MongoDB externo.
+  mongo_url:
+
+  # Donde instalar el deplot, por defecto es /opt/consultas-digitales.
+  path_instalacion:
+  
+  ## Utilización de certificado propio:
+  ## Cuando https_path_certificado y https_path_llave están definidos, el protocolo se configura como HTTPS automáticamente.
+  # Ruta absoluta hacia el fichero del certificado HTTPS.
+  https_path_certificado:
+  # Ruta absoluta hacia el fichero de la llave privada HTTPS.
+  https_path_llave:
+
+  ## Utilización de Let's Encrypt:
+  ## Cuando https_lets_encrypt_email está definido el protocolo se configura como HTTPS automáticamente.
+  # Correo electrónico del administrador del dominio a utilizar con Let's Encrypt
+  https_lets_encrypt_email:
+  # Se utiliza para indicar el uso del entorno staging de Let's Encrypt. Por defecto es true, valores posibles: true, false.
+  https_lets_encrypt_staging:
+  
+
+docker:
+  # Imagen de docker a utilizar, obligatorio.
+  IMAGE:
+  
+  # Variables de DemocracyOS, ver sección development.
+  DEBUG:
+  STAFF:
+  ORGANIZATION_EMAIL:
+  ORGANIZATION_NAME:
+  SOCIALSHARE_SITE_NAME:
+  SOCIALSHARE_SITE_DESCRIPTION:
+  SOCIALSHARE_IMAGE:
+  SOCIALSHARE_DOMAIN:
+  SOCIALSHARE_TWITTER_USERNAME:
+  TWEET_TEXT:
+  NOTIFICATIONS_MAILER_EMAIL:
+  NOTIFICATIONS_MAILER_NAME:
+  NOTIFICATIONS_NODEMAILER:
+  
+  # Las siguientes variables solo se tienen en cuenta si CUSTOM_SIGNIN = true
+  CUSTOM_SIGNIN:
+  OIDC_ISSUER:
+  OIDC_AUTH:
+  OIDC_TOKEN:
+  OIDC_USER:
+  OIDC_CLIENT_ID:
+  OIDC_CLIENT_SECRET:
+  OIDC_CALLBACK:

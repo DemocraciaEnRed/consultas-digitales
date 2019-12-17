@@ -1,0 +1,45 @@
+{% if protocolo == 'http' %}
+defaultEntryPoints = ["http"]
+{% endif %}
+{% if protocolo == 'https' %}
+defaultEntryPoints = ["http", "https"]
+{% endif %}
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+{% if protocolo == 'https' %}
+    [entyrPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+{% if certificado_propio %}
+    [entryPoinst.https.tls]
+      [[entryPoints.https.tls.certificates]]
+      certFile = "/cert.crt"
+      keyFile = "/key.key"
+{% endif %}
+{% if lets_encrypt %}
+    [entryPoints.https.tls]
+
+[acme]
+email = "{{ deploy['https_lets_encrypt_email'] }}"
+storage = "/acme.json"
+entryPoint = "https"
+acmeLogging = true
+onHostRule = true
+{% if lets_encrypt_staging %}
+caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+{% endif %}
+[acme.httpChallenge]
+entryPoint = "http"
+{% endif %}
+{% endif %}
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "{{ deploy['hostname'] }}"
+
+logLevel = "INFO"
+[traefikLog]
+  filePath = "/var/log/traefik.log"

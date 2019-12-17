@@ -1,50 +1,48 @@
-# DemocracyOS [![Deploy](https://www.herokucdn.com/deploy/button.png)](http://bit.ly/1iHAcWz)
-[![Dependencies](https://david-dm.org/DemocracyOS/democracyos.svg)](https://david-dm.org/DemocracyOS/democracyos.svg)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/DemocracyOS/democracyos)
-[![Code Climate](https://codeclimate.com/github/DemocracyOS/democracyos/badges/gpa.svg)](https://codeclimate.com/github/DemocracyOS/democracyos)
+# Consultas Digitales
+![](https://github.com/DemocraciaEnRed/consultas-digitales/workflows/Docker%20Image%20CI/badge.svg)
 
-DemocracyOS is an online space for deliberation and voting on political proposals. It is a platform for a more open and participatory government.The software aims to stimulate better arguments and come to better rulings, as peers.
+> La Plataforma de **Consulta Digitales** es un desarrollo basado en [DemocracyOS](https://github.com/DemocracyOS/democracyos): una plataforma de código abierto especialmente diseñada para informar, debatir y votar propuestas públicas de forma online hacia la construcción de una democracia adaptada al siglo XXI.
 
-Check out the [live DemocracyOS demo](https://app.democracyos.org/).
+## Descripción
+Consultas Digitales es una plataforma que promueve la participación ciudadana en el diseño de políticas públicas.
+Esta herramienta favorece la generación de espacios de colaboración entre el Estado, organizaciones de la sociedad civil, el sector privado y la ciudadanía en general para co-diseñar y co-producir valor público.
 
-![DemocracyOS](https://cldup.com/5UCVpUnOhO.png)
+Esta plataforma fomenta la interacción entre las instituciones y la ciudadanía, sometiendo a consideración temas de interés público mediante acciones que permiten informar y recoger los distintos puntos de vista, perspectivas y opiniones.
 
-## Installation
-Please refer to the [Installation](http://docs.democracyos.org/install.html) wiki page for detailed instructions on how to install and setup your instance of DemocracyOS.
+## Documentación técnica
+- [Manual instructivo para usuarios](/docs/manual-usuarios.md)
+- [Manual instructivo para administradores](/docs/manual-admin.md)
+- [Guía de instalación para desarrolladores](/docs/development.md)
+- [Extendiendo la plataforma](/docs/personalizacion.md)
+- [Deployment](/deployment/README.md)
 
-## Current DemocracyOS deployments
+## Cómo contribuir
+Para contribuir primero deben hacer un _fork_ de este repositorio presionando en el botón _Fork_ en la pantalla principal del [github del repositorio](https://github.com/DemocraciaEnRed/consultas-digitales). Una vez hecho el fork, clonarlo localmente, modificar el código, commitearlo y pushearlo.
 
-* [DemocracyOS - PDR](http://dos.partidodelared.org): The Net Party's official deployment of DemocracyOS.
-* [EuVoto](http://euvoto.org/): Brazilian initiative by the Open Knowledge Foundation Brasil to discuss legislation in the city of Sao Paulo.
-* [Loi Renseignement](http://pjlr.democracyos.eu/): First deployment by DemocracyOS France to discuss the Loi Renseignement.
-* [Evoks](http://evoks.hu/): Hungarian project by Atlatszo.hu for discussing social issues.
-* [PAMI](http://debatics.pami.org.ar/): The largest healthcare program for elderly people opens its technical decisions.
-* [Ukrainian Choice](http://ukrainianchoice.herokuapp.com/law/557ba8ca29e8180300c88c48): Official deployment of DemocracyOS Ukraine.
-* [Paris](https://crm.paris.fr/2016/): Official deployment of DemocracyOS in Paris (France) by city's mayor Anne Hidalgo.
+Posteriormente solicitar un _pull request_ de dichos cambios hacia el código oficial. Para esto debemos presionar en _New pull request_ en la pantalla principal del github del repositorio, seleccionar su fork (tal vez tenga que presionar en _compare across forks_) y crear el pull request comentando un poco qué es lo que hacen sus modificaciones.
 
-## Contributing
+Para reportar un error en el código basta con reportar un _issue_. Para esto, ir a la pestaña _Issues_ del github del repositorio, presionar _New issue_ y seguir las instrucciones descriptas para reportar el error.
 
-Please see [CONTRIBUTING.md](https://github.com/DemocracyOS/app/blob/master/CONTRIBUTING.md) for further details.
+Preferimos el uso del __español__ en todos los mensajes de _commits_, _branches_ y comentarios en el código.
 
-## Contributors
+Al realizar cualquiera de estas acciones a nosotrxs nos llegará un mail y pronto le estaremos dando una respuesta del pedido.
 
-See [CONTRIBUTORS.md](https://github.com/DemocracyOS/app/blob/master/CONTRIBUTORS.md) to get to know the DemocracyOS team and contributors.
+Para poder contribuir en el codigo base de DemocracyOS, ir al repositorio [DemocracyOS/democracyos](https://github.com/DemocracyOS/democracyos).
 
-## Links
+## Código de conducta
+Nuestro código de conducta, destinado a cualquier persona que desee acercarse y aportar al repositorio, está disponible tanto en [español](CODIGO_DE_CONDUCTA.md) como en [inglés](CODE_OF_CONDUCT.md).
 
-* [DemocracyOS official site](http://democracyos.org). The project's official site.
-* [DemocracyOS official documentation site](http://docs.democracyos.org). The project's official site.
-* [DemocracyOS mailing list](https://groups.google.com/forum/#!forum/democracyos-app): questions about DemocracyOS exclusively. For bug reports or feature requests please use the project's [Issues](https://github.com/DemocracyOS/app/issues).
-* [DemocracyOS chat room](https://gitter.im/democracyos/app/).
-* [Democracia en Red](http://democraciaenred.org): The `Net Democracy Foundation` official site.
+## Autorxs
+Antes que nada, están lxs autorxs de DemocracyOS, enumeradxs en su [CONTRIBUTORS.md](https://github.com/DemocracyOS/app/blob/master/CONTRIBUTORS.md).
 
-## Browser support
+Además, para esta versión modificada de la plataforma aportaron principalmente: [@guillecro](https://github.com/guillecro) y [@wencha](https://github.com/wencha).
 
-We support real browsers and IE10+
+Si desean contactarse con nosotrxs por asuntos técnicos relativos a la plataforma pueden enviarnos un mail a [it@democracyos.io](mailto:it@democracyos.io).
 
-## Acknowledgements
-Icons made by [Jamal Jama](https://twitter.com/byjml) and [Ahmad Firoz](https://twitter.com/firoz_usf) from [simplelineicons.com](http://simplelineicons.com/).
+## Proyectos que han usado esta tecnología
+- [Consulta Pública](https://consultapublica.argentina.gob.ar/) - Secretaria de Modernización del Gobierno Nacional Argentina: más de 20 consultas de más de 20 organismos nacionales
+- [Sunchales Participa](https://sunchales.democraciaenred.org/) - Municipio de Sunchales en Santa Fe: consulta sobre proyectos 2030
+- [Opinión Pública](https://opinionpublica.funpublica.com.ar/) - Fundación Confianza Pública: consulta sobre leyes de integridad
 
-## License
-
-DemocracyOS is open source software under the GPL v3.0 license. Please see full terms in the [LICENSE](LICENSE) file.
+## Licencia
+Consultas Digitales está disponible bajo la licencia [GNU General Public License v3.0](LICENSE.md).

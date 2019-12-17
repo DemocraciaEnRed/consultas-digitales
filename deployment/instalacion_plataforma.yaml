@@ -1,0 +1,152 @@
+- hosts: "{{ host_destino }}"
+  tasks:
+    - name: Incluir variables
+      include_vars:
+        file: variables.yaml
+
+    # No funciona en macOS
+    - name: JWT
+      set_fact:
+        jwt_secret: "{{ 'session_secret' | password_hash('sha512', 65534 | random(seed=inventory_hostname) | string) | regex_replace('\\$','$$') }}"
+
+    - name: Default para protocolo
+      set_fact:
+        protocolo: 'http'
+      when: deploy['protocolo'] == None
+
+    - name: Fact para protocolo
+      set_fact:
+        protocolo: "{{ deploy['protocolo'] }}"
+      when: deploy['protocolo'] != None
+
+    - name: Utilizar certificado propio
+      set_fact:
+        certificado_propio: true
+        protocolo: 'https'
+      when: deploy['https_path_certificado'] != None and deploy['https_path_llave'] != None
+
+    - name: No utilizar certificado propio
+      set_fact:
+        certificado_propio: false
+      when: deploy['https_path_certificado'] == None or deploy['https_path_llave'] == None
+
+    - name: Utilizar Let's Encrypt
+      set_fact:
+        lets_encrypt: true
+        protocolo: 'https'
+      when: deploy['https_lets_encrypt_email'] != None
+
+    - name: No utilizar Let's Encrypt
+      set_fact:
+        lets_encrypt: false
+      when: deploy['https_lets_encrypt_email'] == None
+
+    - name: Default para Let's Encrypt Staging
+      set_fact:
+        lets_encrypt_staging: true
+      when: deploy['https_lets_encrypt_staging'] == None
+
+    - name: Valor para Let's Encrypt Staging
+      set_fact:
+        lets_encrypt_staging: "{{ deploy['https_lets_encrypt_staging'] }}"
+        protocolo: 'https'
+      when: deploy['https_lets_encrypt_staging'] != None
+
+    - name: Default para mongo externo
+      set_fact:
+        mongo_externo: false
+      when: deploy['mongo_externo'] == None
+
+    - name: Default para directorio de instalacion
+      set_fact:
+        path_instalacion: /opt/consultas-digitales
+      when: deploy['path_instalacion'] == None
+
+    - name: Crear directorio de instalacion
+      file:
+        path: "{{ path_instalacion }}"
+        state: directory
+        mode: 0755
+      become: true
+
+    - name: Fact para directorio de volumenes de Docker
+      set_fact:
+        path_volumenes: "{{ path_instalacion }}/volumenes"
+
+    - name: Fact para directorio de Traefik
+      set_fact:
+        path_traefik: "{{ path_volumenes }}/traefik"
+
+    - name: Fact para directorio de MongoDB
+      set_fact:
+        path_mongo: "{{ path_volumenes }}/mongodb"
+      when: not mongo_externo
+
+    - name: Crear directorio para volumenes de Docker
+      file:
+        path: "{{ path_volumenes }}"
+        state: directory
+        mode: 0755
+      become: true
+
+    - name: Crear directorio para Traefik
+      file:
+        path: "{{ path_traefik }}"
+        state: directory
+        mode: 0755
+      become: true
+
+    - name: Crear directorio para MongoDB
+      file:
+        path: "{{ path_mongo }}"
+        state: directory
+        mode: 0755
+      become: true
+      when: not mongo_externo
+
+    - name: Copiar traefik.toml
+      template:
+        src: templates/traefik.toml.j2
+        dest: "{{ path_traefik }}/traefik.toml"
+        mode: 0644
+      become: true
+
+    - name: Touch ficheros de Traefik
+      file:
+        path: "{{ path_traefik }}/{{ item }}"
+        state: touch
+        mode: 0600
+      with_items:
+        - acme.json
+        - traefik.log
+      become: true
+
+    - name: Copiar certificado HTTPS
+      copy:
+        src: "{{ deploy['https_path_certificado'] }}"
+        dest: "{{ path_traefik }}/cert.crt"
+        mode: 0600
+      when: certificado_propio
+      become: true
+
+    - name: Copiar llave HTTPS
+      copy:
+        src: "{{ deploy['https_path_llave'] }}"
+        dest: "{{ path_traefik }}/key.key"
+        mode: 0600
+      when: certificado_propio
+      become: true
+
+    - name: Copiar docker-compose.yaml
+      template:
+        src: templates/docker-compose.yaml.j2
+        dest: "{{ path_instalacion }}/docker-compose.yml"
+      become: true
+
+    - name: Pull contenedores
+      shell: "docker-compose -f {{ path_instalacion }}/docker-compose.yml pull"
+      become: true
+
+    - name: Docker Compose up
+      shell: "docker-compose -f {{ path_instalacion }}/docker-compose.yml up -d"
+      become: true

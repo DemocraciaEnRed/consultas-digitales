@@ -1,0 +1,147 @@
+- hosts: "{{ host_destino }}"
+  # Python para Ubuntu
+  gather_facts: false
+
+  pre_tasks:
+    - raw: 'sudo apt -y update && sudo apt install -y python-minimal'
+      ignore_errors: true
+    - setup:
+
+  tasks:
+    # Documentacion Oficial: https://docs.docker.com/install/linux/docker-ce/debian/
+    - name: Instalacion en Debian
+      block:
+        - name: Instalar dependencias
+          apt:
+            name: "{{ item }}"
+            state: present
+            update_cache: true
+          with_items:
+            - apt-transport-https
+            - ca-certificates
+            - curl
+            - gnupg2
+            - software-properties-common
+
+        - name: Instalar llave PGP de Docker
+          apt_key:
+            url: "https://download.docker.com/linux/debian/gpg"
+            state: present
+
+        - name: Agregar repositorio de Docker
+          apt_repository:
+            repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+            state: present
+          when: ansible_distribution_release == 'jessie'
+
+        - name: Instalar Docker CE
+          apt:
+            name: docker-ce
+            state: present
+            update_cache: true
+
+      become: true
+      when: ansible_distribution == 'Debian'
+
+    # Documentacion Oficial: https://docs.docker.com/install/linux/docker-ce/ubuntu/
+    - name: Instalacion en Ubuntu
+      block:
+        - name: Instalar dependencias
+          apt:
+            name: "{{ item }}"
+            state: present
+            update_cache: true
+          with_items:
+            - apt-transport-https
+            - ca-certificates
+            - curl
+            - software-properties-common
+
+        - name: Instalar llave PGP de Docker
+          apt_key:
+            url: "https://download.docker.com/linux/ubuntu/gpg"
+            state: present
+
+        - name: Agregar repositorio de Docker
+          apt_repository:
+            repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+            state: present
+
+        - name: Instalar Docker CE
+          apt:
+            name: docker-ce
+            state: present
+            update_cache: true
+
+      become: true
+      when: ansible_distribution == 'Ubuntu'
+
+    # Documentacion Oficial: https://docs.docker.com/install/linux/docker-ce/centos/
+    - name: Instalacion en RHEL/CentOS
+      block:
+        # Se deshabilita SELINUX para facilitar el acceso.
+        # La configuracion de SELINUX queda en mano de los administradores.
+        - name: Disable SELINUX
+          selinux:
+            state: disabled
+          register: selinux_state
+
+        - name: Reboot
+          shell: "sleep 2 && shutdown -r now"
+          async: 1
+          poll: 0
+          when: selinux_state.reboot_required
+
+        - name: Esperar que vuelva el host
+          wait_for_connection:
+            timeout: 60
+            delay: 5
+            sleep: 2
+          when: selinux_state.reboot_required
+
+        - name: Instalar dependencias
+          yum:
+            name: "{{ item }}"
+            state: present
+            update_cache: true
+          with_items:
+            - yum-utils
+            - device-mapper-persistent-data
+            - lvm2
+
+        - name: Agregar repositorio de Docker
+          get_url:
+            url: "https://download.docker.com/linux/centos/docker-ce.repo"
+            dest: /etc/yum.repos.d/docker-ce.repo
+
+        - name: Instalar Docker CE
+          yum:
+            name: docker-ce
+            state: present
+            update_cache: true
+
+      become: true
+      when: ansible_os_family == 'RedHat'
+
+    - name: Iniciar Docker CE
+      systemd:
+        name: docker
+        state: started
+        enabled: true
+      become: true
+
+    - name: Instalar docker-compose
+      get_url:
+        url: "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64"
+        dest: /usr/local/bin/docker-compose
+        mode: 0755
+      become: true
+      when: ansible_os_family != 'RedHat'
+
+    - name: Instalar docker-compose
+      get_url:
+        url: "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64"
+        dest: /usr/bin/docker-compose
+        mode: 0755
+      become: true
+      when: ansible_os_family == 'RedHat'

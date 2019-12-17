@@ -1,0 +1,145 @@
+version: '3'
+
+services:
+  proxy:
+    image: traefik:1.6.6
+    command: --api --docker
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - {{ path_traefik }}/traefik.toml:/traefik.toml
+      - {{ path_traefik }}/traefik.log:/var/log/traefik.log
+{% if protocolo == 'https' %}
+      - {{ path_traefik }}/acme.json:/acme.json
+{% if certificado_propio %}
+      - {{ path_traefik }}/cert.crt:/cert.crt
+      - {{ path_traefik }}/key.key:/key.key
+{% endif %}
+{% endif %}
+    ports:
+      - "80:80"
+      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:8080:8080"
+{% if protocolo == 'https' %}
+      - "443:443"
+{% endif %}
+    labels:
+      - "traefik.enable=false"
+
+{% if not mongo_externo %}
+  mongo:
+    image: mongo:3.2
+    environment:
+      - MONGO_INITDB_DATABASE=consultas-digitales
+    networks:
+      - backend
+    volumes:
+      - {{ path_mongo }}:/data/db
+    labels:
+      - "traefik.enable=false"
+{% endif %}
+
+  app:
+    image: {{ docker['IMAGE'] }}
+    networks:
+      - backend
+    environment:
+{% if mongo_externo %}
+      - MONGO_URL={{ deploy['mongo_url'] }}
+{% else %}
+      - MONGO_URL=mongodb://mongo/consulta-publica
+{% endif %}
+      - JWT_SECRET={{ jwt_secret }}
+{% if protocolo == 'https' %}
+      - HTTPS_REDIRECT=reverse-proxy
+      - SSL_REQUIRED=external
+{% endif %}
+      - NODE_ENV=production
+{% if docker['DEBUG'] == None %}
+      - DEBUG={{ docker['DEBUG'] }}
+{% else %}
+      - DEBUG=democracyos*
+{% endif %}
+{% if docker['STAFF'] != None %}
+      - STAFF={{ docker['STAFF'] }}
+{% endif %}
+{% if docker['ORGANIZATION_EMAIL'] != None %}
+      - ORGANIZATION_EMAIL={{ docker['ORGANIZATION_EMAIL'] }}
+{% endif %}
+{% if docker['ORGANIZATION_NAME'] != None %}
+      - ORGANIZATION_NAME={{ docker['ORGANIZATION_NAME'] }}
+{% endif %}
+{% if docker['SOCIALSHARE_SITE_NAME'] != None %}
+      - SOCIALSHARE_SITE_NAME={{ docker['SOCIALSHARE_SITE_NAME'] }}
+{% endif %}
+{% if docker['SOCIALSHARE_SITE_DESCRIPTION'] != None %}
+      - SOCIALSHARE_SITE_DESCRIPTION={{ docker['SOCIALSHARE_SITE_DESCRIPTION'] }}
+{% endif %}
+{% if docker['SOCIALSHARE_IMAGE'] != None %}
+      - SOCIALSHARE_IMAGE={{ docker['SOCIALSHARE_IMAGE'] }}
+{% endif %}
+{% if docker['SOCIALSHARE_TWITTER_USERNAME'] != None %}
+      - SOCIALSHARE_TWITTER_USERNAME={{ docker['SOCIALSHARE_TWITTER_USERNAME'] }}
+{% endif %}
+{% if docker['TWEET_TEXT'] != None %}
+      - TWEET_TEXT={{ docker['TWEET_TEXT'] }}
+{% endif %}
+{% if docker['NOTIFICATIONS_MAILER_EMAIL'] != None %}
+      - NOTIFICATIONS_MAILER_EMAIL={{ docker['NOTIFICATIONS_MAILER_EMAIL'] }}
+{% endif %}
+{% if docker['NOTIFICATIONS_MAILER_NAME'] != None %}
+      - NOTIFICATIONS_MAILER_NAME={{ docker['NOTIFICATIONS_MAILER_NAME'] }}
+{% endif %}
+{% if docker['NOTIFICATIONS_NODEMAILER'] != None %}
+      - NOTIFICATIONS_NODEMAILER={{ docker['NOTIFICATIONS_NODEMAILER'] }}
+{% endif %}
+{% if docker['CUSTOM_SIGNIN'] != None %}
+  {% if docker['CUSTOM_SIGNIN'] %}
+      - CUSTOM_SIGNIN=true
+    {% if docker['OIDC_ISSUER'] != None %}
+      - OIDC_ISSUER={{ docker['OIDC_ISSUER'] }}
+    {% endif %}
+    {% if docker['OIDC_AUTH'] != None %}
+      - OIDC_AUTH={{ docker['OIDC_AUTH'] }}
+    {% endif %}
+    {% if docker['OIDC_TOKEN'] != None %}
+      - OIDC_TOKEN={{ docker['OIDC_TOKEN'] }}
+    {% endif %}
+    {% if docker['OIDC_USER'] != None %}
+      - OIDC_USER={{ docker['OIDC_USER'] }}
+    {% endif %}
+    {% if docker['OIDC_CLIENT_ID'] != None %}
+      - OIDC_CLIENT_ID={{ docker['OIDC_CLIENT_ID'] }}
+    {% endif %}
+    {% if docker['OIDC_CLIENT_SECRET'] != None %}
+      - OIDC_CLIENT_SECRET={{ docker['OIDC_CLIENT_SECRET'] }}
+    {% endif %}
+    {% if docker['OIDC_CALLBACK'] != None %}
+      - OIDC_CALLBACK={{ docker['OIDC_CALLBACK'] }}
+    {% endif %}
+  {% endif %}
+{% endif %}
+    
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=app"
+      - "traefik.port=3000"
+      - "traefik.frontend.rule=Host:{{ deploy['hostname'] }}"
+{% if protocolo == 'http' %}
+      - "traefik.frontend.entryPoints=http"
+{% endif %}
+{% if protocolo == 'https' %}
+      - "traefik.frontend.entryPoints=http,https"
+      - "traefik.frontend.redirect.entryPoint=https"
+{% endif %}
+      - "traefik.docker.network=backend"
+    restart: always
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+    
