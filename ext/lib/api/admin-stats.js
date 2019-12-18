@@ -1,12 +1,12 @@
 const express = require('express')
 const validate = require('lib/api-v2/validate')
 const middlewares = require('lib/api-v2/middlewares')
-var forumMiddlewares = require('lib/middlewares/forum-middlewares')
+var forumMiddlewares = require('lib/backend/middlewares/forum-middlewares')
 var privileges = require('lib/privileges/forum')
 
 const api = require('lib/api-v2/db-api')
 var apiv1 = require('lib/db-api')
-var utils = require('lib/utils')
+var utils = require('lib/backend/utils')
 var expose = utils.expose
 var restrict = utils.restrict
 

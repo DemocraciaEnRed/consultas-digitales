@@ -2,7 +2,7 @@ const debug = require('debug')
 const log = debug('democracyos:ext:api:text')
 
 const express = require('express')
-var utils = require('lib/utils')
+var utils = require('lib/backend/utils')
 var restrict = utils.restrict
 var maintenance = utils.maintenance
 

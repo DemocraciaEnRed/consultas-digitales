@@ -1,7 +1,7 @@
 const debug = require('debug')
 const config = require('lib/config')
 const server = require('lib/server')
-const checkNodeVersion = require('lib/check-node-version')
+const checkNodeVersion = require('lib/backend/check-node-version')
 const migrations = require('lib/migrations')
 const models = require('lib/models')()
 

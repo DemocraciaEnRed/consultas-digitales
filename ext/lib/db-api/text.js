@@ -1,7 +1,7 @@
 const debug = require('debug')
 const log = debug('democracyos:ext:db-api:text')
 
-const utils = require('lib/utils')
+const utils = require('lib/backend/utils')
 const pluck = utils.pluck
 
 // para esto hay que agregar el modelo a dos-overrides! (y rebuildear)
