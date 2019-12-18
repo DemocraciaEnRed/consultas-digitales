@@ -4,93 +4,22 @@
 
 La forma más fácil de correr Consultas Digitales es con **Docker** y **Docker compose**. Se probó exitósamente con las versiones **19.03.5** y **1.24.0** de las mismas, sobre un **Ubuntu 18.04**. Si quiere instalar localmente, sin Docker, puede ver el apartado [Instalación directa](#instalación-directa).
 
-Una vez que verifique que cuenta con estas dependencias, haga un _fork_ de este repositorio y clónelo localmente.
-
 ### Variables de entorno
 
 En primer lugar debemos adecuar el `docker-compose.yml`
 
 La aplicación utiliza las imagenes de **Node 6** y **Mongo 3.2**
 
-Es preferente trabajar en el entorno de desarrollo utilizando Docker Compose donde definimos las variables de entorno y los servicios con la que la aplicación trabaja.
-
-En el repositorio encontrará la siguiente plantilla en `docker-compose.yml.example`. Pase este contenido a `docker-compose.yml` y utilice la plantilla como base. Opcionalmente puede crear un `docker-compose.override.yml` en su copia local del proyecto; este archivo será tomado automáticamente por el comando `docker-compose` (`docker-compose.yml` no será leído), y no molestará a git ya que se encuentra ignorado (en `.gitignore`).
-
-La plantilla es la siguiente:
-
-```yaml
-version: '3'
-
-services:
-  app:
-    container_name: miconsultapublica
-    build: .
-    command: ["./node_modules/.bin/gulp", "bws"]
-    environment:
-      - NODE_ENV=development
-      - DEBUG=democracyos*
-      - MONGO_URL=mongodb://mongo/mi-consultapublica
-      # Importante: Defina el "Staff" de administradores para que en su registro el sistema le de privilegios de admin
-      # Para un solo admin:
-      # - STAFF=hola@miemail.com
-      # Para varios admins:
-      # - STAFF=hola@miemail.com,usuario@otroemail.com,otrousuario@nuevoemail.com
-      - STAFF=hola@miemail.com
-      # Logos
-      - LOGO=/ext/lib/site/home-multiforum/logo-header.svg
-      - LOGO_MOBILE=/ext/lib/site/home-multiforum/logo-header.svg
-      # Organizacion
-      - ORGANIZATION_EMAIL=miconsultapublica@midominio.com.ar
-      - ORGANIZATION_NAME="Mi Consulta Pública"
-      # Social media y email settings
-      - SOCIALSHARE_SITE_NAME="Mi Consulta Pública"
-      - SOCIALSHARE_SITE_DESCRIPTION="Plataforma de participación ciudadana"
-      - SOCIALSHARE_IMAGE=https://urlexterno.com/mi-imagen-externa.png #Cambiar
-      - SOCIALSHARE_DOMAIN=miconsultapublica.midominio.com #Cambiar
-      - SOCIALSHARE_TWITTER_USERNAME=@miConsultaPublica #Cambiar
-      - TWEET_TEXT="Estoy tratando de mejorar esta propuesta “{topic.mediaTitle}” ¡Participá vos también!"
-      # Configuracion del mailer
-      - NOTIFICATIONS_MAILER_EMAIL=miconsultapublica@midominio.com
-      - NOTIFICATIONS_MAILER_NAME="Mi consulta pública"
-      - NOTIFICATIONS_NODEMAILER={"host:"xxxxx.smtp.com","port":465,"secure":true,"auth":{"user":"xxxxxxxx","pass":"xxxxxxx"}} #Cambiar
-      # El mail del que recibe los pedidos de verificación de cuentas
-      - VERIFY_USER_REQUEST_EMAIL=unmail@correo.com
-      # Requerido: Genere un token para JWT
-      - JWT_SECRET= #Cambiar
-      - LOCALE=es
-      - ENFORCE_LOCALE=true
-    links:
-      - mongo 
-    ports:
-      - 3000:3000
-    volumes:
-      - ./ext/lib:/usr/src/ext/lib
-      - ./public:/usr/src/public
-    tty: true
-
-  mongo:
-    container_name: miconsultapublica-mongo
-    image: mongo:3.2
-    ports:
-      - 27017:27017
-    volumes:
-      - ./tmp/db:/data/db
-      
-#  mailserver:
-#    image: namshi/smtp
-#    environment:
-#      - GMAIL_USER=mi-usuario@gmail.com
-#      - GMAIL_PASSWORD=mi-contraseña-que-no-debo-publicar
-```
+En el repositorio encontrará la plantilla [`docker-compose.example.yml`](../docker-compose.example.yml). Copie la plantilla con el nombre `docker-compose.override.yml` en su copia local del proyecto; este archivo será tomado automáticamente por el comando `docker-compose` (`docker-compose.yml` no será leído), y no molestará a git ya que se encuentra ignorado (en `.gitignore`).
 
 ##### Notas
-* Es muy importante que en `STAFF` agregues el email del admin o el de los administradores.
-* Por defecto, tal com esta en el docker-compose, está en el puerto 3000. Puede cambiar el puerto el cual se expone la aplicación (Ej: `3000:9999`)
+* Es muy importante que en `STAFF` agregues el email del admin o el de los administradores. Puede hacerlo incluso antes de haber creado las respectivas cuentas en la plataforma.
 * Podés comentar las variables `NOTIFICATION_*` si todavía no tenés un servidor de correo definido.
-* Si se prefiere conectar a una base de datos local, fuera del entorno, vea el apartado [Conectar a una base de datos mongo local](#local-mongo)
 * Podés configurar DemocracyOS con cualquiera de las variables de entorno listadas acá: http://docs.democracyos.org/configuration.html
+* Por defecto la aplicación se monta en el puerto 3000. Puede cambiar este puerto editando el número de la derecha bajo la llave `ports` (p. ej.: `3000:9999`)
+* Si se prefiere conectar a una base de datos local, fuera del entorno, vea el apartado [Conectar a una base de datos mongo local](#local-mongo)
 * El puerto `27017` está expuesto para que puedas administrar la base de datos con algún cliente de MongoDB, por ejemplo con [Robomongo](https://robomongo.org/).
-* Todas las vistas personalizadas para Consultas Digitales se encuentran en [`/ext`](ext). Siguiendo el mismo patrón de carpetas que [DemocracyOS/democracyos](https://github.com/DemocracyOS/democracyos).
+* Hay muchas vistas personalizadas de Consultas Digitales que se encuentran en [`/ext`](ext). Siguiendo el mismo patrón de carpetas que [DemocracyOS/democracyos](https://github.com/DemocracyOS/democracyos).
 * Las variables de entorno se traducen a variables en código siguiendo la serialización descripta en [DemocracyOS/config](https://github.com/DemocracyOS/config#environment-variables).
 
 
