@@ -1,42 +1,35 @@
 # Extendiendo la plataforma
 
-Al ser una "extension" de DemocracyOS, mucho del código viene por el lado de esta plataforma base. Para eso, es muy recomendable tener el codigo fuente de DemocracyOS a mano para poder ver cómo funcionan partes del código de su interes y entender el flujo de datos a la perfección.
+En un principio Consultas Digirales era una "extensión" de DemocracyOS (DOS a partir de ahora). Por eso, mucho de su código quedó en la carpeta `ext`. Posteriormente se decidió volver al código fuente de DOS dado que este mecanismo del `ext` molestaba más de lo que ayudaba en el desarrollo. Si bien el repositorio se encuentra en estado de migración, para abandonar el `ext`, todavía hay muchas cosas que quedaron en `ext`.
 
-Esta extension agrega otros API endpoints y vistas que complementan a DemocracyOS y permiten la correcta operacion de la plataforma.
+Esta dinámica suponía que no se toque en absoluto el código fuente de DOS y se haga todo mediante "extensión". Un uso aplicado se puede ver, p. ej., en [ext/lib/site/boot/overrides.js](../ext/lib/site/boot/overrides.js) donde se hace una pisada de muchos componentes originales de DOS.
 
-Supuestamente todo lo que usted debe modificar (si es necesario) existira bajo la carpeta `/ext`
+Como dijimos, esta práctica fue abandonada y ahora se recomienda editar el código fuente de DOS directamente.
 
-En última instancia, de ser necesario, puede agregar una copia de los archivos originales de DemocracyOS modificados a su antojo en la carpeta `dos-overrides`, respetando la estructura de directorios original. Estos archivos pisarán a los de DemocracyOS bajo la carpeta `lib`. Esta es la forma más directa (y peligrosa) de "editar" el código fuente base de DemocracyOS. Por ejemplo, si quiere editar el archivo original ubicado en `lib/models/comment.js`, tendría que copiar el original a `dos-overrides/models/comment.js` y modificarlo como usted quiera.
-
----
+## Estructura de carpetas
 
 Siguiendo la estructura de DemocracyOS, se tiene:
 
-* Todo lo que sea el sitio web, bajo `/ext/site`
-* Todo lo que sea el panel de admin, bajo `/ext/admin`
-* Nuevas api endpoints *pueden* llegar a convivir en `/ext/api`
-* Nuevas interfaces con la base de dato *pueden* llegar a convivir en `/ext/db-api`
+* Todo lo que sea el sitio web, bajo `/site`
+* Todo lo que sea el panel de configuración, bajo `/settings`
+* Todo lo que sea el panel de admin de una comunidad/forum, bajo `/admin`
+* Web API endpoints en `/api`
+* Interfaces con la base de dato en `/db-api`
 
-**NOTA:** Recomendamos tener mucho cuidado en la implementacion de funcionalidades complejas que impliquen el backend. Probablemente el interes se encuentre en la personalizacion del sitio web.
+(y en `ext/<esas_carpetas>` lo mismo)
 
-#### Dependencias
-- ExpressJS
+## Dependencias principales
 - Mongoose
+- ExpressJS
 - React
-- Style (css)
+- [Stylus](http://stylus-lang.com/) (.styl)
+- [Jade](http://jade-lang.com/) (.jade)
 
-#### Algunas consideraciones:
+## Buildeos y watchs
 
-- Si el servicio está levantado, el sitio puede buidearse on-demand debido al watch. O sea, todo cambio que haga en `/ext/site` tiene un watcher que mira cambios. No tiene hot-reload, debe recargar la pagina en cada cambio.
-- A igual que el punto anterior, tambien todo CSS se buildea y cuenta con un watcher. Es necesario tambien recargar la pagina.
-- Si hace cambios en la API, debe detener el servicio (`Ctrl + C`) y volver a levantarlo. No cuenta con un watcher para buildear el codigo.
-- Mucho del código css se encuentra en archivos `.styl` que son de [Stylus](http://stylus-lang.com/)
-- Algunos códigos viejos html, con extensión `.jade`, están hechos con el motor de templates [Jade](http://jade-lang.com/)
----
-
-Todo lo que necesita para adaptar su plataforma es modificar textos o imagenes bajo la carpeta `/ext/site`.
-
-A continuacion damos un listado importantes 
+- Si el servicio está levantado, el sitio puede buidearse on-demand debido al watch. O sea, todo cambio que haga en `/site` tiene un watcher que mira cambios. No tiene hot-reload, debe recargar la pagina en cada cambio.
+- A igual que el punto anterior, tambien todo CSS se buildea y cuenta con un watcher. Es necesario tambien recargar (sin cache) la página.
+- Si hace cambios en la API, debe matar el servicio (`Ctrl + C + C`) y volver a levantarlo. No cuenta con un watcher para buildear el codigo.
 
 ## Imagenes para cambiar
 
@@ -64,7 +57,25 @@ docker exec -it <containername> bash
 
 El bash abre en `/usr/src` y ahi se encontraria el codigo de todo DemocracyOS y la carpeta ext que es de este repositorio.
 
-## Vistas
+## Assets
+
+Cada carpeta dentro de `/ext/lib/site` cuenta con las vistas y cada una de ellas puede contar con una carpeta `assets` del cual el componente puede referenciar a esta carpeta.
+
+Cuando se realiza el build, la estructura de carpetas se mantiene. O sea, si tengo un asset en `/ext/lib/site/home-multiforum/assets/logo-header.svg` entonces en la URL lo tendre en `http://localhost:3000/ext/lib/site/home-multiforum/logo-header.svg`
+
+Note que en el codigo del componente de home-multiforum se referencia usando `url()` o si es un tag `<img>` con `src=` se hace asi:
+
+```
+<img
+  src="/ext/lib/site/home-multiforum/logo-header.svg"
+  alt="Logo"
+  width="270px"
+/>
+```
+
+---
+## Documentación vieja del `ext`
+### Vistas
 
 Para overraidear vistas lo mejor es partir de la implementacion de DemocracyOS (entrando a su bash) y hacer su copia en la carpeta `/ext/lib` 
 
@@ -96,20 +107,4 @@ HomeMultiForum.default = HomeMultiForumExt
 TopicLayout.default = TopicLayoutExt
 Help.default = HelpExt
 SignIn.default = SignInExt
-```
-
-## Assets
-
-Cada carpeta dentro de `/ext/lib/site` cuenta con las vistas y cada una de ellas puede contar con una carpeta `assets` del cual el componente puede referenciar a esta carpeta.
-
-Cuando se realiza el build, la estructura de carpetas se mantiene. O sea, si tengo un asset en `/ext/lib/site/home-multiforum/assets/logo-header.svg` entonces en la URL lo tendre en `http://localhost:3000/ext/lib/site/home-multiforum/logo-header.svg`
-
-Note que en el codigo del componente de home-multiforum se referencia usando `url()` o si es un tag `<img>` con `src=` se hace asi:
-
-```
-<img
-  src="/ext/lib/site/home-multiforum/logo-header.svg"
-  alt="Logo"
-  width="270px"
-/>
 ```
