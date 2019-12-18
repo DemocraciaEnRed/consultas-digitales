@@ -10,14 +10,14 @@ En primer lugar debemos adecuar el `docker-compose.yml`
 
 La aplicación utiliza las imagenes de **Node 6** y **Mongo 3.2**
 
-En el repositorio encontrará la plantilla [`docker-compose.example.yml`](../docker-compose.example.yml). Copie la plantilla con el nombre `docker-compose.override.yml` en su copia local del proyecto; este archivo será tomado automáticamente por el comando `docker-compose` (`docker-compose.yml` no será leído), y no molestará a git ya que se encuentra ignorado (en `.gitignore`).
+En el repositorio encontrará la plantilla [`docker-compose.example.yml`](../docker-compose.example.yml). Copie la plantilla a un nuevo archivo con el nombre `docker-compose.override.yml` en su copia local del proyecto; este archivo será tomado automáticamente por el comando `docker-compose` (`docker-compose.yml` no será leído), y no molestará a git ya que se encuentra ignorado (en `.gitignore`).
 
 ##### Notas
 * Es muy importante que en `STAFF` agregues el email del admin o el de los administradores. Puede hacerlo incluso antes de haber creado las respectivas cuentas en la plataforma.
 * Podés comentar las variables `NOTIFICATION_*` si todavía no tenés un servidor de correo definido.
 * Podés configurar DemocracyOS con cualquiera de las variables de entorno listadas acá: http://docs.democracyos.org/configuration.html
 * Por defecto la aplicación se monta en el puerto 3000. Puede cambiar este puerto editando el número de la derecha bajo la llave `ports` (p. ej.: `3000:9999`)
-* Si se prefiere conectar a una base de datos local, fuera del entorno, vea el apartado [Conectar a una base de datos mongo local](#local-mongo)
+* Si se prefiere conectar a una base de datos local, fuera del entorno, vea el apartado [Conectar a una base de datos mongo local](#conectar-a-una-base-de-dato-mongo-local)
 * El puerto `27017` está expuesto para que puedas administrar la base de datos con algún cliente de MongoDB, por ejemplo con [Robomongo](https://robomongo.org/).
 * Hay muchas vistas personalizadas de Consultas Digitales que se encuentran en [`/ext`](ext). Siguiendo el mismo patrón de carpetas que [DemocracyOS/democracyos](https://github.com/DemocracyOS/democracyos).
 * Las variables de entorno se traducen a variables en código siguiendo la serialización descripta en [DemocracyOS/config](https://github.com/DemocracyOS/config#environment-variables).
