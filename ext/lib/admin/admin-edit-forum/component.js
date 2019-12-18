@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import t from 't-component'
 import forumStore from 'lib/stores/forum-store/forum-store'
-import Richtext from 'lib/richtext/richtext'
+import Richtext from 'lib/frontend/richtext/richtext'
 import request from 'lib/backend/request/request'
 import 'whatwg-fetch'
 
