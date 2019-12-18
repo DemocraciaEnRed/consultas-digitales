@@ -5,7 +5,7 @@ const utils = require('lib/backend/utils')
 const pluck = utils.pluck
 const expose = utils.expose
 const config = require('lib/config')
-const urlBuilder = require('lib/url-builder')
+const urlBuilder = require('lib/backend/url-builder')
 
 const log = debug('democracyos:db-api:user')
 

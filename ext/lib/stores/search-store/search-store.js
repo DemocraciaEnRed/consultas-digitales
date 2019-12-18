@@ -1,6 +1,6 @@
-import request from 'lib/request/request'
+import request from 'lib/backend/request/request'
 import Store from 'lib/stores/store/store'
-import urlBuilder from 'lib/url-builder'
+import urlBuilder from 'lib/backend/url-builder'
 
 class SearchStore extends Store {
   constructor () {

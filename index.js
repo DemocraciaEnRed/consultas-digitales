@@ -1,8 +1,8 @@
 const debug = require('debug')
 const config = require('lib/config')
-const server = require('lib/server')
+const server = require('lib/backend/server')
 const checkNodeVersion = require('lib/backend/check-node-version')
-const migrations = require('lib/migrations')
+const migrations = require('lib/backend/migrations')
 const models = require('lib/models')()
 
 const log = debug('democracyos:root')

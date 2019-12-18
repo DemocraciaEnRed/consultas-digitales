@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import t from 't-component'
 import 'whatwg-fetch'
-import urlBuilder from 'lib/url-builder'
+import urlBuilder from 'lib/backend/url-builder'
 import userConnector from 'lib/site/connectors/user'
 
 class CommentContainer extends Component {

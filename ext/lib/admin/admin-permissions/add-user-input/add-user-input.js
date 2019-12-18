@@ -2,9 +2,9 @@
 // tome el userStore nuestro y no el de DoS
 
 import debounce from 'mout/function/debounce'
-import view from 'lib/view/mixin'
+import view from 'lib/backend/view/mixin'
 import userStore from 'ext/lib/stores/user-store/user-store'
-import { domRender } from 'lib/render/render'
+import { domRender } from 'lib/backend/render/render'
 import { DropdownInput } from 'lib/admin/admin-permissions/add-user-input/dropdown/dropdown'
 import template from 'lib/admin/admin-permissions/add-user-input/template.jade'
 import itemTemplate from 'lib/admin/admin-permissions/add-user-input/dropdown-item.jade'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import bus from 'bus'
 import t from 't-component'
-import urlBuilder from 'lib/url-builder'
+import urlBuilder from 'lib/backend/url-builder'
 import userConnector from 'lib/site/connectors/user'
 import Content from 'lib/site/topic-layout/topic-article/content/component'
 import Footer from 'lib/site/topic-layout/topic-article/footer/component'

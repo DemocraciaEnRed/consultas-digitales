@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import urlBuilder from 'lib/url-builder'
+import urlBuilder from 'lib/backend/url-builder'
 
 export default ({ forum }) => (
   <div className='forum-card'>

@@ -2,7 +2,7 @@ const express = require('express')
 const validate = require('lib/api-v2/validate')
 const middlewares = require('lib/api-v2/middlewares')
 var forumMiddlewares = require('lib/backend/middlewares/forum-middlewares')
-var privileges = require('lib/privileges/forum')
+var privileges = require('lib/backend/privileges/forum')
 
 const api = require('lib/api-v2/db-api')
 var apiv1 = require('lib/db-api')

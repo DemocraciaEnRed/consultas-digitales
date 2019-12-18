@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import t from 't-component'
 import 'whatwg-fetch'
-import urlBuilder from 'lib/url-builder'
+import urlBuilder from 'lib/backend/url-builder'
 import CommentContainer from './comment-container'
 import ActionContainer from './action-container'
 

@@ -4,7 +4,7 @@ const express = require('express')
 
 const validate = require('lib/api-v2/validate')
 const middlewares = require('lib/api-v2/middlewares')
-var privileges = require('lib/privileges/forum')
+var privileges = require('lib/backend/privileges/forum')
 var utils = require('lib/backend/utils')
 var expose = utils.expose
 var restrict = utils.restrict
