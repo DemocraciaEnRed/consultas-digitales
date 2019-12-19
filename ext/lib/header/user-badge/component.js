@@ -1,4 +1,4 @@
-import { UserBadge } from 'lib/header/user-badge/component'
+import { UserBadge } from 'lib/frontend/header/user-badge/component'
 
 UserBadge.links = [
   { label: 'Acerca de este Sitio', path: '/ayuda/acerca' }

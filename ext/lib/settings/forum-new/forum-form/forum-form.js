@@ -3,7 +3,7 @@ import t from 't-component'
 import page from 'page'
 import Richtext from 'lib/frontend/richtext/richtext'
 import config from 'lib/config/config.js'
-import FormView from 'lib/form-view/form-view.js'
+import FormView from 'lib/frontend/form-view/form-view.js'
 import ForumUnique from '../forum-unique/forum-unique.js'
 import template from './template.jade'
 

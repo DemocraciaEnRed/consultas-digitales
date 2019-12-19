@@ -1,5 +1,5 @@
 import 'ext/lib/header/user-badge/component'
-import * as Header from 'lib/header/component'
+import * as Header from 'lib/frontend/header/component'
 import * as HeaderOverride from 'ext/lib/header/component'
 
 import * as TopicForm from 'lib/admin/admin-topics-form/view'

@@ -12,7 +12,7 @@ import tagsInput from 'tags-input'
 import { dom as render } from 'lib/frontend/render/render'
 import Richtext from 'lib/frontend/richtext/richtext'
 import urlBuilder from 'lib/backend/url-builder'
-import FormView from 'lib/form-view/form-view'
+import FormView from 'lib/frontend/form-view/form-view'
 import topicStore from 'lib/stores/topic-store/topic-store'
 
 import * as serializer from 'lib/admin/admin-topics-form/body-serializer'
