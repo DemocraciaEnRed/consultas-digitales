@@ -1,7 +1,7 @@
-require('lib/models')()
+require('lib/backend/models')()
 
-const User = require('lib/models').User
-const dbReady = require('lib/models').ready
+const User = require('lib/backend/models').User
+const dbReady = require('lib/backend/models').ready
 
 const mapPromises = (fn) => (array) => Promise.all(array.map(fn))
 

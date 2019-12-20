@@ -1,6 +1,6 @@
 const debug = require('debug')
 const escapeStringRegexp = require('escape-string-regexp')
-const User = require('lib/models').User
+const User = require('lib/backend/models').User
 const utils = require('lib/backend/utils')
 const pluck = utils.pluck
 const expose = utils.expose

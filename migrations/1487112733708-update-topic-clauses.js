@@ -1,10 +1,10 @@
 const jsdom = require('jsdom').jsdom
 
-require('lib/models')()
+require('lib/backend/models')()
 
-const Topic = require('lib/models').Topic
-const Comment = require('lib/models').Comment
-const dbReady = require('lib/models').ready
+const Topic = require('lib/backend/models').Topic
+const Comment = require('lib/backend/models').Comment
+const dbReady = require('lib/backend/models').ready
 
 const mapPromises = (fn) => (array) => Promise.all(array.map(fn))
 

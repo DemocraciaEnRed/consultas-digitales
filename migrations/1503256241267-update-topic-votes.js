@@ -1,8 +1,8 @@
-require('lib/models')()
+require('lib/backend/models')()
 const ObjectID = require('mongodb').ObjectID
-const Topic = require('lib/models').Topic
-const Vote = require('lib/models').Vote
-const dbReady = require('lib/models').ready
+const Topic = require('lib/backend/models').Topic
+const Vote = require('lib/backend/models').Vote
+const dbReady = require('lib/backend/models').ready
 const calcResult = require('lib/api-v2/db-api/topics/utils').calcResult
 
 const mapPromises = (fn) => (array) => Promise.all(array.map(fn))

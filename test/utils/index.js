@@ -2,9 +2,9 @@ var log = require('debug')('democracyos:test:utils')
 var mongoose = require('mongoose')
 
 // This requires an active Mongoose connection to work
-require('lib/models')(mongoose.connection)
-var User = require('lib/models').User
-var Forum = require('lib/models').Forum
+require('lib/backend/models')(mongoose.connection)
+var User = require('lib/backend/models').User
+var Forum = require('lib/backend/models').Forum
 
 function createUser (user) {
   return new Promise(function (resolve, reject) {

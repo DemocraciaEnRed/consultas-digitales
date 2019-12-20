@@ -1,9 +1,9 @@
-require('lib/models')()
+require('lib/backend/models')()
 
-const Topic = require('lib/models').Topic
-const Forum = require('lib/models').Forum
-const User = require('lib/models').User
-const modelsReady = require('lib/models').ready
+const Topic = require('lib/backend/models').Topic
+const Forum = require('lib/backend/models').Forum
+const User = require('lib/backend/models').User
+const modelsReady = require('lib/backend/models').ready
 const mapPromises = (fn) => (array) => Promise.all(array.map(fn))
 const config = require('lib/config')
 

@@ -3,7 +3,7 @@ const config = require('lib/config')
 const server = require('lib/backend/server')
 const checkNodeVersion = require('lib/backend/check-node-version')
 const migrations = require('lib/backend/migrations')
-const models = require('lib/models')()
+const models = require('lib/backend/models')()
 
 const log = debug('democracyos:root')
 

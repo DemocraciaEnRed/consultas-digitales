@@ -1,8 +1,8 @@
 const express = require('express')
 const debug = require('debug')
 const log = debug('democracyos:ext:api:search')
-const models = require('lib/models')
-const api = require('../db-api')
+const models = require('lib/backend/models')
+const api = require('ext/lib/db-api')
 
 const Topic = models.Topic
 const Forum = models.Forum

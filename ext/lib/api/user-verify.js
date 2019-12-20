@@ -9,11 +9,11 @@ var utils = require('lib/backend/utils')
 var expose = utils.expose
 var restrict = utils.restrict
 var pluck = utils.pluck
-var models = require('lib/models')
+var models = require('lib/backend/models')
 var User = models.User
 
-const dbApi = require('../db-api')
-const dbApiOriginal = require('lib/db-api')
+const dbApi = require('ext/lib/db-api')
+const dbApiOriginal = require('lib/backend/db-api')
 
 const app = module.exports = express.Router()
 

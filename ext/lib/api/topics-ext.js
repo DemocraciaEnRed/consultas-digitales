@@ -90,7 +90,7 @@ function postTopics (req, res, next) {
   
   log('Creating new topic/llamado')
 
-  // en ext/lib/db-api/index.js agregamos la key "extra" a las expose/updateables
+  // en ext/lib/backend/db-api/index.js agregamos la key "extra" a las expose/updateables
   dbApi.topics.create({
     user: req.user,
     forum: req.forum
@@ -121,7 +121,7 @@ function putTopics (req, res, next) {
   
   log('Updating existing topic/llamado')
   
-  // en ext/lib/db-api/index.js agregamos la key "extra" a las expose/updateables
+  // en ext/lib/backend/db-api/index.js agregamos la key "extra" a las expose/updateables
   dbApi.topics.edit({
     id: req.params.id,
     user: req.user,

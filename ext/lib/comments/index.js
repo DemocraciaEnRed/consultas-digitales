@@ -5,7 +5,7 @@ const config = require('lib/config')
 const urlBuilder = require('lib/backend/url-builder')
 const middlewares = require('lib/api-v2/middlewares')
 const api = require('lib/api-v2/db-api')
-const User = require('lib/models').User
+const User = require('lib/backend/models').User
 
 const app = module.exports = express()
 

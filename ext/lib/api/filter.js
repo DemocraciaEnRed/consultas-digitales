@@ -1,7 +1,7 @@
 const express = require('express')
 const debug = require('debug')
 const log = debug('democracyos:ext:api:filters')
-const api = require('../db-api')
+const api = require('ext/lib/db-api')
 
 const app = module.exports = express()
 

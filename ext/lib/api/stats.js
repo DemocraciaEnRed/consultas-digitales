@@ -5,13 +5,13 @@ const express = require('express')
 // var privileges = require('lib/backend/privileges/forum')
 
 // const api = require('lib/api-v2/db-api')
-// var apiv1 = require('lib/db-api')
+// var apiv1 = require('lib/backend/db-api')
 // var utils = require('lib/backend/utils')
 // var expose = utils.expose
 // var restrict = utils.restrict
 var utils = require('lib/backend/utils')
 
-var models = require('lib/models')
+var models = require('lib/backend/models')
 var Forum = models.Forum
 var Topic = models.Topic
 var Comment = models.Comment

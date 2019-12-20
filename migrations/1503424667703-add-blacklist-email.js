@@ -1,8 +1,8 @@
 'use strict'
-const Topic = require('lib/models').Topic
-const User = require('lib/models').User
-const Vote = require('lib/models').Vote
-const dbReady = require('lib/models').ready
+const Topic = require('lib/backend/models').Topic
+const User = require('lib/backend/models').User
+const Vote = require('lib/backend/models').Vote
+const dbReady = require('lib/backend/models').ready
 const config = require('lib/config')
 const calcResult = require('lib/api-v2/db-api/topics/utils').calcResult
 

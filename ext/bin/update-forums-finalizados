@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const models = require('lib/models')()
+const models = require('lib/backend/models')()
 
 const Forum = models.Forum
 const Topic = models.Topic

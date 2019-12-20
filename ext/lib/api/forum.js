@@ -7,7 +7,7 @@ const middlewares = require('lib/api-v2/middlewares')
 const { expose } = require('lib/backend/utils')
 const { canCreateForum } = require('lib/backend/middlewares/forum-middlewares')
 
-const api = require('../db-api')
+const api = require('ext/lib/db-api')
 const apiV2 = require('lib/api-v2/db-api')
 
 const log = debug('democracyos:ext:api:create-forum')

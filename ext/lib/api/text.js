@@ -6,7 +6,7 @@ var utils = require('lib/backend/utils')
 var restrict = utils.restrict
 var maintenance = utils.maintenance
 
-const dbApi = require('../db-api')
+const dbApi = require('ext/lib/db-api')
 
 const app = module.exports = express.Router()
 

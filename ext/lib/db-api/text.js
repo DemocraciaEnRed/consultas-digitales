@@ -5,7 +5,7 @@ const utils = require('lib/backend/utils')
 const pluck = utils.pluck
 
 // para esto hay que agregar el modelo a dos-overrides! (y rebuildear)
-const Text = require('lib/models').Text
+const Text = require('lib/backend/models').Text
 
 exports.all = function all (fn) {
   log('Looking for all texts.')
