@@ -1,5 +1,5 @@
 import Emitter from 'democracyos-emitter'
-import request from 'lib/backend/request/request'
+import request from 'lib/frontend/request/request'
 
 export default class ForumUnique extends Emitter {
   /**
