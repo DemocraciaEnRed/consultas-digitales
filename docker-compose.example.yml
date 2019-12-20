@@ -9,24 +9,25 @@ services:
       - NODE_ENV=development
       - DEBUG=democracyos*
       - MONGO_URL=mongodb://mongo/mi-consultapublica
+      # Requerido: Genere un token para JWT
+      - JWT_SECRET=
       # Importante: Defina el "Staff" de administradores para que en su registro el sistema le de privilegios de admin
-      # Para un solo admin:
-      # - STAFF=hola@miemail.com
       # Para varios admins:
       # - STAFF=hola@miemail.com,usuario@otroemail.com,otrousuario@nuevoemail.com
+      # Para un solo admin:
       - STAFF=hola@miemail.com
-      # Logos
+      # Logo principal
       - LOGO=/ext/lib/site/home-multiforum/logo-header.svg
       - LOGO_MOBILE=/ext/lib/site/home-multiforum/logo-header.svg
-      # Organizacion
-      - ORGANIZATION_EMAIL=miconsultapublica@midominio.com.ar
-      - ORGANIZATION_NAME="Mi Consulta Pública"
+      # Organización
+      - ORGANIZATION_EMAIL=miconsultadigital@midominio.com.ar
+      - ORGANIZATION_NAME="Mi Consulta Digital"
       # Social media y email settings
-      - SOCIALSHARE_SITE_NAME="Mi Consulta Pública"
+      - SOCIALSHARE_SITE_NAME="Mi Consulta Digital"
       - SOCIALSHARE_SITE_DESCRIPTION="Plataforma de participación ciudadana"
-      - SOCIALSHARE_IMAGE=https://urlexterno.com/mi-imagen-externa.png #Cambiar
-      - SOCIALSHARE_DOMAIN=miconsultapublica.midominio.com #Cambiar
-      - SOCIALSHARE_TWITTER_USERNAME=@miConsultaPublica #Cambiar
+      - SOCIALSHARE_IMAGE=https://urlexterno.com/mi-imagen-externa.png
+      - SOCIALSHARE_DOMAIN=miconsultadigital.midominio.com
+      - SOCIALSHARE_TWITTER_USERNAME=@miConsultaDigital
       - TWEET_TEXT="Estoy tratando de mejorar esta propuesta “{topic.mediaTitle}” ¡Participá vos también!"
       # Configuracion del mailer
       - NOTIFICATIONS_MAILER_EMAIL=miconsultapublica@midominio.com
@@ -34,8 +35,8 @@ services:
       - NOTIFICATIONS_NODEMAILER={"host:"xxxxx.smtp.com","port":465,"secure":true,"auth":{"user":"xxxxxxxx","pass":"xxxxxxx"}} #Cambiar
       # El mail del que recibe los pedidos de verificación de cuentas
       - VERIFY_USER_REQUEST_EMAIL=unmail@correo.com
-      # Requerido: Genere un token para JWT
-      - JWT_SECRET= #Cambiar
+      # Estas variable hacen que el español sea el idioma predeterminado;
+      # la segunda es para obligar el idioma (sino lo autodetecta y puede usar otro)
       - LOCALE=es
       - ENFORCE_LOCALE=true
     links:
