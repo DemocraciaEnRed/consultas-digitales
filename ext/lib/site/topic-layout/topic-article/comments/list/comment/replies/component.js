@@ -1,6 +1,6 @@
 import React from 'react'
-import RepliesForm from 'lib/site/topic-layout/topic-article/comments/list/comment/replies/form/component'
-import RepliesList from 'lib/site/topic-layout/topic-article/comments/list/comment/replies/list/component'
+import RepliesForm from 'lib/frontend/site/topic-layout/topic-article/comments/list/comment/replies/form/component'
+import RepliesList from 'lib/frontend/site/topic-layout/topic-article/comments/list/comment/replies/list/component'
 
 export default function CommentReplies (props) {
   if (!props.repliesVisibility) return null

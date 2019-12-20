@@ -1,5 +1,5 @@
 import React from 'react'
-import searchStore from '../../../stores/search-store/search-store'
+import searchStore from 'ext/lib/stores/search-store/search-store'
 
 import SearchBar from './search-bar/component'
 import ResultsSearch from './results-search/component'

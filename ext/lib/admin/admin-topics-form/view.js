@@ -15,12 +15,12 @@ import urlBuilder from 'lib/backend/url-builder'
 import FormView from 'lib/frontend/form-view/form-view'
 import topicStore from 'lib/stores/topic-store/topic-store'
 
-import * as serializer from 'lib/admin/admin-topics-form/body-serializer'
-import template from 'lib/admin/admin-topics-form/template.jade'
+import * as serializer from 'lib/frontend/admin/admin-topics-form/body-serializer'
+import template from 'lib/frontend/admin/admin-topics-form/template.jade'
 import templateLlamado from './template-llamado.jade'
-import linkTemplate from 'lib/admin/admin-topics-form/link.jade'
-import ForumTagsSearch from 'lib/admin/admin-topics-form/tag-autocomplete/component'
-import Attrs from 'lib/admin/admin-topics-form/attrs/component'
+import linkTemplate from 'lib/frontend/admin/admin-topics-form/link.jade'
+import ForumTagsSearch from 'lib/frontend/admin/admin-topics-form/tag-autocomplete/component'
+import Attrs from 'lib/frontend/admin/admin-topics-form/attrs/component'
 
 const log = debug('democracyos:admin-topics-form')
 // triangle up &#9652;

@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import {Link} from 'react-router'
 import t from 't-component'
 import config from 'lib/config'
-import userConnector from 'lib/site/connectors/user'
+import userConnector from 'lib/frontend/site/connectors/user'
 import CommentReplies from './replies/component'
 import CommentHeader from './header/component'
-import CommentFooter from 'lib/site/topic-layout/topic-article/comments/list/comment/footer/component'
-import CommentContent from 'lib/site/topic-layout/topic-article/comments/list/comment/content/component'
+import CommentFooter from 'lib/frontend/site/topic-layout/topic-article/comments/list/comment/footer/component'
+import CommentContent from 'lib/frontend/site/topic-layout/topic-article/comments/list/comment/content/component'
 
 export class Comment extends Component {
   constructor (props) {

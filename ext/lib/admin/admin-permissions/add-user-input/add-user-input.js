@@ -5,9 +5,9 @@ import debounce from 'mout/function/debounce'
 import view from 'lib/frontend/view/mixin'
 import userStore from 'ext/lib/stores/user-store/user-store'
 import { domRender } from 'lib/frontend/render/render'
-import { DropdownInput } from 'lib/admin/admin-permissions/add-user-input/dropdown/dropdown'
-import template from 'lib/admin/admin-permissions/add-user-input/template.jade'
-import itemTemplate from 'lib/admin/admin-permissions/add-user-input/dropdown-item.jade'
+import { DropdownInput } from 'lib/frontend/admin/admin-permissions/add-user-input/dropdown/dropdown'
+import template from 'lib/frontend/admin/admin-permissions/add-user-input/template.jade'
+import itemTemplate from 'lib/frontend/admin/admin-permissions/add-user-input/dropdown-item.jade'
 
 class UserSearchInput extends DropdownInput {
   renderItem (data = {}) {

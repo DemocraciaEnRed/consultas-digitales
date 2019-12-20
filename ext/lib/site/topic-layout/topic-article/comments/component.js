@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import t from 't-component'
-import CommentsForm from 'lib/site/topic-layout/topic-article/comments/form/component'
+import CommentsForm from 'lib/frontend/site/topic-layout/topic-article/comments/form/component'
 import CommentsList from './list/component'
-import CommentsOrderBy from 'lib/site/topic-layout/topic-article/comments/order-by/component'
-import commentsConnector from 'lib/site/topic-layout/topic-article/comments/connector'
+import CommentsOrderBy from 'lib/frontend/site/topic-layout/topic-article/comments/order-by/component'
+import commentsConnector from 'lib/frontend/site/topic-layout/topic-article/comments/connector'
 
 export class Comments extends Component {
   constructor (props) {

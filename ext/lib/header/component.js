@@ -4,7 +4,7 @@ import bus from 'bus'
 import isAbsoluteUrl from 'is-absolute-url'
 import UserBadge from 'lib/frontend/header/user-badge/component'
 import AnonUser from 'lib/frontend/header/anon-user/component'
-import userConnector from 'lib/site/connectors/user'
+import userConnector from 'lib/frontend/site/connectors/user'
 import config from 'lib/config'
 
 class Header extends Component {

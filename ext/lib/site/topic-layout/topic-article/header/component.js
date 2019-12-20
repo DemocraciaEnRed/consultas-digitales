@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import t from 't-component'
 import config from 'lib/config'
-import Timeago from 'lib/site/timeago'
+import Timeago from 'lib/frontend/site/timeago'
 import urlBuilder from 'lib/backend/url-builder'
 import { Link } from 'react-router'
 

@@ -3,7 +3,7 @@ import t from 't-component'
 import { browserHistory, Link } from 'react-router'
 import topicStore from 'lib/stores/topic-store/topic-store'
 import Social from 'ext/lib/site/topic-layout/topic-article/social/component'
-import Timeago from 'lib/site/timeago'
+import Timeago from 'lib/frontend/site/timeago'
 
 export default ({ topic }) => {
   const linkTopic = () => { 

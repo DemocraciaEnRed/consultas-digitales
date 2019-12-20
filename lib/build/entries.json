@@ -1,12 +1,12 @@
 {
   "js": {
-    "admin.js": "./lib/admin/boot/boot.js",
-    "site.js": "./lib/site/boot/boot.js",
-    "settings.js": "./lib/settings/boot/boot.js"
+    "admin.js": "./lib/frontend/admin/boot/boot.js",
+    "site.js": "./lib/frontend/site/boot/boot.js",
+    "settings.js": "./lib/frontend/settings/boot/boot.js"
   },
   "css": {
-    "admin.css": "./lib/admin/boot/boot.styl",
-    "site.css": "./lib/site/boot/boot.styl",
-    "settings.css": "./lib/settings/boot/boot.styl"
+    "admin.css": "./lib/frontend/admin/boot/boot.styl",
+    "site.css": "./lib/frontend/site/boot/boot.styl",
+    "settings.css": "./lib/frontend/settings/boot/boot.styl"
   }
 }

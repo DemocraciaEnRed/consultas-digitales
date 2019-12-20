@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router'
 import t from 't-component'
-import Vote from 'lib/site/topic-layout/topic-article/vote/component'
-import Poll from 'lib/site/topic-layout/topic-article/poll/component'
-import Cause from 'lib/site/topic-layout/topic-article/cause/component'
-import Slider from 'lib/site/topic-layout/topic-article/slider/component'
-import Hierarchy from 'lib/site/topic-layout/topic-article/hierarchy/component'
+import Vote from 'lib/frontend/site/topic-layout/topic-article/vote/component'
+import Poll from 'lib/frontend/site/topic-layout/topic-article/poll/component'
+import Cause from 'lib/frontend/site/topic-layout/topic-article/cause/component'
+import Slider from 'lib/frontend/site/topic-layout/topic-article/slider/component'
+import Hierarchy from 'lib/frontend/site/topic-layout/topic-article/hierarchy/component'
 
 const text = (method) => {
   switch (method) {

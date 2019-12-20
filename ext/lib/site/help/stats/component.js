@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import t from 't-component'
 import Footer from 'ext/lib/site/footer/component'
 import Sidebar from 'ext/lib/site/help/sidebar/component'
-import MarkdownGuide from 'lib/site/help/md-guide/component'
+import MarkdownGuide from 'lib/frontend/site/help/md-guide/component'
 
 export default class Stats extends PureComponent {
   constructor (props) {

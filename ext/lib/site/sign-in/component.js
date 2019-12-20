@@ -3,8 +3,8 @@ import { Link, browserHistory } from 'react-router'
 import t from 't-component'
 import bus from 'bus'
 import config from 'lib/config'
-import FormAsync from 'lib/site/form-async'
-import userConnector from 'lib/site/connectors/user'
+import FormAsync from 'lib/frontend/site/form-async'
+import userConnector from 'lib/frontend/site/connectors/user'
 
 export class SignIn extends Component {
   constructor (props) {
