@@ -26,8 +26,5 @@ results
 ssl
 package-lock.json
 
-run.sh
-rename-lib-backend.sh
-copy-ext.sh
-reqfuncs.sh
-find-backends.sh
+#run.sh, rename-lib-backend.sh, etc.
+*.sh
