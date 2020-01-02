@@ -1,0 +1,6 @@
+- crear venv
+- instalar requirements.txt
+- instalar geckodriver (https://github.com/mozilla/geckodriver) dentro de alguna carpeta del PATH (/usr/bin p.ej.)
+- configurar url, mail y pass de admin, y textos de menús en main.py
+- ejecutar main.py con python3 desde adentro del venv
+- disfrutar!
