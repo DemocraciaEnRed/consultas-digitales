@@ -173,7 +173,7 @@ La plataforma cuenta con diversas formas de buildearse y correr.
 
 Una es con `make`. Esta utiliza el archivo `Makefile` para correr scripts de `npm` como se puede ver en su código. Notar como desde un script se salta a otro (p.ej. de `run` salta a `built` y de `build` a `packages`).
 
-Otra forma es con `gulp`. Este utiliza `gulpfile.js` que simplemente importa el archivo `lib/backend/build/index.js`. Allí, se asignan todos los posibles scripts de `gulp` con el comando `.task(...)`. Siempre que se llame a un script de `gulp` directamente deben suministrar la variable de entorno `NODE_PATH=.` así encuentra los modulos, sino les saldrán errores del tipo `Error: Cannot find module`.
+Otra forma es con `gulp`. Este utiliza `gulpfile.js` que simplemente importa el archivo `lib/build/index.js`. Allí, se asignan todos los posibles scripts de `gulp` con el comando `.task(...)`. Siempre que se llame a un script de `gulp` directamente deben suministrar la variable de entorno `NODE_PATH=.` así encuentra los modulos, sino les saldrán errores del tipo `Error: Cannot find module`.
 
 Finalmente está la forma clásica con scripts de `npm` definidos en el archivo `package.json` bajo la llave `scripts`. Estos, se corren haciendo `npm run <nombre_del_script>`, p. ej. `npm run serve`. Como verán, muchos de estos utilizan `gulp`.
 

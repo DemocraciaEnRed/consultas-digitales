@@ -1,1 +1,1 @@
-require('./lib/backend/build')
+require('./lib/build')
