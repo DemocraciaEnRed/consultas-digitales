@@ -3,7 +3,7 @@ const ObjectID = require('mongodb').ObjectID
 const Topic = require('lib/backend/models').Topic
 const Vote = require('lib/backend/models').Vote
 const dbReady = require('lib/backend/models').ready
-const calcResult = require('lib/api-v2/db-api/topics/utils').calcResult
+const calcResult = require('lib/backend/api-v2/db-api/topics/utils').calcResult
 
 const mapPromises = (fn) => (array) => Promise.all(array.map(fn))
 
