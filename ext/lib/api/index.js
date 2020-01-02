@@ -1,6 +1,6 @@
 const debug = require('debug')
 const express = require('express')
-const validate = require('lib/api-v2/validate')
+const validate = require('lib/backend/api-v2/validate')
 
 const log = debug('democracyos:ext:api')
 

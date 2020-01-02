@@ -4,10 +4,10 @@ const log = debug('democracyos:ext:api:topics-ext')
 const express = require('express')
 const filter = require('mout/object/filter')
 
-const validate = require('lib/api-v2/validate')
-const middlewares = require('lib/api-v2/middlewares')
-const dbApi = require('lib/api-v2/db-api')
-const scopes = require('lib/api-v2/db-api/topics/scopes')
+const validate = require('lib/backend/api-v2/validate')
+const middlewares = require('lib/backend/api-v2/middlewares')
+const dbApi = require('lib/backend/api-v2/db-api')
+const scopes = require('lib/backend/api-v2/db-api/topics/scopes')
 
 const app = module.exports = express.Router()
 
@@ -27,7 +27,7 @@ const updatableKeys = [
   'topicId',
   'extra.problema'
 ]
-// traído de lib/api-v2/middlewares/topics.js para no tener que pisar todo
+// traído de lib/backend/api-v2/middlewares/topics.js para no tener que pisar todo
 function parseUpdateableKeys (req, res, next) {
   const custom = (req.forum.topicsAttrs || []).map((attr) => {
     return `attrs.${attr.name}`

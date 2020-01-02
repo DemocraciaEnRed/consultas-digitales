@@ -2,8 +2,8 @@ const debug = require('debug')
 const log = debug('democracyos:ext:api:user-verify')
 const express = require('express')
 
-const validate = require('lib/api-v2/validate')
-const middlewares = require('lib/api-v2/middlewares')
+const validate = require('lib/backend/api-v2/validate')
+const middlewares = require('lib/backend/api-v2/middlewares')
 var privileges = require('lib/backend/privileges/forum')
 var utils = require('lib/backend/utils')
 var expose = utils.expose
