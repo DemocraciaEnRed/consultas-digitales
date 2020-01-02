@@ -25,12 +25,6 @@ consultas_menu_texts = {
 	'ejes': 'EJES',
 	'categorias': 'CATEGORÍAS',
 }
-# Variables internas
-# este nombre lo vamos a cambiar cuando testeemos el perfil
-last_admin_name = ''
-# url de consulta de prubea
-consulta_test_url = randomString()
-#consulta_test_url = 'test1'
 
 def randomString(stringLength=10):
     """Generate a random string of fixed length """
@@ -39,6 +33,13 @@ def randomString(stringLength=10):
     
 def randomUrl():
     return 'http://' + randomString()  + '.com'
+    
+# Variables internas
+# este nombre lo vamos a cambiar cuando testeemos el perfil
+last_admin_name = ''
+# url de consulta de prubea
+consulta_test_url = randomString()
+#consulta_test_url = 'test1'
     
 driver = webdriver.Firefox()
 
@@ -236,10 +237,24 @@ class Tests:
 		driver.find_element_by_css_selector(".topic-links .topic-link .link-url input").send_keys(randomUrl())
 		driver.find_element_by_css_selector(".commands a.btn.save").click()
 		
+		# ir a eje
 		WebDriverWait(driver, 10).until(
 			EC.presence_of_element_located((By.CSS_SELECTOR, '#topic-wrapper h2 a.btn'))
 		)
 		driver.find_element_by_css_selector('#topic-wrapper h2 a.btn').click()
+		
+		# comentar
+		'''
+		print(driver.window_handles)
+		for handle in driver.window_handles:
+		driver.switch_to_window(driver.window_handles[0])
+			print(handle)
+		WebDriverWait(driver, 10).until(
+			EC.presence_of_element_located((By.CSS_SELECTOR, "#comments-form textarea.comments-create"))
+		)
+		driver.find_element_by_css_selector('#comments-form textarea.comments-create').send_keys(randomString())
+		driver.find_element_by_css_selector('#comments-form button.btn-outline-success').click()
+		'''
 		
 try:
 	Tests.ayuda()
