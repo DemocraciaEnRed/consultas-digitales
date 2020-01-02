@@ -59,7 +59,7 @@ function requestUserVerify(req, res, next) {
     .catch(next)
 })
 
-// Creamos un search aparte para no tener que pisar toda la Web API de user (lib/user/index.js)
+// Creamos un search aparte para no tener que pisar toda la Web API de user (lib/backend/user/index.js)
 // Necesitaba exponer el campo 'extra', y para eso tenía que apuntar al search de nuestra Db API
 app.get('/search', restrict, function (req, res) {
   var q = req.param('q')
