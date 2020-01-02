@@ -11,7 +11,8 @@ from selenium.webdriver.common.keys import Keys
 
 # TODO: verificar usu, distintos contenidos de consultas y acciones en ejes
 main_page = "http://localhost:3000/"
-admin_email = 'tkkksxgc@guerrillamail.info'
+#admin_email = 'tkkksxgc@guerrillamail.info'
+admin_email = 'wencha_@hotmail.com'
 admin_pass = '123123'
 # textos de menús (case-sensitive!)
 ajustes_menu_texts = {
