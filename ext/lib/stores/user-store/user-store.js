@@ -1,5 +1,5 @@
 import request from 'lib/frontend/request/request'
-import Store from 'lib/stores/store/store'
+import Store from 'lib/frontend/stores/store/store'
 
 class UserStore extends Store {
   name () {

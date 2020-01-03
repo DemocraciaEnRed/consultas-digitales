@@ -13,7 +13,7 @@ import { dom as render } from 'lib/frontend/render/render'
 import Richtext from 'lib/frontend/richtext/richtext'
 import urlBuilder from 'lib/backend/url-builder'
 import FormView from 'lib/frontend/form-view/form-view'
-import topicStore from 'lib/stores/topic-store/topic-store'
+import topicStore from 'lib/frontend/stores/topic-store/topic-store'
 
 import * as serializer from 'lib/frontend/admin/admin-topics-form/body-serializer'
 import template from 'lib/frontend/admin/admin-topics-form/template.jade'

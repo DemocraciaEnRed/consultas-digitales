@@ -1,7 +1,7 @@
 import React from 'react'
 import t from 't-component'
 import { Link } from 'react-router'
-import topicStore from 'lib/stores/topic-store/topic-store'
+import topicStore from 'lib/frontend/stores/topic-store/topic-store'
 
 export default ({ topic }) => (
   <Link

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Flickity from 'flickity'
-import topicStore from 'lib/stores/topic-store/topic-store'
+import topicStore from 'lib/frontend/stores/topic-store/topic-store'
 import TopicCard from './topic-card/component'
 
 export default class Carrusel extends Component {
