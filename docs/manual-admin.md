@@ -1,8 +1,8 @@
 # Manual instructivo para administradores
 
 * Introducción 
-* ¿Qué es [Consultas Digitales](https://consultapublica.democraciaenred.org/)?
-* ¿Qué es [Consultas Digitales](https://consultapublica.democraciaenred.org) distribuible?
+* ¿Qué es [Consultas Digitales](https://consultasdigitales.democraciaenred.org/)?
+* ¿Qué es [Consultas Digitales](https://consultasdigitales.democraciaenred.org) distribuible?
 * ¿Cómo hago para implementar una versión de Consultas Digitales?
 * ¿Cómo está estructurada la plataforma?
 * ¿Para qué sirven los ejes?
@@ -14,13 +14,13 @@
 
 ## Introducción 
 Este **manual instructivo** está destinado a los administradores de organismos que implementen una versión de la plataforma Consultas Digitales.
-## ¿Qué es [Consultas Digitales](https://consultapublica.democraciaenred.org/)?
+## ¿Qué es [Consultas Digitales](https://consultasdigitales.democraciaenred.org/)?
 Consultas Digitales es un canal de diálogo online y debate que permite la interacción entre el gobierno y la consulta, promueve la participación ciudadana y ayuda a fortalecer la democracia.
 
 En Consultas Digitales se abren temas e iniciativas a la ciudadanía, para posibilitar la participación a través de comentarios y opiniones con el objetivo de mejorar las políticas implementadas. A esta instancia de participación la llamamos **“Consultas Digitales”.**
 
 En la plataforma se pueden crear múltiples consultas digitales por un plazo determinado sobre las temáticas que se quieran abrir a consideración.
-## ¿Qué es [Consultas Digitales](https://consultapublica.democraciaenred.org) distribuible?
+## ¿Qué es [Consultas Digitales](https://consultasdigitales.democraciaenred.org) distribuible?
 Es una versión de la plataforma Consultas Digitales que tiene por objetivo ser distribuida a distintos organismos subnacionales. Su implementación en estas áreas permite la creación de canal digital de diálogo entre gobierno y ciudadanía.
 
 Esta Plataforma tiene un desarrollo basado en la adaptación del código abierto **DemocracyOS,** diseñada para informar, debatir y votar propuestas públicas hacia la construcción de una democracia adaptada al siglo XXI. Este código fue suministrado por Democracia en Red..

@@ -2,7 +2,6 @@ version: '3'
 
 services:
   app:
-    container_name: miconsultapublica
     build: .
     command: ["./node_modules/.bin/gulp", "bws"]
     environment:
@@ -49,7 +48,6 @@ services:
     tty: true
 
   mongo:
-    container_name: miconsultapublica-mongo
     image: mongo:3.2
     ports:
       - 27017:27017

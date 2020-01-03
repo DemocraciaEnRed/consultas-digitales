@@ -1,6 +1,6 @@
 FROM node:6
 
-MAINTAINER Guido Vilariño <guido@democracyos.org>
+MAINTAINER Democracia en Red <it@democracyos.org>
 
 RUN npm config set python python2.7
 
