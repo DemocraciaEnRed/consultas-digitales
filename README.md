@@ -1,10 +1,10 @@
 # Consultas Digitales
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/DemocraciaEnRed/consultas-digitales/blob/master/LICENSE.md)
 [![GitHub tag](https://img.shields.io/github/tag/DemocraciaEnRed/consultas-digitales.svg)](https://github.com/DemocraciaEnRed/consultas-digitales/tags/)
-[![Website consultasdigitales.democraciaenred.org](https://img.shields.io/website-up-down-green-red/http/consultasdigitales.democraciaenred.org.svg)](https://consultasdigitales.democraciaenred.org/)
 ![](https://github.com/DemocraciaEnRed/consultas-digitales/workflows/Docker%20Image%20CI/badge.svg)
 ![](https://img.shields.io/docker/cloud/automated/democraciaenred/consultas-digitales)
 ![](https://img.shields.io/docker/cloud/build/democraciaenred/consultas-digitales)
+[![Website consultasdigitales.democraciaenred.org](https://img.shields.io/website-up-down-green-red/http/consultasdigitales.democraciaenred.org.svg)](https://consultasdigitales.democraciaenred.org/)
 
 > La Plataforma de **Consulta Digitales** es un desarrollo basado en [DemocracyOS](https://github.com/DemocracyOS/democracyos): una plataforma de código abierto especialmente diseñada para informar, debatir y votar propuestas públicas de forma online hacia la construcción de una democracia adaptada al siglo XXI.
 
