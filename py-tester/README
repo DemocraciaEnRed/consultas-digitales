@@ -4,3 +4,15 @@
 - configurar url, mail y pass de admin, y textos de menús en main.py
 - ejecutar main.py con python3 desde adentro del venv
 - disfrutar!
+
+En comandos:
+- python3 -m venv venv
+- source venv/bin/activate
+- pip install -r requirements.txt
+- sudo apt install geckodriver
+- (editar main.py con editor de prefencia, especialmente el mail y pass del admin)
+- python3 main.py
+
+Si sale el error
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: GESTIÓN DE USUARIOS
+Es porque tienen que agregar el mail del admin al staff
