@@ -10,7 +10,7 @@ En primer lugar debemos adecuar el `docker-compose.yml`
 
 La aplicación utiliza las imagenes de **Node 6** y **Mongo 3.2**
 
-En el repositorio encontrará la plantilla [`docker-compose.example.yml`](../docker-compose.example.yml). Copie la plantilla a un nuevo archivo con el nombre `docker-compose.override.yml` en su copia local del proyecto; este archivo será tomado automáticamente por el comando `docker-compose` (`docker-compose.yml` no será leído), y no molestará a git ya que se encuentra ignorado (en `.gitignore`).
+En el repositorio encontrará la plantilla [`docker-compose.example.yml`](../docker-compose.example.yml). Copie la plantilla a un nuevo archivo con el nombre `docker-compose.override.yml` en su copia local del proyecto; este archivo será tomado automáticamente por el comando `docker-compose` (pisará lo ya definido en `docker-compose.yml`), y no molestará en git ya que se encuentra ignorado (en `.gitignore`).
 
 ##### Notas
 * Es muy importante que en `STAFF` agregues el email del admin o el de los administradores. Puede hacerlo incluso antes de haber creado las respectivas cuentas en la plataforma.
