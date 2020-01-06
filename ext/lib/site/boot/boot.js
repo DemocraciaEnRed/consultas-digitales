@@ -1,4 +1,4 @@
-import 'lib/backend/translations/translations'
+import 'lib/frontend/translations/translations'
 import './overrides'
 
 require('ext/lib/boot/routes')()
