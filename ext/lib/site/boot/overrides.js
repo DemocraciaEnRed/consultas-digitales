@@ -22,7 +22,7 @@ import * as ReplyHeader from 'lib/frontend/site/topic-layout/topic-article/comme
 import ReplyHeaderExt from 'ext/lib/site/topic-layout/topic-article/comments/list/comment/replies/list/header/component'
 
 
-//HomeForum.default = HomeForumExt
+HomeForum.default = HomeForumExt
 HomeMultiForum.default = HomeMultiForumExt
 TopicLayout.default = TopicLayoutExt
 Help.default = HelpExt
