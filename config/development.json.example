@@ -1,0 +1,8 @@
+{
+	"locale": "es",
+	"enforceLocale": true,
+	"multiForum": true,
+	"staff": ["unmail@mail.com"],
+	"logo": "/ext/lib/site/home-multiforum/logo-header.svg",
+	"logoMobile": "/ext/lib/site/home-multiforum/logo-header.svg"
+}
