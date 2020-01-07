@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { browserHistory, Link } from 'react-router'
 import Jump from 'jump.js'
 import userConnector from 'lib/frontend/site/connectors/user'
+import config from 'lib/config'
 import Footer from 'ext/lib/site/footer/component'
 import forumStore from 'ext/lib/stores/forum-store/forum-store'
 import ForumContainer from './forum-container/component'
@@ -113,7 +114,7 @@ class HomeMultiForum extends Component {
         </section>
         <div className='lead-paragraph'>
           <p>
-            <span className="skyblue">Consultas Digitales</span> es un canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad,
+            <span className="skyblue">{config.organizationName}</span> es un canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad,
             <br />
             promueve la participación ciudadana y ayuda a fortalecer la democracia.
           </p>

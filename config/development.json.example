@@ -3,7 +3,8 @@
 	"enforceLocale": true,
 	"multiForum": true,
 	"staff": ["unmail@mail.com"],
-	"nombrePlataforma": "Mi Consulta Digital",
+    "verifyUserRequestEmail": "unmail@mail.com",
+	"organizationName": "Mi Consulta Digital",
 	"logo": "/ext/lib/site/home-multiforum/logo-header.svg",
 	"logoMobile": "/ext/lib/site/home-multiforum/logo-header.svg"
 }

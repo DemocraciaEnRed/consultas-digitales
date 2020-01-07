@@ -232,10 +232,9 @@ exports.expose.ordinary.keys = [
 
 exports.requestVerify = function requestVerify (id, fn) {
   log('Requesting verify for User %s', id)
-  const { VERIFY_USER_REQUEST_EMAIL } = process.env
-
-  if (!VERIFY_USER_REQUEST_EMAIL){
-    log('Must provide environment variable VERIFY_USER_REQUEST_EMAIL to send this mail')
+  
+  if (!config.verifyUserRequestEmail){
+    log('Must provide environment variable verifyUserRequestEmail to send this mail')
     fn({status:500, error:'Bad server configuration. Check error logs.'})
   }
 
@@ -243,9 +242,9 @@ exports.requestVerify = function requestVerify (id, fn) {
     const {protocol, host} = config
     const verifyConfigUrl = `${protocol}://${host}${urlBuilder.for('settings.user-badges')}`
 
-    let mailSubject = `Consultas Digitales - Solicitud de verificación de cuenta`
+    let mailSubject = `${config.organizationName} - Solicitud de verificación de cuenta`
     let mailBodyHtml = `
-      <p>El usuario <strong>${user.displayName}</strong> solicitó la verificación de su cuenta en la plataforma Consultas Digitales.</p>
+      <p>El usuario <strong>${user.displayName}</strong> solicitó la verificación de su cuenta en la plataforma ${config.organizationName}.</p>
       <p>Podés contactarlo a su correo electrónico <a href="mailto:${user.email}">${user.email}</a> para solicitar información.</p>
       <p>Para verificar su cuenta entrá a la sección de <a href="${verifyConfigUrl}">Gestión de usuarios</a> de la plataforma, buscá el usuario y clickeá en <em>Verificar Usuario.</em></p>
     `
@@ -253,7 +252,7 @@ exports.requestVerify = function requestVerify (id, fn) {
     // Eso solo se puede ver en los logs de smtp server
 
     notifier.mailer.send({
-        to: VERIFY_USER_REQUEST_EMAIL,
+        to: config.verifyUserRequestEmail,
         subject: mailSubject,
         html: mailBodyHtml
       }).then(() => {
@@ -282,10 +281,10 @@ exports.verifyUser = function verifyUser (id) {
         const {protocol, host} = config
         const homeUrl = `${protocol}://${host}`
 
-        let mailSubject = `Consultas Digitales - Cuenta verificada`
+        let mailSubject = `${config.organizationName} - Cuenta verificada`
         let mailBodyHtml = `
           <p>¡Su cuenta ha sido verificada con éxito!</p>
-          <p>Puede volver a Consultas Digitales haciendo click <a href="${homeUrl}">acá</a></p>
+          <p>Puede volver a ${config.organizationName} haciendo click <a href="${homeUrl}">acá</a></p>
         `
 
         // NOTA: el mailer puede enviar "bien" el mail pero el smtp server no, entonces nunca sale el mail y no nos enteramos

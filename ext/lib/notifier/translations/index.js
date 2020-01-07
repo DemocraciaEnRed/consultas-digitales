@@ -1,12 +1,13 @@
 const translations = require('democracyos-notifier/lib/translations')
+const config = require('lib/config')
 
 const t = translations.t
 
 const overrides = {
   'templates.email.greeting': 'Estimado/a, {userName}',
-  'templates.email.signature': 'Consultas Digitales',
+  'templates.email.signature': config.organizationName,
 
-  'templates.welcome-email.subject': 'Bienvenido a Consultas Digitales',
+  'templates.welcome-email.subject': 'Bienvenido a ' + config.organizationName,
   'templates.welcome-email.body': 'Para completar su registro haga <a href=\"{validateUrl}\">click aquí.</a>',
   'templates.welcome-email.ps': 'Si no ha sido usted quien se registró, por favor ignore este correo electrónico.',
 
