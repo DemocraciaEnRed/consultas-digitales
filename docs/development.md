@@ -166,7 +166,9 @@ Se requiere la versión de `node` 6.x.x para correr la plataforma. Recomendamos 
 Si no tiene `gulp` instalado puede instalarlo haciendo `npm install -g gulp` (asegurarse de previamente cambiar a la versión de `node` correcta).
 
 ### Configuración
-La configuración de la instancia de hace en el archivo `config/development.json`. Los valores por defecto se pueden ver en `config/defaults.json`. Hay un ejemplo de configuración en `config/development.json.example`. Estas opciones son las mismas que para `docker-compose.yml` salvo que hay un proceso de traducción (para el caso del compose), como se explica en [DemocracyOS/config](https://github.com/DemocracyOS/config#environment-variables).
+La configuración de la instancia local se hace en el archivo `config/development.json`. Los valores por defecto se pueden ver en `config/defaults.json`. Hay un ejemplo de configuración en `config/development.json.example`. Estas opciones son las mismas que para `docker-compose.yml` salvo que hay un proceso de traducción (para el caso del compose), como se explica en [DemocracyOS/config](https://github.com/DemocracyOS/config#environment-variables), que básicamente es renombrar `UNA_VARIABLE_X` a `unaVariableX` accesible desde el código.
+
+El frontend no tiene acceso a todas las variables de configuración, sino solo a las que están enumeradas dentro de la opción `"client"` dentro del archivo de configuración.
 
 ### Sistemas de builds
 La plataforma cuenta con diversas formas de buildearse y correr.

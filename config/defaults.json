@@ -65,6 +65,7 @@
     "publicPort",
     "env",
     "locale",
+    "nombrePlataforma",
     "logo",
     "logoMobile",
     "favicon",
@@ -106,6 +107,7 @@
       "username": "@democracyos"
     }
   },
+  "nombrePlataforma": "Consultas Digitales",
   "logo": "/lib/boot/logo.png",
   "logoMobile": "/lib/boot/logo-mobile.png",
   "favicon": "/lib/boot/favicon.ico",
