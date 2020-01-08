@@ -2,7 +2,7 @@
 
 En un principio Consultas Digirales era una "extensión" de DemocracyOS (DOS a partir de ahora). Por eso, mucho de su código quedó en la carpeta `ext`. Posteriormente se decidió volver al código fuente de DOS dado que este mecanismo del `ext` molestaba más de lo que ayudaba en el desarrollo. Si bien el repositorio se encuentra en estado de migración, para abandonar el `ext`, todavía hay muchas cosas que quedaron en `ext`.
 
-Esta dinámica suponía que no se toque en absoluto el código fuente de DOS y se haga todo mediante "extensión". Un uso aplicado se puede ver, p. ej., en [ext/lib/site/boot/overrides.js](../ext/lib/site/boot/overrides.js) donde se hace una pisada de muchos componentes originales de DOS. Así que **tenga cuidado** cuando modifique componentes de React; si los cambios no se reflejan, lo más probable es que algún archivo de `ext` lo esté pisando (todavía hay muchos overrides: [boot](../ext/lib/boot/overrides.js), [admin](../ext/lib/admin/boot/overrides.js), [site](../ext/lib/site/boot/overrides.js) y [settings](../ext/lib/settings/boot/overrides.js)).
+Esta dinámica suponía que no se toque en absoluto el código fuente de DOS y se haga todo mediante "extensión". Un uso aplicado se puede ver, p. ej., en [ext/lib/site/boot/overrides.js](../ext/lib/site/boot/overrides.js) donde se hace una pisada de muchos componentes originales de DOS. Así que **tenga cuidado** cuando modifique componentes de React; si los cambios no se reflejan, **lo más probable es que algún archivo de `ext` lo esté pisando** (todavía hay muchos overrides: [boot](../ext/lib/boot/overrides.js), [admin](../ext/lib/admin/boot/overrides.js), [site](../ext/lib/site/boot/overrides.js) y [settings](../ext/lib/settings/boot/overrides.js)).
 
 Como dijimos, esta práctica fue abandonada y ahora se recomienda editar el código fuente de DOS directamente.
 
@@ -10,20 +10,22 @@ Como dijimos, esta práctica fue abandonada y ahora se recomienda editar el cód
 
 Siguiendo la estructura de DemocracyOS, se tiene:
 
-* Todo lo que sea el sitio web, bajo `/site`
-* Todo lo que sea el panel de configuración, bajo `/settings`
-* Todo lo que sea el panel de admin de una comunidad/forum, bajo `/admin`
-* Web API endpoints en `/api`
-* Interfaces con la base de dato en `/db-api`
+* Todo lo que sea el panel de configuración/perfil, bajo `frontend/settings`
+* Todo lo que sea el panel de admin de una comunidad/forum específica, bajo `frontend/admin`
+* Todo lo que sea el sitio web, que no sea de lo anterior, bajo `frontend/site`
+* API stores que usa el front para comunicarse con las Web API `frontend/stores`
+* Web API endpoints en `backend/api`
+* Interfaces con la base de dato en `backend/db-api`
+* Modelos de la base de dato en `backend/models`
 
 (y en `ext/<esas_carpetas>` lo mismo)
 
 ## Dependencias principales
-- Mongoose
 - ExpressJS
 - React
 - [Stylus](http://stylus-lang.com/) (.styl)
 - [Jade](http://jade-lang.com/) (.jade)
+- Mongoose
 
 ## Buildeos y watchs
 
