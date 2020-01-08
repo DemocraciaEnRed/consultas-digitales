@@ -1,8 +1,5 @@
 import 'ext/lib/boot/overrides'
 
-import * as HomeMultiForum from 'lib/frontend/site/home-multiforum/component'
-import HomeMultiForumExt from 'ext/lib/site/home-multiforum/component'
-
 import * as TopicLayout from 'lib/frontend/site/topic-layout/component'
 import TopicLayoutExt from 'ext/lib/site/topic-layout/component'
 
@@ -18,8 +15,6 @@ import CommentsFormExt from 'ext/lib/site/topic-layout/topic-article/comments/fo
 import * as ReplyHeader from 'lib/frontend/site/topic-layout/topic-article/comments/list/comment/replies/list/header/component'
 import ReplyHeaderExt from 'ext/lib/site/topic-layout/topic-article/comments/list/comment/replies/list/header/component'
 
-
-HomeMultiForum.default = HomeMultiForumExt
 TopicLayout.default = TopicLayoutExt
 Help.default = HelpExt
 SignIn.default = SignInExt

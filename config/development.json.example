@@ -6,6 +6,6 @@
     "verifyUserRequestEmail": "unmail@mail.com",
 	"organizationName": "Mi Consulta Digital",
     "bajadaPlataforma": "Construyamos un país más abierto, transparente y colaborativo.",
-	"logo": "/ext/lib/site/home-multiforum/logo-header.svg",
-	"logoMobile": "/ext/lib/site/home-multiforum/logo-header.svg"
+	"logo": "/lib/frontend/site/home-multiforum/logo-header.svg",
+	"logoMobile": "/lib/frontend/site/home-multiforum/logo-header.svg"
 }

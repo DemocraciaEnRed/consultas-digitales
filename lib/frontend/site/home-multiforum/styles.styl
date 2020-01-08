@@ -1,111 +1,186 @@
-boxSize = 6
-color = #333
-color2 = #999
+@import './forum-container/styles.styl'
+@import './search/styles.styl'
+@import './search/results-search/styles.styl'
 
-#home-multiforum
-  background #f0f0f0
-  min-height 100vh
-  .forum-info
-    width 100%
-    display flex
-    align-items center
-    flex-direction column
-    .content
-      a
-        float right
-        margin 20px 0
-        span
-          font-size 14px
-          margin-left 10px
-          top 1px
-          position relative
-  .admin
-    position relative
-    top 20px
-    max-width 600px
-    width 94%
-    text-align right
-    color #666
-    font-weight 100
-    span
-      font-size 11px
-      margin-left 10px
-      position relative
+.jumbotron_body
+  padding: 50px 0 !important
+  .container
+    .lead
+      font-size:18px
+      margin-top: 5px
+      &.highlight
+        font-size:22px
+        font-weight: 400
+        text-shadow: none !important
+      span
+        color:$main-color
+    .participar
+      margin-top: 1rem
+      margin: 10px;
+      background-color: $main-color;
+.ext-site-home-multiforum
+  background: transparent
+
+  .forums-list
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    padding-top: 1em
+
+    .forums-list-title
+      font-size: 35px
+      text-align: center
+      font-weight: 500
+      margin-bottom: 20px
+
+    .forums-list-item
+      max-width: 100%
+      width: 100%
+      margin: 0 10px 20px
+
+      @media (min-width: 992px)
+        width: 440px
 
   .cover
-    padding-top 30px
-    min-height 300px
-    font-size 16px
-    color #f9f9f9
-    background-size cover
-    background-repeat no-repeat
-    background-position center top
-    background-image unquote("url('https://democracyosorg.s3.amazonaws.com/cover-hands.jpg')")
-  #forum-list
-    max-width 600px
-    width 90%
-    .forum-card-container
-      margin-top 20px
-    .msg-empty
-      text-align center
-      background #e4e4e4
-      padding 40px 0
-      color #808080
-      font-size 17px
-    .load-more
-      margin-bottom 20px
-      .btn
-        color #333
-        font-size 14px
-      .loader-btn
-        position relative
-        color #fff
-        cursor auto
-        .loader
-          position absolute
-          left 50%
-          top 50%
-          border-radius 100%
-          width boxSize * 1px
-          height boxSize * 1px
-          box-shadow boxSize*1px boxSize*1px color2,
-            boxSize*-1px boxSize*1px color,
-            boxSize*-1px boxSize*-1px color2,
-            boxSize*1px boxSize*-1px color
-          animation spin ease infinite 4s
-          transition-property opacity
+    text-align: center
 
-        @-webkit-keyframes spin {
-          0%,
-          100% {
-              box-shadow: boxSize*1px boxSize*1px color2,
-              boxSize*-1px boxSize*1px color,
-              boxSize*-1px boxSize*-1px color2,
-              boxSize*1px boxSize*-1px color
-          }
+    h1
+      max-width: 500px
+      margin: 0 auto .3em
 
-          25% {
-              box-shadow: boxSize*-1px boxSize*1px color,
-              boxSize*-1px boxSize*-1px color2,
-              boxSize*1px boxSize*-1px color,
-              boxSize*1px boxSize*1px color2
-          }
+  .fa-group
+  .fa-newspaper-o
+  .fa-bullhorn
+  .arrow-down
+    background-size: cover
+    background-repeat: no-repeat
+    display: inline-block
+    margin-top: 0
+    margin-right: 3%
+    width: 70px
+    height: 55px
+    margin-bottom:20px
+    @media screen and (max-width: 750px)
+      width: 40px
+      height: 30px
+      margin-top:25px
 
-          50% {
-              box-shadow: boxSize*-1px boxSize*-1px color2,
-              boxSize*1px boxSize*-1px color,
-              boxSize*1px boxSize*1px color2,
-              boxSize*-1px boxSize*1px color
-          }
+  .lead-paragraph
+    margin-top: 1.5em
+    text-align: center
+    font-size: 20px
+    padding-left: 5%;
+    padding-right: 5%;
+    &.last
+      color: $main-color
+      font-weight:bold
+      flex-direction:column
+      justify-content:center
 
-          75% {
-              box-shadow: boxSize*1px boxSize*-1px color,
-              boxSize*1px boxSize*1px color2,
-              boxSize*-1px boxSize*1px color,
-              boxSize*-1px boxSize*-1px color2
-          }
-        }
+    .bold {
+      font-weight: 400
+    }
 
-@import './forum-card/styles'
-@import './search-results/styles'
-@import './search-bar/styles'
+    .skyblue {
+      font-weight: 400;
+    }
+  .arrow
+    text-align:center
+
+
+
+  .section-icons
+    font-weight:600
+    margin-top:20px
+    @media (max-width: 760px)
+      margin-left:6%
+    @media (max-width: 460px)
+      margin-left:10px
+    .section-icon
+      display: inline-block
+      @media (max-width: 760px)
+        display:flex
+        flex-direction:column
+      width:30% !important
+      .icon
+        width:100px
+        float: left
+      .text
+        padding-left: 115px
+        @media (max-width: 760px)
+          padding-left:10px
+        padding-top: 10px
+        font-weight: 100
+        font-size: 14px
+
+  .fa-group
+    background-image: url("lib/frontend/site/home-multiforum/users.svg")
+
+  .fa-newspaper-o
+    background-image: url("lib/frontend/site/home-multiforum/newspaper.svg")
+
+  .fa-bullhorn
+    background-image: url("lib/frontend/site/home-multiforum/bullhorn.svg")
+
+  .icon-arrow-down
+    font-size: 20px
+    color: $main-color
+    cursor: pointer
+
+  .content-center
+    display: flex;
+    align-self: center;
+
+    .btn
+    .dropdown-element
+    .dropbtn
+      min-width:130px
+      padding: 5px 25px 5px 25px !important
+
+    .btn-secondary
+      background-color: #fff
+
+    .btn-active
+      text-underline: none
+      background-color: #e9e9e9
+      color: $main-color
+      &:focus
+        outline: none
+
+.dropbtn
+  width:150px
+  font-size:16px !important
+  @media (min-width: 701px)
+    display:none
+
+.dropdown-element:hover .dropdown-content
+  @media (max-width: 700px)
+    display: block
+
+.dropdown-content
+  @media (max-width: 700px)
+    li
+      display:block
+      margin-bottom:0
+
+.dropdown-content
+  @media (max-width: 700px)
+    display: none
+    position: absolute
+    z-index: 1
+    left: -14px
+    top: 36px
+
+.dropdown-element
+  @media (max-width: 700px)
+    position: relative
+    display: inline-block
+
+.small-arrow
+  font-size:9px !important
+
+.show-more
+  height: 50px
+
+
+

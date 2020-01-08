@@ -18,8 +18,8 @@ services:
       # Para un solo admin:
       - STAFF=hola@miemail.com
       # Logo principal
-      - LOGO=/ext/lib/site/home-multiforum/logo-header.svg
-      - LOGO_MOBILE=/ext/lib/site/home-multiforum/logo-header.svg
+      - LOGO=/lib/frontend/site/home-multiforum/logo-header.svg
+      - LOGO_MOBILE=/lib/frontend/site/home-multiforum/logo-header.svg
       # Organización
       - ORGANIZATION_EMAIL=miconsultadigital@midominio.com.ar
       - ORGANIZATION_NAME=Mi Consulta Digital
