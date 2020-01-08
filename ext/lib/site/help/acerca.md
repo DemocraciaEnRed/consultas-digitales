@@ -1,20 +1,18 @@
 # Acerca de este sitio
 
-Consultas Digitales es un nuevo canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad promoviendo la participación ciudadana y el fortalecimiento de la democracia.
+Consultas Digitales es una plataforma de código abierto, de fácil instalación y personalizable que busca favorecer la participación, el debate y la interacción entre entidades y personas sobre diversas temáticas. Su versatilidad permite el uso por parte tanto de organismos estatales como entes de la sociedad civil.
 
-Podés conocer distintas propuestas, comentar, colaborar y participar en el armado de una Argentina con más diálogo, convivencia y acuerdos colectivos.
-
-Ya sos parte de estas conversaciones, es tu turno para hablar.
+Esta herramienta fue pensada por Democracia en Red, una organización argentina fundada en 2014 con el objetivo de crear soluciones de participación ciudadana con gobiernos y activistas para fortalecer la democracia. Consultas digitales busca ser parte de un proceso de apertura en las instituciones públicas y los procesos de toma de decisión para recuperar la política a partir de diagnósticos que apuntan a la acción. En este sentido, la herramienta permite la participación de la ciudadanía para debatir, informarse y votar sobre diferentes temáticas.
 
 ## Contacto
 
-**Dirección:** Av. Roque Sáenz Peña 788 (6º piso) - Ciudad Autónoma de Buenos Aires
+**Dirección:** Ciudad Autónoma de Buenos Aires
 
-**Código postal:** C1035AAA
+**Código postal:** 
 
-**Teléfono:** (54-011) 5985-8600
+**Teléfono:** 
 
-**Correo electrónico:** [gobiernoabierto@modernizacion.gob.ar](mailto:gobiernoabierto@modernizacion.gob.ar)
+**Correo electrónico:** [it@democracyos.org](mailto:it@democracyos.org)
 ​
 ## Tecnología
 
