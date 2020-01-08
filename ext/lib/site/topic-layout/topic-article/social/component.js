@@ -8,7 +8,9 @@ export default ({ topic }) => {
 
   const socialLinksUrl = window.location.origin + url
   const twitterText = encodeURIComponent(
-    config.tweetText ? t(config.tweetText, { topic }) : mediaTitle
+    config.tweetText ? 
+        t(config.tweetText, { organizationName: config.organizationName, bajadaPlataforma: config.bajadaPlataforma }).replace(/\\n/g, "\n")
+      : mediaTitle
   )
   
   const preventClickBehind = e => {

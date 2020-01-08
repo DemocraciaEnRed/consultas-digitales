@@ -23,13 +23,14 @@ services:
       # Organización
       - ORGANIZATION_EMAIL=miconsultadigital@midominio.com.ar
       - ORGANIZATION_NAME=Mi Consulta Digital
+      - BAJADA_PLATAFORMA=Construyamos un país más abierto, transparente y colaborativo.
       # Social media y email settings
       - SOCIALSHARE_SITE_NAME=Mi Consulta Digital
       - SOCIALSHARE_SITE_DESCRIPTION=Plataforma de participación ciudadana
       - SOCIALSHARE_IMAGE=https://urlexterno.com/mi-imagen-externa.png
       - SOCIALSHARE_DOMAIN=miconsultadigital.midominio.com
       - SOCIALSHARE_TWITTER_USERNAME=@miConsultaDigital
-      - TWEET_TEXT=Estoy tratando de mejorar esta propuesta "{topic.mediaTitle}" ¡Participá vos también!
+      - TWEET_TEXT=Participá en {organizationName}.\n\n{bajadaPlataforma}\n
       # Configuracion del mailer
       - NOTIFICATIONS_MAILER_EMAIL=miconsultapublica@midominio.com
       - NOTIFICATIONS_MAILER_NAME=Mi Consulta Digital

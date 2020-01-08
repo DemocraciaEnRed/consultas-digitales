@@ -101,7 +101,7 @@ class HomeMultiForum extends Component {
                 width="270px"
               />
               <p className='lead highlight'>
-                Construyamos una país más abierto, transparente y colaborativo.
+                {config.bajadaPlataforma}
               </p>
               <button
                 className='btn btn-primary'
