@@ -75,38 +75,8 @@ Note que en el codigo del componente de home-multiforum se referencia usando `ur
 />
 ```
 
----
-## Documentación vieja del `ext`
-### Vistas
+## CSS
 
-Para overraidear vistas lo mejor es partir de la implementacion de DemocracyOS (entrando a su bash) y hacer su copia en la carpeta `/ext/lib` 
+La organización del css es bastante complicada. Para empezar hay que comprender que todas las pantallas bajo una misma sección ([site](../lib/frontend/site), [admin](../lib/frontend/admin) o [settings](../lib/frontend/settings)) comparten un css universal. Estos css tienen el nombre de la sección, más `.css`, y son compilados cuando se buildea y residen en la carpeta post-buildeo `public`. Por eso cuando se inspeccionan los estilos de una página se puede ver que los css compilados son gigantes. Los `.styl` de entrada de cada sección, residen en la carpeta `boot` de cada sección, por ejemplo [el de admin](../lib/frontend/admin/boot/boot.styl). Posteriormente se cargan todos los de `ext`, por ejemplo [el de admin](../ext/lib/admin/boot/boot.styl). Todo esto lo compila `gulp`, y está configurado en [lib/build](../lib/build/index.js), donde se puede ver cómo carga las `entries` principales como las de `ext`.
 
-Se hacen las modificaciones y se tiene que declarar su override en el archivo `/ext/lib/site/boot/overrides.js`
-
-Este seria un ejemplo de como overraidear una vista de DemocracyOS por una personalizada.
-
-```js
-import 'ext/lib/boot/overrides'
-
-import * as HomeForum from 'lib/frontend/site/home-forum/component'
-import HomeForumExt from 'ext/lib/site/home-forum/component'
-
-import * as HomeMultiForum from 'lib/frontend/site/home-multiforum/component'
-import HomeMultiForumExt from 'ext/lib/site/home-multiforum/component'
-
-import * as TopicLayout from 'lib/frontend/site/topic-layout/component'
-import TopicLayoutExt from 'ext/lib/site/topic-layout/component'
-
-import * as Help from 'lib/frontend/site/help/component'
-import HelpExt from 'ext/lib/site/help/component'
-
-import * as SignIn from 'lib/frontend/site/sign-in/component'
-import SignInExt from 'ext/lib/site/sign-in/component'
-
-
-HomeForum.default = HomeForumExt
-HomeMultiForum.default = HomeMultiForumExt
-TopicLayout.default = TopicLayoutExt
-Help.default = HelpExt
-SignIn.default = SignInExt
-```
+Por eso cuando modifique un estilo de un componente particular, puede que afecten las reglas de `ext` o las principales. Por favor hacer un esfuerzo por no utilizar `!important` y buscar en todo el código cuál es la regla que puede llegar a estar molestando.
