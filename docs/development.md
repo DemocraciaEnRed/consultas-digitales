@@ -61,7 +61,7 @@ Para poder entrar al container de DemocracyOS:
 docker exec -it miconsultapublica bash
 ```
 
-Para entrar a la base de datos
+Para entrar a la base de datos (acá nombrada `mi-consultapublica` pero puede cambiar)
 
 ```
 docker exec -it miconsultapublica-mongo mongo mi-consultapublica
@@ -79,6 +79,10 @@ db.forums.find({}, {name:1, title:1})
 db.forums.find(ObjectId("5dbc5619a035c3000f2f1f45"))
 # buscar por nombre
 db.forums.find({name: 'un nombre'})
+# borrar 1 usuario por mail
+db.users.deleteOne({"email":"bungew@gmail.com"})
+# borrar todos los usuarios
+db.users.remove({})
 ```
 
 ### Conectar a una base de dato Mongo local
