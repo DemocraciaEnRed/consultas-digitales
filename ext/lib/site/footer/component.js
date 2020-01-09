@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import t from 't-component'
+import config from 'lib/config'
 
 export default class Footer extends Component {
 
@@ -11,7 +12,7 @@ export default class Footer extends Component {
           <div className='institutional'>
             <div className='logo gob'>
               <a href='/'>
-                <img src='/ext/lib/site/footer/logo-footer.svg' />
+                <img src={config.logoFooter} />
               </a>
             </div>
             <p className='text-muted small'>

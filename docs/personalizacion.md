@@ -35,13 +35,14 @@ Siguiendo la estructura de DemocracyOS, se tiene:
 
 ## Imagenes para cambiar
 
-- Icono del navbar: `/lib/frontend/site/home-multiforum/assets/logo-header.svg`
-- Icono del footer: `/ext/lib/site/footer/assets/logo-footer.svg`
-- Background del header del home: `/lib/frontend/site/home-multiforum/assets/header_consulta-publica.png`
-- Iconos del listado del home: 
-  - `/lib/frontend/site/home-multiforum/assets/icono_consulta-publica-1.svg`
-  - `/lib/frontend/site/home-multiforum/assets/icono_consulta-publica-2.svg`
-  - `/lib/frontend/site/home-multiforum/assets/icono_consulta-publica-3.svg`
+Las imágenes de la home se encuentran en `/lib/frontend/site/home-multiforum/assets` y son las siguientes:
+- Icono del navbar: `logo-header.svg`
+- Icono del footer: `logo-footer.svg`
+- Background del header del home: `background-home.jpeg`
+- Iconos del listado de pasos del home: 
+  - `icono-home-informate.svg`
+  - `icono-home-participa.svg`
+  - `icono-home-comparti.svg`
 
 ## Textos para cambiar
 

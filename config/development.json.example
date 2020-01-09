@@ -8,4 +8,9 @@
     "bajadaPlataforma": "Construyamos un país más abierto, transparente y colaborativo.",
 	"logo": "/lib/frontend/site/home-multiforum/logo-header.svg",
 	"logoMobile": "/lib/frontend/site/home-multiforum/logo-header.svg"
+    "logoFooter": "/lib/frontend/site/home-multiforum/logo-footer.svg",
+    "backgroundHome": "/lib/frontend/site/home-multiforum/background-home.jpeg",
+    "iconoHomeInformate": "/lib/frontend/site/home-multiforum/icono-home-informate.svg",
+    "iconoHomeParticipa": "/lib/frontend/site/home-multiforum/icono-home-participa.svg",
+    "iconoHomeComparti": "/lib/frontend/site/home-multiforum/icono-home-comparti.svg"
 }
