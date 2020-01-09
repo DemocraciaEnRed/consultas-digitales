@@ -38,7 +38,8 @@ Siguiendo la estructura de DemocracyOS, se tiene:
 Las imágenes de la home se encuentran en `/lib/frontend/site/home-multiforum/assets` y son las siguientes:
 - Icono del navbar: `logo-header.svg`
 - Icono del footer: `logo-footer.svg`
-- Background del header del home: `background-home.jpeg`
+- Logo central del home: `logo-central-home.png`
+- Background del home: `background-home.jpeg`
 - Iconos del listado de pasos del home: 
   - `icono-home-informate.svg`
   - `icono-home-participa.svg`

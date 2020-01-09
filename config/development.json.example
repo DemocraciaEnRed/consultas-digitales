@@ -1,16 +1,17 @@
 {
-	"locale": "es",
-	"enforceLocale": true,
-	"multiForum": true,
-	"staff": ["unmail@mail.com"],
-    "verifyUserRequestEmail": "unmail@mail.com",
-	"organizationName": "Mi Consulta Digital",
-    "bajadaPlataforma": "Construyamos un país más abierto, transparente y colaborativo.",
-	"logo": "/lib/frontend/site/home-multiforum/logo-header.svg",
-	"logoMobile": "/lib/frontend/site/home-multiforum/logo-header.svg"
-    "logoFooter": "/lib/frontend/site/home-multiforum/logo-footer.svg",
-    "backgroundHome": "/lib/frontend/site/home-multiforum/background-home.jpeg",
-    "iconoHomeInformate": "/lib/frontend/site/home-multiforum/icono-home-informate.svg",
-    "iconoHomeParticipa": "/lib/frontend/site/home-multiforum/icono-home-participa.svg",
-    "iconoHomeComparti": "/lib/frontend/site/home-multiforum/icono-home-comparti.svg"
+  "locale": "es",
+  "enforceLocale": true,
+  "multiForum": true,
+  "staff": ["unmail@mail.com"],
+  "verifyUserRequestEmail": "unmail@mail.com",
+  "organizationName": "Mi Consulta Digital",
+  "bajadaPlataforma": "Construyamos un país más abierto, transparente y colaborativo.",
+  "logo": "/lib/frontend/site/home-multiforum/logo-header.svg",
+  "logoMobile": "/lib/frontend/site/home-multiforum/logo-header.svg"
+  "logoFooter": "/lib/frontend/site/home-multiforum/logo-footer.svg",
+  "logoCentralHome": "/lib/frontend/site/home-multiforum/logo-central-home.png",
+  "backgroundHome": "/lib/frontend/site/home-multiforum/background-home.jpeg",
+  "iconoHomeInformate": "/lib/frontend/site/home-multiforum/icono-home-informate.svg",
+  "iconoHomeParticipa": "/lib/frontend/site/home-multiforum/icono-home-participa.svg",
+  "iconoHomeComparti": "/lib/frontend/site/home-multiforum/icono-home-comparti.svg"
 }
