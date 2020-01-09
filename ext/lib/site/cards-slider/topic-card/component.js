@@ -2,7 +2,7 @@ import React from 'react'
 import t from 't-component'
 import { browserHistory, Link } from 'react-router'
 import topicStore from 'lib/frontend/stores/topic-store/topic-store'
-import Social from 'ext/lib/site/topic-layout/topic-article/social/component'
+import Social from 'lib/frontend/site/topic-layout/topic-article/social/component'
 import Timeago from 'lib/frontend/site/timeago'
 
 export default ({ topic }) => {
