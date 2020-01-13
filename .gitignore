@@ -11,6 +11,7 @@
 .npmrc
 .project
 .tmp
+.tern-project
 /*.override.yml
 /tmp
 config*.json
