@@ -26,6 +26,14 @@ consultas_menu_texts = {
 	'ejes': 'EJES',
 	'categorias': 'CATEGORÍAS',
 }
+eje_acciones_ordenadas = [
+	'sin_accion',
+	'voto',
+	'encuesta',
+	'causa',
+	'rango',
+	'jerarquia',
+]
 
 def randomString(stringLength=10):
     """Generate a random string of fixed length """
@@ -40,7 +48,7 @@ def randomUrl():
 last_admin_name = ''
 # url de consulta de prubea
 consulta_test_url = randomString()
-#consulta_test_url = 'test1'
+#consulta_test_url = 'test'
     
 driver = webdriver.Firefox()
 
@@ -56,6 +64,20 @@ driver = webdriver.Firefox()
 #continue_link = driver.find_element_by_partial_link_text('Conti')
 
 class Tests:
+	@staticmethod
+	def ir_a_configuracion():
+		#driver.get(main_page + 'ajustes/perfil')
+		driver.find_element_by_css_selector(".user-badge button").click()
+		driver.find_element_by_link_text('CONFIGURACIÓN').click()
+		
+	@staticmethod
+	def ir_a_consulta(consulta_nombre):
+		driver.get(f'{main_page}{consulta_nombre}/admin')
+		
+	@staticmethod
+	def ir_a_eje(consulta_nombre, eje_id):
+		driver.get(f'{main_page}{consulta_nombre}/consulta/{eje_id}')
+		
 	@staticmethod
 	def ayuda():
 		driver.get(main_page)
@@ -90,12 +112,6 @@ class Tests:
 		WebDriverWait(driver, 10).until(
 			EC.presence_of_element_located((By.CSS_SELECTOR, ".user-badge"))
 		)
-		
-	@staticmethod
-	def ir_a_configuracion():
-		#driver.get(main_page + 'ajustes/perfil')
-		driver.find_element_by_css_selector(".user-badge button").click()
-		driver.find_element_by_link_text('CONFIGURACIÓN').click()
 		
 	@staticmethod
 	def cambiar_perfil():
@@ -163,10 +179,6 @@ class Tests:
 		cambiar_etiqueta_usu()
 		
 	@staticmethod
-	def ir_a_consulta_test():
-		driver.get(main_page + consulta_test_url + '/admin')
-		
-	@staticmethod
 	def crear_consulta():
 		Tests.ir_a_configuracion()
 		WebDriverWait(driver, 10).until(
@@ -188,7 +200,7 @@ class Tests:
 		
 	@staticmethod
 	def crear_consulta_categoria():
-		Tests.ir_a_consulta_test()
+		Tests.ir_a_consulta(consulta_test_url)
 		WebDriverWait(driver, 10).until(
 			EC.presence_of_element_located((By.LINK_TEXT, consultas_menu_texts['categorias']))
 		)
@@ -209,8 +221,8 @@ class Tests:
 		driver.find_element_by_css_selector(".tag-admin button.btn-block").click()
 		
 	@staticmethod
-	def crear_consulta_eje():
-		Tests.ir_a_consulta_test()
+	def crear_consulta_eje(accion):
+		Tests.ir_a_consulta(consulta_test_url)
 		WebDriverWait(driver, 10).until(
 			EC.presence_of_element_located((By.LINK_TEXT, consultas_menu_texts['ejes']))
 		)
@@ -227,7 +239,9 @@ class Tests:
 		driver.find_element_by_name("coverUrl").send_keys(randomUrl())
 		driver.find_element_by_name("author").send_keys(randomString())
 		driver.find_element_by_name("authorUrl").send_keys(randomUrl())
-		#??acción??
+		# acción
+		opts = driver.find_elements_by_css_selector("select[name='action.method'] option")
+		opts[eje_acciones_ordenadas.index(accion)].click()		
 		driver.find_element_by_name("source").send_keys(randomUrl())
 		driver.find_element_by_css_selector("#editor .ql-editor").send_keys(randomString())
 		driver.find_element_by_name("closingAt").click()
@@ -236,6 +250,7 @@ class Tests:
 		driver.find_element_by_css_selector("button.add-link.btn").click()
 		driver.find_element_by_css_selector(".topic-links .topic-link .link-text input").send_keys(randomString())
 		driver.find_element_by_css_selector(".topic-links .topic-link .link-url input").send_keys(randomUrl())
+		# guardar
 		driver.find_element_by_css_selector(".commands a.btn.save").click()
 		
 		# ir a eje
@@ -244,18 +259,34 @@ class Tests:
 		)
 		driver.find_element_by_css_selector('#topic-wrapper h2 a.btn').click()
 		
+		# hay que esperar a que se populen la handles, sino solo aparece la tab vieja
+		time.sleep(0.5)
+		driver.switch_to_window(driver.window_handles[1])
+		
+	@staticmethod
+	def comentar_consulta_eje():
 		# comentar
-		'''
-		print(driver.window_handles)
-		for handle in driver.window_handles:
-		driver.switch_to_window(driver.window_handles[0])
-			print(handle)
 		WebDriverWait(driver, 10).until(
 			EC.presence_of_element_located((By.CSS_SELECTOR, "#comments-form textarea.comments-create"))
 		)
 		driver.find_element_by_css_selector('#comments-form textarea.comments-create').send_keys(randomString())
 		driver.find_element_by_css_selector('#comments-form button.btn-outline-success').click()
-		'''
+		driver.find_element_by_css_selector('.replies-score .reply').click()
+		driver.find_element_by_css_selector('#comments-reply-form .reply-create').send_keys(randomString())
+		driver.find_element_by_css_selector('#comments-reply-form .actions button').click()
+
+		# reordenar comentarios
+		driver.find_element_by_css_selector('.comments-sort-btn').click()
+		driver.find_elements_by_css_selector('.comments-dropdown button')[0].click()		
+		driver.find_element_by_css_selector('.comments-sort-btn').click()
+		driver.find_elements_by_css_selector('.comments-dropdown button')[1].click()		
+		driver.find_element_by_css_selector('.comments-sort-btn').click()
+		driver.find_elements_by_css_selector('.comments-dropdown button')[2].click()		
+		
+		# borrar comentario	
+		driver.find_element_by_css_selector('.comments-list-item .options .arrow').click()
+		driver.find_elements_by_css_selector('.options-menu.comments-dropdown button')[0].click()
+		driver.find_element_by_css_selector('.comment-overlay button.btn-danger').click()
 		
 try:
 	Tests.ayuda()
@@ -264,10 +295,16 @@ try:
 	Tests.cambiar_perfil()
 	Tests.crear_consulta()
 	Tests.crear_consulta_categoria()
-	Tests.crear_consulta_eje()
+	Tests.crear_consulta_eje('voto')
+	Tests.comentar_consulta_eje()
+	#for accion in eje_acciones_ordenadas:
+	#	Tests.crear_consulta_eje(accion)
+	#	time.sleep(0.5)
+	#Tests.ir_a_eje(consulta_test_url, '5e1c7e60acbf651a02698397')
+	#Tests.comentar_consulta_eje()
 except Exception: 
 	import sys, traceback
 	traceback.print_exc(file=sys.stdout)
 
-time.sleep(3)
+time.sleep(5)
 driver.close()
