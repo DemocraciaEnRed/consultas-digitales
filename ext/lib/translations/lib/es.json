@@ -75,5 +75,6 @@
   "proposal-options.must-be-signed-in": "Debés estar registrado para participar",
   "proposal-options.vote-item": " voto",
   "forum.form.rich.summary.label": "Resumen largo",
-  "forum.form.contentType.label": "Tipo de contenido"
+  "forum.form.contentType.label": "Tipo de contenido",
+  "resend-validation-email-form.error.email-not-valid.no-link": "Su correo electrónico aún no ha sido validado. Le hemos mandado un email cuando se registró. Por favor verifique su casilla de correo."
 }
