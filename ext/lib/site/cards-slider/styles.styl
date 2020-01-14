@@ -10,7 +10,14 @@ button.flickity-prev-next-button
   height: 55px
   &:hover
     background: #ccc
-
-
+  &.previous
+    left -45px
+    @media (min-width: 576px)
+      left -70px
+  &.next
+    right -45px
+    @media (min-width: 576px)
+      right -70px
+  
 @import './topic-card/styles'
 
