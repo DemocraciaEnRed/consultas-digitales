@@ -170,10 +170,10 @@ De forma breve se puede resumir en:
 Se requiere la versión de `node` 6.x.x para correr la plataforma. Recomendamos usar [`nvm`](https://github.com/nvm-sh/nvm) para cambiar fácilmente entre una versión y otra de node. Su instalación es ultrasimple, mirar [su documentación](https://github.com/nvm-sh/nvm#installation-and-update). Si tenemos esta herramienta instalada, haríamos `nvm install lts/boron` (que es la versión 6.17.1) para cambiar a la versión válida. Una vez instalada, ya podemos hacer directamente `nvm use lts/boron`. Si no les gusta `nvm` puede intentar usar [`n`](https://github.com/tj/n).
 
 ##### Cambiando de versiones de Npm
-Una vez cambiada la version de Node como explicado en el punto anterior puede ejecutar `npm install -g 'npm@>=3 <5'`. Esto solo afectará a la version de Node que esté activa.
+Una vez cambiada la version de Node como explicado en el punto anterior puede ejecutar `npm install -g 'npm@>=3 <5'`. Esto solo afectará a la versión de Node que esté activa.
 
 ##### Instalar Gulp
-Una vez cambiada la version de Node como explicado en el punto anterior, al anterior, puede ejecutar `npm install -g gulp` para instalar Gulp. Esto solo afectará a la version de Node que esté activa.
+Una vez cambiada la version de Node como explicado en el punto anterior, al anterior, puede ejecutar `npm install -g gulp` para instalar Gulp. Esto solo afectará a la versión de Node que esté activa.
 
 ### Configuración
 La configuración de la instancia local se hace en el archivo `config/development.json`. Los valores por defecto se pueden ver en `config/defaults.json`. Hay un ejemplo de configuración en `config/development.json.example`. Estas opciones son las mismas que para `docker-compose.yml` salvo que hay un proceso de renombramiento, como se explica en [DemocracyOS/config](https://github.com/DemocracyOS/config#environment-variables), que básicamente es renombrar `UNA_VARIABLE_X` a `unaVariableX` accesible desde el código.
