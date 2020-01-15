@@ -156,18 +156,24 @@ Para esto debe seguir las guías oficiales de DemocracyOS sobre [instalación](h
 
 De forma breve se puede resumir en:
 
-- Asegurarse de tener la versión 6 de node mirando lo que devuelve `node -v`. Si no, mire el párrafo de abajo que explica cómo cambiar fácilmente entre versiones de node.
+- Asegurarse de tener la **versión 6 de Node** mirando lo que devuelve `node -v`. Si no, [puede cambiar fácilmente entre versiones de node](#cambiando-de-versiones-de-node).
+- Asegurarse de tener una **versión >=3 y <5 de Npm** mirando lo que devuelve `npm -v`. Si no, [puede cambiar fácilmente entre versiones de npm](#cambiando-de-versiones-de-npm).
 - Ubicarse dentro de la carpeta raíz del proyecto
 - Hacer `make packages`
 - Agregar algún mail de staff que será lx admin. Para esto crear el archivo `config/development.json` con contenido:   
 `{ "staff": ["unmail@elmail.com"] }`   
 - Levantar una base de datos mongo que escuche en `localhost:27017`. Por ejemplo con docker: `docker run -p 27017:27017 --name mongodb-dos mongo:3.2`. De ser necesario puede cambiar la url del servidor mongo agregando la opción `mongoUrl` dentro de `config/development.json`
-- Correr el script build-watch-serve de `gulp` haciendo `NODE_PATH=. DEBUG=democracyos* gulp bws`. Si esto no funciona pueden intentar correr `make run`
+- Correr el script build-watch-serve de `gulp` ([debe estar instalado](#instalar-gulp)) haciendo `NODE_PATH=. DEBUG=democracyos* gulp bws`. Si esto no funciona pueden intentar correr `make run`
 - Ir a [http://localhost:3000](http://localhost:3000), registrar su cuenta con el mail de staff y entrar (no hace falta validar el mail)
 
-Se requiere la versión de `node` 6.x.x para correr la plataforma. Recomendamos usar [`nvm`](https://github.com/nvm-sh/nvm) para cambiar fácilmente entre una versión y otra de node. Su instalación es ultrasimple, mirar [su documentación](https://github.com/nvm-sh/nvm#installation-and-update). Si tenemos esta herramienta instalada, haríamos `nvm install lts/boron` (que es la versión 6.17.1) para cambiar a una versión válida. Una vez instalada, ya podemos hacer directamente `nvm use lts/boron`. Si no les gusta `nvm` puede intentar usar [`n`](https://github.com/tj/n).
+##### Cambiando de versiones de Node
+Se requiere la versión de `node` 6.x.x para correr la plataforma. Recomendamos usar [`nvm`](https://github.com/nvm-sh/nvm) para cambiar fácilmente entre una versión y otra de node. Su instalación es ultrasimple, mirar [su documentación](https://github.com/nvm-sh/nvm#installation-and-update). Si tenemos esta herramienta instalada, haríamos `nvm install lts/boron` (que es la versión 6.17.1) para cambiar a la versión válida. Una vez instalada, ya podemos hacer directamente `nvm use lts/boron`. Si no les gusta `nvm` puede intentar usar [`n`](https://github.com/tj/n).
 
-Si no tiene `gulp` instalado puede instalarlo haciendo `npm install -g gulp` (asegurarse de previamente cambiar a la versión de `node` correcta).
+##### Cambiando de versiones de Npm
+Una vez cambiada la version de Node como explicado en el punto anterior puede ejecutar `npm install -g 'npm@>=3 <5'`.
+
+##### Instalar Gulp
+Una vez cambiada la version de Node como explicado en el punto anterior, al anterior, puede ejecutar `npm install -g gulp` para instalar Gulp.
 
 ### Configuración
 La configuración de la instancia local se hace en el archivo `config/development.json`. Los valores por defecto se pueden ver en `config/defaults.json`. Hay un ejemplo de configuración en `config/development.json.example`. Estas opciones son las mismas que para `docker-compose.yml` salvo que hay un proceso de renombramiento, como se explica en [DemocracyOS/config](https://github.com/DemocracyOS/config#environment-variables), que básicamente es renombrar `UNA_VARIABLE_X` a `unaVariableX` accesible desde el código.
