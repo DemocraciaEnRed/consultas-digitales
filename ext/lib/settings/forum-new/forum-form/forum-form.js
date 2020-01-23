@@ -58,9 +58,10 @@ export default class ForumForm extends FormView {
 
   onsuccess (res) {
     window.analytics.track('create forum', { forum: res.body.id })
-    page('/')
+    let topicsUrl = urlBuilder.for('admin.topics', { forum: res.body.name })
+    page(topicsUrl)
     setTimeout(() => {
-      window.location = '/'
+      window.location = topicsUrl
     }, 2000)
   }
 
