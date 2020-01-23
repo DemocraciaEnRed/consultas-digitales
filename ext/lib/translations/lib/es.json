@@ -40,7 +40,7 @@
   "admin-topics-form.description.authorUrl": "URL con información del autor",
   "admin-topics-form.placeholder.author": "Democracia en Red",
   "admin-topics-form.placeholder.authorUrl": "https://democraciaenred.org/",
-  "admin-sidebar.comments.title": "Comentarios y estadisticas",
+  "admin-sidebar.comments.title": "Comentarios y estadísticas",
   "admin-stats.comments.adminMarks.important": "Destacado",
   "admin-stats.comments.adminMarks.derive": "Derivar",
   "admin-stats.comments.adminMarks.doesNotApply": "No aplica",

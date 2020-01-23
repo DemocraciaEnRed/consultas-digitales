@@ -23,7 +23,7 @@ export default class HelpLayout extends PureComponent {
       path: '/ayuda/acerca'
     },
         {
-      title: 'Estadisticas',
+      title: 'Estadísticas',
       Content: Stats,
       slug: 'estadisticas',
       path: '/ayuda/estadisticas'
