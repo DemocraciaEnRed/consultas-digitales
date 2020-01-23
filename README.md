@@ -8,6 +8,8 @@
 
 > La Plataforma de **Consulta Digitales** es un desarrollo basado en [DemocracyOS](https://github.com/DemocracyOS/democracyos): una plataforma de código abierto especialmente diseñada para informar, debatir y votar propuestas públicas de forma online hacia la construcción de una democracia adaptada al siglo XXI.
 
+![funcionamiento de la plataforma](https://i.ibb.co/hFxm8cX/Peek-2020-01-20-17-10.gif)
+
 ## Descripción
 Consultas Digitales es una plataforma que promueve la participación ciudadana en el diseño de políticas públicas.
 Esta herramienta favorece la generación de espacios de colaboración entre el Estado, organizaciones de la sociedad civil, el sector privado y la ciudadanía en general para co-diseñar y co-producir valor público.
