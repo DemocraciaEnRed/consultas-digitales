@@ -6,7 +6,7 @@
       p.alert.alert-danger.text-center
         != t('admin-topics-form.alert.no-tags')
       p.text-center
-        a.btn.btn-lg.btn-primary.create-tag(href=urlBuilder.for('admin.tags.create', {forum: forum.name}))
+        a.btn.btn-primary(href=urlBuilder.for('admin.tags.create', {forum: forum.name}))
           = t('admin-tags-form.title.create')
     else
       p.alert.alert-danger.text-center
@@ -21,7 +21,7 @@
           i.icon-eye
     include commands-llamado
     h5.sugerencia
-      = form.sugerencia 
+      = form.sugerencia
     .topic-admin
       form(action=form.action, method=form.method, role='form', autocomplete='off', novalidate, autovalidate='autovalidate', autosubmit='autosubmit')
         - if (topic.privileges && !topic.privileges.canEdit)
@@ -88,12 +88,12 @@
           div
             button.add-link.btn.btn-link(type='button')
               = '+ ' + t('admin-topics-form.button.add-link')
-              
+
         .form-group
           label= 'Subí una foto que represente tu propuesta'
           - if (te('admin-topics-form.description.coverUrl'))
             span.help-text= t('admin-topics-form.description.coverUrl')
           input.form-control(type='text', maxlength='254', id='coverUrl', name='coverUrl', placeholder=t('admin-topics-form.placeholder.coverUrl'), value=topic.coverUrl, validate='url')
-        
+
         input.btn.btn-success.hide(type='submit', value=t('admin-topics-form.button.submit'))
     include commands-llamado
