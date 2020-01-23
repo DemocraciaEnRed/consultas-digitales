@@ -109,6 +109,7 @@
               = t('admin-topics-form.message.cant-edit-action.options')
             input.form-control(type='text', value=pollOptions.join(', '), disabled)
           - if (!pollOpen)
+            span.help-text= 'Separar las opciones apretando ENTER o TAB'
             input.form-control(type='tags', name='action.options', value=pollOptions)
         .form-group.hierarchy-options.hide
           - var hierarchyOpen = !!(topic.action && topic.action.count > 0)
@@ -119,6 +120,7 @@
               = t('admin-topics-form.message.cant-edit-action.options')
             input.form-control(type='text', value=hierarchyOptions.join(', '), disabled)
           - if (!hierarchyOpen)
+            span.help-text= 'Separar las opciones apretando ENTER o TAB'
             input.form-control(type='tags', name='action.options', value=hierarchyOptions)
 
         .form-group
