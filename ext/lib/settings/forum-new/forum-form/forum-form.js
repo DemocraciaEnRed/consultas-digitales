@@ -2,6 +2,7 @@ import lock from 'democracyos-loading-lock'
 import t from 't-component'
 import page from 'page'
 import Richtext from 'lib/frontend/richtext/richtext'
+import urlBuilder from 'lib/backend/url-builder'
 import config from 'lib/config/config.js'
 import FormView from 'lib/frontend/form-view/form-view.js'
 import ForumUnique from '../forum-unique/forum-unique.js'
@@ -58,6 +59,7 @@ export default class ForumForm extends FormView {
 
   onsuccess (res) {
     window.analytics.track('create forum', { forum: res.body.id })
+    console.log(res.body)
     let topicsUrl = urlBuilder.for('admin.topics', { forum: res.body.name })
     page(topicsUrl)
     setTimeout(() => {
