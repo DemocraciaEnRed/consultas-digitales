@@ -3,15 +3,30 @@
   "enforceLocale": true,
   "multiForum": true,
   "staff": ["unmail@mail.com"],
+  "jwtSecret": "123456789AAAAAAAaaaaaaaaaa123456789",
   "verifyUserRequestEmail": "unmail@mail.com",
   "organizationName": "Mi Consulta Digital",
   "bajadaPlataforma": "Construyamos un país más abierto, transparente y colaborativo.",
   "logo": "/lib/frontend/site/home-multiforum/logo-header.svg",
-  "logoMobile": "/lib/frontend/site/home-multiforum/logo-header.svg"
+  "logoMobile": "/lib/frontend/site/home-multiforum/logo-header.svg",
   "logoFooter": "/lib/frontend/site/home-multiforum/logo-footer.svg",
   "logoCentralHome": "/lib/frontend/site/home-multiforum/logo-central-home.png",
   "backgroundHome": "/lib/frontend/site/home-multiforum/background-home.jpeg",
   "iconoHomeInformate": "/lib/frontend/site/home-multiforum/icono-home-informate.svg",
   "iconoHomeParticipa": "/lib/frontend/site/home-multiforum/icono-home-participa.svg",
   "iconoHomeComparti": "/lib/frontend/site/home-multiforum/icono-home-comparti.svg"
-}
+  "notifications": {
+      "url": "",
+      "token": "",
+      "mailer": {
+        "name": "Organization Test Email",
+        "email": "unmail@mail.com",
+        "service": "",
+        "auth": {
+          "user": "",
+          "pass": ""
+        }
+      },
+      "nodemailer": {"host":"","port": 2525,"auth":{"user":"","pass":""},"maxConnections":1,"rateLimit":"true","pool":"true","maxMessages":1}
+    }
+  }
