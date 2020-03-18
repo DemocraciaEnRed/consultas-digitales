@@ -27,5 +27,5 @@ results
 ssl
 package-lock.json
 
-#run.sh, rename-lib-backend.sh, etc.
-#*.sh
+#script personal (wencha)
+run.sh
