@@ -59,6 +59,19 @@ export class SignIn extends Component {
   }
 
   render () {
+    let registerLink = (
+      <div className='form-group'>
+        <div className='signup'>
+          <span>{t('signin.dont-have-account')}</span>
+          <Link
+            to='/signup'
+            tabIndex={5}>
+            {t('signin.action.signup')}
+          </Link>
+        </div>
+      </div>
+    )
+
     const form = (
       <FormAsync
         action='/api/signin'
@@ -109,16 +122,7 @@ export class SignIn extends Component {
             maxLength='200'
             required />
         </div>
-        <div className='form-group'>
-          <div className='signup'>
-            <span>{t('signin.dont-have-account')}</span>
-            <Link
-              to='/signup'
-              tabIndex={5}>
-              {t('signin.action.signup')}
-            </Link>
-          </div>
-        </div>
+        { config.allowPublicSignUp && registerLink }
         <div className='form-group' />
         {!this.state.loading && (
           <button
@@ -156,4 +160,3 @@ export class SignIn extends Component {
 }
 
 export default userConnector(SignIn)
-

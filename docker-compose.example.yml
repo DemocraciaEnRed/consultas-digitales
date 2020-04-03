@@ -47,8 +47,12 @@ services:
       # la segunda es para obligar el idioma (sino lo autodetecta y puede usar otro)
       - LOCALE=es
       - ENFORCE_LOCALE=true
+      # Si está bloqueado el acceso al público, automáticamente se bloquea el sign up (aunque este
+      # último esté en allow/true). Pero si el acceso público está abierto se puede bloquear o no el sign up.
+      - ALLOW_PUBLIC_ACCESS=true
+      - ALLOW_PUBLIC_SIGN_UP=true
     links:
-      - mongo 
+      - mongo
     ports:
       - 3000:3000
     volumes:
@@ -62,7 +66,7 @@ services:
       - 27017:27017
     volumes:
       - ./tmp/db:/data/db
-      
+
 #  mailserver:
 #    image: namshi/smtp
 #    environment:
