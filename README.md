@@ -1,6 +1,10 @@
+![Header](docs/header-doc.png)
+
 # Consultas Digitales
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/DemocraciaEnRed/consultas-digitales/blob/master/LICENSE.md)
+
+[![GitHub license](https://img.shields.io/github/license/DemocraciaEnRed/consultas-digitales)](https://github.com/DemocraciaEnRed/consultas-digitales/blob/master/LICENSE)
 [![GitHub tag](https://img.shields.io/github/tag/DemocraciaEnRed/consultas-digitales.svg)](https://github.com/DemocraciaEnRed/consultas-digitales/tags/)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DemocraciaEnRed_consultas-digitales&metric=alert_status)](https://sonarcloud.io/dashboard?id=DemocraciaEnRed_consultas-digitales)
 ![](https://github.com/DemocraciaEnRed/consultas-digitales/workflows/Docker%20Image%20CI/badge.svg)
 ![](https://img.shields.io/docker/cloud/automated/democraciaenred/consultas-digitales)
 ![](https://img.shields.io/docker/cloud/build/democraciaenred/consultas-digitales)
@@ -52,4 +56,4 @@ Si desean contactarse con nosotrxs por asuntos técnicos relativos a la platafor
 - [Opinión Pública](https://opinionpublica.funpublica.com.ar/) - Fundación Confianza Pública: consulta sobre leyes de integridad
 
 ## Licencia
-Consultas Digitales está disponible bajo la licencia [GNU General Public License v3.0](LICENSE.md).
+Consultas Digitales está disponible bajo la licencia [GNU General Public License v3.0](LICENSE).
