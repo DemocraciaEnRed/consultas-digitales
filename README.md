@@ -9,6 +9,7 @@
 ![](https://img.shields.io/docker/cloud/automated/democraciaenred/consultas-digitales)
 ![](https://img.shields.io/docker/cloud/build/democraciaenred/consultas-digitales)
 [![Website consultasdigitales.democraciaenred.org](https://img.shields.io/website-up-down-green-red/http/consultasdigitales.democraciaenred.org.svg)](https://consultasdigitales.democraciaenred.org/)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DemocraciaEnRed_consultas-digitales&metric=alert_status)](https://sonarcloud.io/dashboard?id=DemocraciaEnRed_consultas-digitales)
 
 > La Plataforma de **Consulta Digitales** es un desarrollo basado en [DemocracyOS](https://github.com/DemocracyOS/democracyos): una plataforma de código abierto especialmente diseñada para informar, debatir y votar propuestas públicas de forma online hacia la construcción de una democracia adaptada al siglo XXI.
 
