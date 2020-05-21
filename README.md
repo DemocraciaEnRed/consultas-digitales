@@ -47,7 +47,7 @@ Nuestro código de conducta, destinado a cualquier persona que desee acercarse y
 ## Autorxs
 Antes que nada, están lxs autorxs de DemocracyOS, enumeradxs en su [CONTRIBUTORS.md](https://github.com/DemocracyOS/app/blob/master/CONTRIBUTORS.md).
 
-Además, para esta versión modificada de la plataforma aportaron principalmente: [@guillecro](https://github.com/guillecro) y [@wencha](https://github.com/wencha).
+Además, para esta versión modificada de la plataforma aportaron principalmente: [@guillecro](https://github.com/guillecro) y [@franz-ka](https://github.com/franz-ka).
 
 Si desean contactarse con nosotrxs por asuntos técnicos relativos a la plataforma pueden enviarnos un mail a [it@democracyos.io](mailto:it@democracyos.io).
 
