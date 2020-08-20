@@ -20,6 +20,7 @@
 - STAFF=it@democracyos.io,speak@democracyos.io
 - ORGANIZATION_NAME=JUNTAS. Mujeres de América Latina
 - ORGANIZATION_EMAIL=organizacionartemisas@gmail.com
+- BAJADA_PLATAFORMA=Transformar la política, transformar la democracia #TOMAPARTIDO
 - NOTIFICATIONS_NODEMAILER={"host":"smtp.mailgun.org","port":465,"secure":true,"auth":{"user":"___USU_MAIL_SERVER___","pass":"___PASS_MAIL_SERVER___"}}
 - NOTIFICATIONS_MAILER_NAME=JUNTAS. Mujeres de América Latina
 - NOTIFICATIONS_MAILER_EMAIL=organizacionartemisas@gmail.com
@@ -28,9 +29,15 @@
 - PROPUESTAS_TEXTO_CERRADAS=La carga de ejes se encuentra cerrada
 - HEADER_BACKGROUND_COLOR=#ffffff
 - HEADER_FONT_COLOR=#4q4949
-- FAVICON=/ext/lib/boot/favicon.ico
-- LOGO=/ext/lib/boot/logo.png
-- LOGO_MOBILE=/ext/lib/boot/logo.png
+- FAVICON=/lib/frontend/site/home-multiforum/favicon.ico
+- LOGO=/lib/frontend/site/home-multiforum/logo-header.png
+- LOGO_MOBILE=/lib/frontend/site/home-multiforum/logo-header.png
+- LOGO_FOOTER=/lib/frontend/site/home-multiforum/logo-footer.png
+- LOGO_CENTRAL_HOME=/lib/frontend/site/home-multiforum/logo-central-home.png
+- BACKGROUND_HOME=/lib/frontend/site/home-multiforum/background-home.jpg
+- ICONO_HOME_INFORMATE=/lib/frontend/site/home-multiforum/icono-home-informate.png
+- ICONO_HOME_PARTICIPA=/lib/frontend/site/home-multiforum/icono-home-participa.png
+- ICONO_HOME_COMPARTI=
 - SOCIALSHARE_SITE_NAME=JUNTAS. Mujeres de América Latina
 - SOCIALSHARE_SITE_DESCRIPTION=#TOMAPARTIDO, transformar la política, transformar la democracia
 - SOCIALSHARE_IMAGE=https://ppescuelas.unr.edu.ar/ext/lib/boot/logo.png
