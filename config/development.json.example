@@ -1,4 +1,5 @@
 {
+  "checkNodeVersion": false,
   "locale": "es",
   "enforceLocale": true,
   "multiForum": true,
