@@ -1,8 +1,4 @@
 {
-  "checkNodeVersion": false,
-  "locale": "es",
-  "enforceLocale": true,
-  "multiForum": true,
   "staff": ["unmail@mail.com"],
   "jwtSecret": "123456789AAAAAAAaaaaaaaaaa123456789",
   "verifyUserRequestEmail": "unmail@mail.com",

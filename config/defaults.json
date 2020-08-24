@@ -1,5 +1,5 @@
 {
-  "locale": "en",
+  "locale": "es",
   "protocol": "http",
   "warnHTTP": true,
   "host": "localhost",
@@ -17,8 +17,8 @@
   "facebookSignin": false,
   "customSignin": false,
   "publicEmails": false,
-  "moderatorEnabled": false,
-  "checkNodeVersion": true,
+  "moderatorEnabled": true,
+  "checkNodeVersion": false,
   "auth": {
     "basic": {
       "username": "",
@@ -143,33 +143,17 @@
   "googleAPIKey": "",
   "visibility": "visible",
   "usersWhitelist": false,
-  "multiForum": false,
-  "restrictForumCreation": false,
+  "multiForum": true,
+  "restrictForumCreation": true,
   "defaultForum": "",
   "tweetText": "",
   "forceSafeImageURLs": true,
   "segmentKey": "",
   "availableLocales": [
-    "ca",
-    "de",
-    "en",
     "es",
-    "fi",
-    "fr",
-    "gl",
-    "hu",
-    "it",
-    "nl",
-    "pl",
-    "pt",
-    "ro",
-    "ru",
-    "sq",
-    "sv",
-    "uk",
-    "zh_TW"
+    "en"
   ],
-  "enforceLocale": false,
+  "enforceLocale": true,
   "allowPublicAccess": true,
   "allowPublicSignUp": true
 }
