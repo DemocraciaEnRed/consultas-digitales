@@ -77,6 +77,14 @@ Note que en el codigo del componente de home-multiforum se referencia usando `ur
 />
 ```
 
+## Mail
+
+Los templates de los emails se encuentran en `ext/lib/notifier/jobs` y alli estan todo lo que necesitan para editar tanto textos, personalizar, etc.
+
+Tenga en cuenta que hay algo muy especifico en `/ext/lib/notifier/responsive-html-email-template.js` deben cambiar tanto los colores como las dimensiones width y height para el `${baseUrl}/ext/lib/boot/logo-mail.png`
+
+Una cosa: Si es muy molesto que cada vez que hacen un comentario se envie un mail al autor, entonces deshabilitenlo dentro de middleware `lib/backend/api-v2/middlewares/notifications.js` sacando el "owner" dentro de "topic" que por alguna razon antes no estaba y eso hacia que no se envie nada cuando hacen un nuevo comentario en la consulta digital.
+
 ## CSS
 
 Las variables principales de css están definidas en [global.styl](../lib/boot/global.styl).

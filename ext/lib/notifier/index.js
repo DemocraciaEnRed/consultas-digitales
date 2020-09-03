@@ -1,69 +1,66 @@
-const fs = require('fs')
-const path = require('path')
-const notifierTemplates = require('democracyos-notifier/lib/templates')
-const notifierConfig = require('democracyos-notifier/lib/config')
-const translations = require('democracyos-notifier/lib/translations')
-const pug = require('pug')
-const config = require('lib/config')
+const notifier = require('democracyos-notifier')
+const log = require('debug')('democracyos:ext:notifier')
 
-require('./translations')
+// Wait until the notifier is initialized
+const interval = setInterval(function () {
+  if (!notifier.mailer) return
 
-const t = translations.t
+  clearInterval(interval)
 
-notifierConfig.set({
-  availableLocales: ['es']
-})
+  notifier.init().then(() => {
+    ;[
+      require('./jobs/welcome-email'),
+      require('./jobs/new-comment'),
+      require('./jobs/comment-reply'),
+      require('./jobs/forgot-password')
+    ].forEach((job) => job(notifier))
+    log('Ext notifier email jobs loaded')
 
-t.en = t.es
+    // esta línea saltéa el testeo y sigue con el programa normalmente
+    return
 
-const templates = {}
+    // puede ser una de: welcome-email, new-proposal, update-proposal, update-project,
+    // subscriber-update-proposal, subscriber-update-project, new-comment o comment-reply
+    const testMailJobs = ['welcome-email', 'forgot-password', 'new-comment', 'comment-reply']
+    const testMailJob = testMailJobs[2]
+    // cuenta a la cual le llegarán los emails
+    const testMailAccount = 'bungew@gmail.com'
+    // id usado para 'subscriber-update-X', tiene que estar en la DB
+    const testMailUserId = '5e3c5cb34324aca40d6727d7'
+    process.env.NOTIFICATIONS_MAILER_EMAIL = testMailAccount
 
-;[
-  // 'comment-reply',
-  // 'reset-password',
-  // 'topic-published',
-  // 'welcome-email'
-].forEach(function (name) {
-  var filePath = path.join(__dirname, './templates/' + name + '.pug')
-
-  fs.readFile(filePath, { encoding: 'utf-8' }, function (err, template) {
-    if (err) throw err
-    templates[name] = pug.compile(template)
-  })
-})
-
-const originalPug = notifierTemplates.pug
-
-function _pug (opts, vars, callback) {
-  if (typeof opts === 'string') {
-    return _pug({ name: opts }, vars, callback)
-  }
-
-  if (config.enforceLocale) {
-    opts.lang = config.locale
-  }
-
-  if (!templates[opts.name]) {
-    return originalPug(opts, vars, callback)
-  }
-
-  const content = replaceVars(templates[opts.name]({ t: t }), vars)
-
-  callback(null, content)
-}
-
-function replaceVars (template, vars) {
-  if (!vars) return template
-
-  var res = template
-
-  if (res) {
-    vars.forEach(function (v) {
-      res = res.replace(v.name, v.content)
+    log(`Mandando email de testeo a ${testMailAccount}`)
+    notifier.now(testMailJob, {
+      topic: {
+        id: '5e668613024049422bb22078',
+        mediaTitle: 'Direcciones y nombres de pasillos para el Barrio Las Flores',
+        authorName: 'Micaela Torres',
+        authorEmail: testMailAccount,
+        subscriber: testMailUserId,
+        // para new-proposal
+        nombre: '<Nombre y apellido>',
+        documento: '<Documento>',
+        telefono: '<Teléfono>',
+        email: '<Email>',
+        barrio: '<Barrio>',
+        tags: ['<Tag 1>', '<Tag 2>'],
+        problema: '<Problema>',
+        solucion: '<Solución>',
+        beneficios: '<Beneficios>'
+      },
+      userName: {
+        firstName:'<Suscriptorx>',
+        email: testMailAccount
+      },
+      // para welcome-email
+      to: testMailAccount,
+      validateUrl: 'https://validateUrl'
+    }).then(()=> {
+      // solo queremos testear el mail, no levantar el site
+      throw new Error('¡Error para que no continuar! Solo queremos probar los mails.')
     })
-  }
 
-  return res
-}
-
-notifierTemplates.pug = _pug
+  }).catch((err) => {
+    console.error('Error loading ext/lib/notifier: ', err)
+  })
+}, 200)
