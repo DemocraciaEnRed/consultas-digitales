@@ -10,6 +10,7 @@ const interval = setInterval(function () {
   notifier.init().then(() => {
     ;[
       require('./jobs/welcome-email'),
+      require('./jobs/welcome-email-private'),
       require('./jobs/new-comment'),
       require('./jobs/comment-reply'),
       require('./jobs/forgot-password')
