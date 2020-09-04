@@ -242,8 +242,32 @@ exports.findByClosed = function findByClosed (options, fn) {
     .find({ deletedAt: null, 'extra.hidden': false, 'extra.closingAt': { $lte: new Date() } })
     .populate('owner')
 
-  if (options.limit) query.limit(options.limit)
-  if (options.skip) query.skip(options.skip)
+    // Copiado lo que hace en export.all con los privileges
+    // Copiado lo que hace en export.all con los privileges
+    // Copiado lo que hace en export.all con los privileges
+
+  if (options) {
+    if (options.limit) query.limit(options.limit)
+    if (options.skip) query.skip(options.skip)
+    if (options.owner) query.find({ owner: options.owner })
+
+    if (options['privileges.canChangeTopics']) {
+      query.find({
+        $or: [
+          { owner: options['privileges.canChangeTopics'] },
+          {
+            permissions: {
+              $elemMatch: { user: options['privileges.canChangeTopics'] }
+            }
+          }
+        ]
+      })
+    }
+  }
+
+  if (!options || (!options.owner && !options['privileges.canChangeTopics'])) {
+    query.find({ visibility: { $ne: 'private' } })
+  }
 
   query
     .exec(function (err, forums) {
@@ -263,8 +287,33 @@ exports.findByPopular = function findByPopular (options, fn) {
     .find({ deletedAt: null, 'extra.hidden': false })
     .populate('owner')
 
-  if (options.limit) query.limit(options.limit)
-  if (options.skip) query.skip(options.skip)
+  // Copiado lo que hace en export.all con los privileges
+  // Copiado lo que hace en export.all con los privileges
+  // Copiado lo que hace en export.all con los privileges
+
+  if (options) {
+    if (options.limit) query.limit(options.limit)
+    if (options.skip) query.skip(options.skip)
+    if (options.owner) query.find({ owner: options.owner })
+
+    if (options['privileges.canChangeTopics']) {
+      query.find({
+        $or: [
+          { owner: options['privileges.canChangeTopics'] },
+          {
+            permissions: {
+              $elemMatch: { user: options['privileges.canChangeTopics'] }
+            }
+          }
+        ]
+      })
+    }
+  }
+
+  if (!options || (!options.owner && !options['privileges.canChangeTopics'])) {
+    query.find({ visibility: { $ne: 'private' } })
+  }
+  
 
   query
     .exec(function (err, forums) {
