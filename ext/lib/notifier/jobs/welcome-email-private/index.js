@@ -20,6 +20,7 @@ module.exports = function welcomeEmailPrivate (notifier) {
 
       const html = template({
         userName: user.firstName,
+        userEmail: user.email,
         password: data.password
       })
 

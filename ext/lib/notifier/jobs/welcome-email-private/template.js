@@ -13,12 +13,13 @@ const baseUrl = utils.buildUrl(config)
 
 module.exports = ({
   userName,
+  userEmail,
   password
 }) => emailTemplate({
   body: html`
     <p>Hola <strong>${userName}</strong>,</p>
     <p>Te damos la bienvenida a <strong>${config.organizationName}</strong>. Han hecho tu registro para que comiences a participar.</p>
-    <p>Para ingresar, accede entrando a la plataforma e ingresando tu dirección de correo y la siguiente contraseña: <strong>${password}</strong></p>
+    <p>Para ingresar, accede entrando a la plataforma e ingresando tu dirección de correo (<strong>${userEmail}</strong>) y la siguiente contraseña: <strong>${password}</strong></p>
     ${buttonTemplate({
       url: baseUrl,
       text: 'Entrar a la plataforma'
