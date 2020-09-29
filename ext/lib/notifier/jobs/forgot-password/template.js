@@ -24,5 +24,6 @@ module.exports = ({
     })}
     <p>Saludos,<br /><strong>${config.organizationName}</strong></p>
     <p style='font-size:12px'><i>PD: Si no solicitaste reestablecer tu contraseña podés ignorar este correo.</i></p>
+    <p style='font-size:12px'><i>Si el botón de "Reestableecr contraseña" no funciona, copiá y pegá el siguiente link en tu navegador: <a href="${resetPasswordUrl}" target="_blank">${validateUrl}</a></i></p>
   `
 })

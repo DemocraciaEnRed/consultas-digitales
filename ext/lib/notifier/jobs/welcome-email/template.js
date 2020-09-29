@@ -23,7 +23,7 @@ module.exports = ({
       text: 'Validar mi cuenta'
     })}
     <p>Muchas gracias, ¡Te esperamos!</p>
-    <p style='font-size:12px'><i>Si el botón de "Validar mi cuenta" botón no funciona, copiá y pegá el siguiente link en tu navegador: <a href="${validateUrl}" target="_blank">${validateUrl}</a></i></p>
+    <p style='font-size:12px'><i>Si el botón de "Validar mi cuenta" no funciona, copiá y pegá el siguiente link en tu navegador: <a href="${validateUrl}" target="_blank">${validateUrl}</a></i></p>
     <p style='font-size:12px'><i>PD: Si no ha creado una cuenta en <a href="${baseUrl}" target="_blank">${baseUrl}</a> no se requiere ninguna acción adicional.</i></p>
   `
 })
