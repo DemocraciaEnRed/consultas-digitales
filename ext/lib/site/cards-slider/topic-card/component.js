@@ -9,6 +9,7 @@ export default ({ topic }) => {
   const linkTopic = () => { 
     window.location.href = topic.url
   }
+  console.log(topic)
   return (
   <div 
     onClick={linkTopic}
