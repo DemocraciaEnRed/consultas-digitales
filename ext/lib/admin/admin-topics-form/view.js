@@ -249,7 +249,10 @@ export default class TopicForm extends FormView {
       delete data['links[][_id]']
       delete data['links[][text]']
       delete data['links[][url]']
+    } else {
+      data.links = []
     }
+    
 
     if (data.closingAt && data.closingAtTime) {
       data.closingAt = new Date(`${data.closingAt} ${data.closingAtTime}`)
