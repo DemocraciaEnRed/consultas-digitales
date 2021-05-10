@@ -30,6 +30,6 @@ module.exports = ({
       text: 'Ver respuesta'
     })}
     <p>Saludos,<br /><strong>${config.organizationName}</strong></p>
-    <p style='font-size:12px'><i>Si el botón de "Ver respuesta" no funciona, copiá y pegá el siguiente link en tu navegador: <a href="${url}" target="_blank">${validateUrl}</a></i></p>
+    <p style='font-size:12px'><i>Si el botón de "Ver respuesta" no funciona, copiá y pegá el siguiente link en tu navegador: <a href="${url}" target="_blank">${url}</a></i></p>
   `
 })

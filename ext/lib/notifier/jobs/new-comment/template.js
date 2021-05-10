@@ -25,7 +25,7 @@ module.exports = ({
       text: 'Ver comentario'
     })}
     <p>Saludos,<br /><strong>${config.organizationName}</strong></p>
-    <p style='font-size:12px'><i>Si el botón de "Ver comentario" no funciona, copiá y pegá el siguiente link en tu navegador: <a href="${url}" target="_blank">${validateUrl}</a></i></p>
+    <p style='font-size:12px'><i>Si el botón de "Ver comentario" no funciona, copiá y pegá el siguiente link en tu navegador: <a href="${url}" target="_blank">${url}</a></i></p>
 
   `
 })
