@@ -18,6 +18,6 @@
     "juice": "^6.0.0",
     "jump.js": "^1.0.2",
     "passport-openidconnect": "0.0.2",
-    "pug": "2.0.0-rc.4"
+    "pug": "3.0.1"
   }
 }
