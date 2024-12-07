@@ -68,7 +68,7 @@
     "body-parser": "1.17.2",
     "browserify": "~14.1.0",
     "bus": "0.1.0",
-    "chart.js": "~1.1.1",
+    "chart.js": "~2.9.4",
     "check-node-version": "~2.0.1",
     "co-prompt": "~1.0.0",
     "commander": "~2.9.0",
